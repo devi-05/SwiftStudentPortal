@@ -13,6 +13,11 @@
 		33E7BABC299E06B700D85031 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E7BABB299E06B700D85031 /* User.swift */; };
 		33E7BABE299E08BB00D85031 /* BloodGroupEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E7BABD299E08BB00D85031 /* BloodGroupEnum.swift */; };
 		33E7BAC1299E355700D85031 /* Tester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E7BAC0299E355700D85031 /* Tester.swift */; };
+		33E7BAC4299E3F2C00D85031 /* MainDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E7BAC3299E3F2C00D85031 /* MainDatabase.swift */; };
+		33E7BAC6299E3F6F00D85031 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E7BAC5299E3F6F00D85031 /* DatabaseManager.swift */; };
+		33E7BAC8299E43E000D85031 /* PortalFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E7BAC7299E43E000D85031 /* PortalFunctions.swift */; };
+		33E7BACB299E463900D85031 /* StudentPortal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E7BACA299E463900D85031 /* StudentPortal.swift */; };
+		33E7BACE299E4A8E00D85031 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E7BACD299E4A8E00D85031 /* Account.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -35,6 +40,11 @@
 		33E7BABB299E06B700D85031 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		33E7BABD299E08BB00D85031 /* BloodGroupEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodGroupEnum.swift; sourceTree = "<group>"; };
 		33E7BAC0299E355700D85031 /* Tester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tester.swift; sourceTree = "<group>"; };
+		33E7BAC3299E3F2C00D85031 /* MainDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDatabase.swift; sourceTree = "<group>"; };
+		33E7BAC5299E3F6F00D85031 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		33E7BAC7299E43E000D85031 /* PortalFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortalFunctions.swift; sourceTree = "<group>"; };
+		33E7BACA299E463900D85031 /* StudentPortal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentPortal.swift; sourceTree = "<group>"; };
+		33E7BACD299E4A8E00D85031 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,13 +61,15 @@
 		33E37E06299AA0680051EA44 = {
 			isa = PBXGroup;
 			children = (
+				33E7BACC299E4A7000D85031 /* AccountService */,
+				33E7BAC2299E3F0900D85031 /* PortalDatabase */,
 				33E7BABF299E34D000D85031 /* Tester */,
 				33E7BAB9299DEF5E00D85031 /* ResultPage */,
 				33E7BAB8299DEF5500D85031 /* FeePage */,
 				33E7BAB7299DEF4500D85031 /* ProfilePage */,
 				33E7BAB6299DEF1E00D85031 /* Portal */,
 				33E37E19299AA0750051EA44 /* Users */,
-				33E37E11299AA0680051EA44 /* Main */,
+				33E37E11299AA0680051EA44 /* View */,
 				33E37E10299AA0680051EA44 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -70,12 +82,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		33E37E11299AA0680051EA44 /* Main */ = {
+		33E37E11299AA0680051EA44 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				33E37E12299AA0680051EA44 /* main.swift */,
+				33E7BACA299E463900D85031 /* StudentPortal.swift */,
 			);
-			path = Main;
+			path = View;
 			sourceTree = "<group>";
 		};
 		33E37E19299AA0750051EA44 /* Users */ = {
@@ -91,6 +104,7 @@
 		33E7BAB6299DEF1E00D85031 /* Portal */ = {
 			isa = PBXGroup;
 			children = (
+				33E7BAC7299E43E000D85031 /* PortalFunctions.swift */,
 			);
 			path = Portal;
 			sourceTree = "<group>";
@@ -123,6 +137,23 @@
 				33E7BAC0299E355700D85031 /* Tester.swift */,
 			);
 			path = Tester;
+			sourceTree = "<group>";
+		};
+		33E7BAC2299E3F0900D85031 /* PortalDatabase */ = {
+			isa = PBXGroup;
+			children = (
+				33E7BAC3299E3F2C00D85031 /* MainDatabase.swift */,
+				33E7BAC5299E3F6F00D85031 /* DatabaseManager.swift */,
+			);
+			path = PortalDatabase;
+			sourceTree = "<group>";
+		};
+		33E7BACC299E4A7000D85031 /* AccountService */ = {
+			isa = PBXGroup;
+			children = (
+				33E7BACD299E4A8E00D85031 /* Account.swift */,
+			);
+			path = AccountService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,10 +214,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33E7BAC6299E3F6F00D85031 /* DatabaseManager.swift in Sources */,
+				33E7BACE299E4A8E00D85031 /* Account.swift in Sources */,
 				33E7BAC1299E355700D85031 /* Tester.swift in Sources */,
 				33E7BABC299E06B700D85031 /* User.swift in Sources */,
 				33E37E13299AA0680051EA44 /* main.swift in Sources */,
+				33E7BAC8299E43E000D85031 /* PortalFunctions.swift in Sources */,
 				33E7BABE299E08BB00D85031 /* BloodGroupEnum.swift in Sources */,
+				33E7BAC4299E3F2C00D85031 /* MainDatabase.swift in Sources */,
+				33E7BACB299E463900D85031 /* StudentPortal.swift in Sources */,
 				33E37E1D299AA0910051EA44 /* Student.swift in Sources */,
 				33E37E1B299AA0870051EA44 /* Admin.swift in Sources */,
 			);

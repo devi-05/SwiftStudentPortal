@@ -6,3 +6,12 @@
 //
 
 import Foundation
+struct example {
+    var name : String = "Devi"
+}
+
+func exampleFunc() {
+    let example = example();
+    var example2  = example;
+    example2.name  = "Ks";
+}

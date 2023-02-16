@@ -7,8 +7,8 @@
 
 import Foundation
 
+
 class Student:User{
-    
     private let rollNumber :Int
     private let department:String
     private let joiningYear:Int
@@ -20,7 +20,7 @@ class Student:User{
     private var residentialStatusFees:Int
     private var totalFees:Int
     private var feesPaid:Int
-    init(mailId: String, name: String, bloodGroup: BloodGroup, address: String, phoneNumber: Int,rollNumber: Int, department: String, joiningYear: Int, modeOfJoining: String, modeOfJoiningFees: Int, transportFees: Int, miscellaneousFees: Int, residentialStatus: String, residentialStatusFees: Int, totalFees: Int, feesPaid: Int) {
+    init(mailId: String, name: String, bloodGroup:BloodGroup, address: String, phoneNumber: Int,rollNumber: Int, department: String, joiningYear: Int, modeOfJoining: String, modeOfJoiningFees: Int, transportFees: Int, miscellaneousFees: Int, residentialStatus: String, residentialStatusFees: Int, totalFees: Int, feesPaid: Int) {
         self.rollNumber = rollNumber
         self.department = department
         self.joiningYear = joiningYear
@@ -105,5 +105,6 @@ class Student:User{
     public var description :String{
         return " mailId is \(userMailId)\n name is \(userName)\n rollnumber is \(studentRollNumber)\n department is \(studentDepartment)\n joining year is \(studentJoiningYear)\n mode of joining is \(studentModeOfJoining)\n mode of joining fees is \(studentModeOfJoiningFees)\n transport fees is \(studentTransportFees)\n miscellaneous fees is \(studentMiscellaneousFees)\n residential status is \(studentResidentialStatus)\n residential status fees is \(studentResidentialStatusFees)\n total fees is \(studentTotalFees)\n fees paid is \(studentTotalFeesPaid)"
     }
+    
     
 }
