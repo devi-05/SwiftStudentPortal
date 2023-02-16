@@ -10,6 +10,9 @@
 		33E37E13299AA0680051EA44 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E37E12299AA0680051EA44 /* main.swift */; };
 		33E37E1B299AA0870051EA44 /* Admin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E37E1A299AA0870051EA44 /* Admin.swift */; };
 		33E37E1D299AA0910051EA44 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E37E1C299AA0910051EA44 /* Student.swift */; };
+		33E7BABC299E06B700D85031 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E7BABB299E06B700D85031 /* User.swift */; };
+		33E7BABE299E08BB00D85031 /* BloodGroupEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E7BABD299E08BB00D85031 /* BloodGroupEnum.swift */; };
+		33E7BAC1299E355700D85031 /* Tester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E7BAC0299E355700D85031 /* Tester.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,6 +32,9 @@
 		33E37E12299AA0680051EA44 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		33E37E1A299AA0870051EA44 /* Admin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Admin.swift; sourceTree = "<group>"; };
 		33E37E1C299AA0910051EA44 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
+		33E7BABB299E06B700D85031 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		33E7BABD299E08BB00D85031 /* BloodGroupEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodGroupEnum.swift; sourceTree = "<group>"; };
+		33E7BAC0299E355700D85031 /* Tester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tester.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,7 +51,12 @@
 		33E37E06299AA0680051EA44 = {
 			isa = PBXGroup;
 			children = (
-				33E37E19299AA0750051EA44 /* User */,
+				33E7BABF299E34D000D85031 /* Tester */,
+				33E7BAB9299DEF5E00D85031 /* ResultPage */,
+				33E7BAB8299DEF5500D85031 /* FeePage */,
+				33E7BAB7299DEF4500D85031 /* ProfilePage */,
+				33E7BAB6299DEF1E00D85031 /* Portal */,
+				33E37E19299AA0750051EA44 /* Users */,
 				33E37E11299AA0680051EA44 /* Main */,
 				33E37E10299AA0680051EA44 /* Products */,
 			);
@@ -67,13 +78,51 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
-		33E37E19299AA0750051EA44 /* User */ = {
+		33E37E19299AA0750051EA44 /* Users */ = {
 			isa = PBXGroup;
 			children = (
 				33E37E1A299AA0870051EA44 /* Admin.swift */,
 				33E37E1C299AA0910051EA44 /* Student.swift */,
+				33E7BABB299E06B700D85031 /* User.swift */,
 			);
-			path = User;
+			path = Users;
+			sourceTree = "<group>";
+		};
+		33E7BAB6299DEF1E00D85031 /* Portal */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Portal;
+			sourceTree = "<group>";
+		};
+		33E7BAB7299DEF4500D85031 /* ProfilePage */ = {
+			isa = PBXGroup;
+			children = (
+				33E7BABD299E08BB00D85031 /* BloodGroupEnum.swift */,
+			);
+			path = ProfilePage;
+			sourceTree = "<group>";
+		};
+		33E7BAB8299DEF5500D85031 /* FeePage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = FeePage;
+			sourceTree = "<group>";
+		};
+		33E7BAB9299DEF5E00D85031 /* ResultPage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ResultPage;
+			sourceTree = "<group>";
+		};
+		33E7BABF299E34D000D85031 /* Tester */ = {
+			isa = PBXGroup;
+			children = (
+				33E7BAC0299E355700D85031 /* Tester.swift */,
+			);
+			path = Tester;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -134,7 +183,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33E7BAC1299E355700D85031 /* Tester.swift in Sources */,
+				33E7BABC299E06B700D85031 /* User.swift in Sources */,
 				33E37E13299AA0680051EA44 /* main.swift in Sources */,
+				33E7BABE299E08BB00D85031 /* BloodGroupEnum.swift in Sources */,
 				33E37E1D299AA0910051EA44 /* Student.swift in Sources */,
 				33E37E1B299AA0870051EA44 /* Admin.swift in Sources */,
 			);
