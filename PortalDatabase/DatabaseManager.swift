@@ -18,12 +18,14 @@ public struct DatabaseManager{
         dbMainObj.accountDb[mailId]=password
     }
     
-    
     func checkMailId(mailId:String)->Bool{
-        guard(!dbMainObj.accountDb.keys.contains(mailId)) else{
+        guard(dbMainObj.accountDb.keys.contains(mailId)) else{
             return false
         }
         return true
+    }
+    func getpassword(mailId:String) ->String?{
+        dbMainObj.accountDb[mailId] 
     }
     
 }

@@ -9,11 +9,20 @@
 var db = DatabaseManager.dbObj
 struct Account{
     
-    func createAccount(mailId:String,password:String)-> Bool {
-        guard(db.checkMailId(mailId: mailId))else{
-            return false}
+    func createAccount(mailId:String,password:String) {
+        
         db.add(mailId: mailId, password: password)
-        return true
+        
+    }
+    func forgotpassword(mailId:String,newPassword:String)->Bool{
+        let oldPassword = db.getpassword(mailId: mailId)
+        if(oldPassword==newPassword){
+            return false
+        }
+        else{
+            db.add(mailId: mailId, password: newPassword)
+            return true
+        }
     }
     
     

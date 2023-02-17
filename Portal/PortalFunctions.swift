@@ -12,3 +12,6 @@ protocol Portal{
     func signIn()
     func signOut()
 }
+
+
+

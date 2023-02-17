@@ -18,6 +18,13 @@
 		33E7BAC8299E43E000D85031 /* PortalFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E7BAC7299E43E000D85031 /* PortalFunctions.swift */; };
 		33E7BACB299E463900D85031 /* StudentPortal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E7BACA299E463900D85031 /* StudentPortal.swift */; };
 		33E7BACE299E4A8E00D85031 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E7BACD299E4A8E00D85031 /* Account.swift */; };
+		33E7BAD0299E659200D85031 /* PortalOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E7BACF299E659200D85031 /* PortalOptions.swift */; };
+		33E7BAD2299F3B3C00D85031 /* SignUpPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E7BAD1299F3B3C00D85031 /* SignUpPage.swift */; };
+		33E7BAD4299F451900D85031 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E7BAD3299F451900D85031 /* Profile.swift */; };
+		33E7BAD7299F4CB500D85031 /* UtilFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E7BAD6299F4CB500D85031 /* UtilFunctions.swift */; };
+		33E7BAD9299F556D00D85031 /* DepartmentEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E7BAD8299F556D00D85031 /* DepartmentEnum.swift */; };
+		33E7BADB299F5AFE00D85031 /* ModeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E7BADA299F5AFE00D85031 /* ModeEnum.swift */; };
+		33E7BADD299F608900D85031 /* ResidentialStatusEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E7BADC299F608900D85031 /* ResidentialStatusEnum.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -45,6 +52,13 @@
 		33E7BAC7299E43E000D85031 /* PortalFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortalFunctions.swift; sourceTree = "<group>"; };
 		33E7BACA299E463900D85031 /* StudentPortal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentPortal.swift; sourceTree = "<group>"; };
 		33E7BACD299E4A8E00D85031 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		33E7BACF299E659200D85031 /* PortalOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortalOptions.swift; sourceTree = "<group>"; };
+		33E7BAD1299F3B3C00D85031 /* SignUpPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPage.swift; sourceTree = "<group>"; };
+		33E7BAD3299F451900D85031 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		33E7BAD6299F4CB500D85031 /* UtilFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilFunctions.swift; sourceTree = "<group>"; };
+		33E7BAD8299F556D00D85031 /* DepartmentEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartmentEnum.swift; sourceTree = "<group>"; };
+		33E7BADA299F5AFE00D85031 /* ModeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeEnum.swift; sourceTree = "<group>"; };
+		33E7BADC299F608900D85031 /* ResidentialStatusEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResidentialStatusEnum.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +75,7 @@
 		33E37E06299AA0680051EA44 = {
 			isa = PBXGroup;
 			children = (
+				33E7BAD5299F4C9B00D85031 /* Helper */,
 				33E7BACC299E4A7000D85031 /* AccountService */,
 				33E7BAC2299E3F0900D85031 /* PortalDatabase */,
 				33E7BABF299E34D000D85031 /* Tester */,
@@ -85,8 +100,15 @@
 		33E37E11299AA0680051EA44 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				33E7BABD299E08BB00D85031 /* BloodGroupEnum.swift */,
 				33E37E12299AA0680051EA44 /* main.swift */,
 				33E7BACA299E463900D85031 /* StudentPortal.swift */,
+				33E7BACF299E659200D85031 /* PortalOptions.swift */,
+				33E7BAD1299F3B3C00D85031 /* SignUpPage.swift */,
+				33E7BAD3299F451900D85031 /* Profile.swift */,
+				33E7BADA299F5AFE00D85031 /* ModeEnum.swift */,
+				33E7BAD8299F556D00D85031 /* DepartmentEnum.swift */,
+				33E7BADC299F608900D85031 /* ResidentialStatusEnum.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -112,7 +134,6 @@
 		33E7BAB7299DEF4500D85031 /* ProfilePage */ = {
 			isa = PBXGroup;
 			children = (
-				33E7BABD299E08BB00D85031 /* BloodGroupEnum.swift */,
 			);
 			path = ProfilePage;
 			sourceTree = "<group>";
@@ -154,6 +175,14 @@
 				33E7BACD299E4A8E00D85031 /* Account.swift */,
 			);
 			path = AccountService;
+			sourceTree = "<group>";
+		};
+		33E7BAD5299F4C9B00D85031 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				33E7BAD6299F4CB500D85031 /* UtilFunctions.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,14 +243,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33E7BAD2299F3B3C00D85031 /* SignUpPage.swift in Sources */,
 				33E7BAC6299E3F6F00D85031 /* DatabaseManager.swift in Sources */,
+				33E7BAD7299F4CB500D85031 /* UtilFunctions.swift in Sources */,
 				33E7BACE299E4A8E00D85031 /* Account.swift in Sources */,
+				33E7BAD4299F451900D85031 /* Profile.swift in Sources */,
 				33E7BAC1299E355700D85031 /* Tester.swift in Sources */,
 				33E7BABC299E06B700D85031 /* User.swift in Sources */,
 				33E37E13299AA0680051EA44 /* main.swift in Sources */,
+				33E7BADB299F5AFE00D85031 /* ModeEnum.swift in Sources */,
+				33E7BAD9299F556D00D85031 /* DepartmentEnum.swift in Sources */,
 				33E7BAC8299E43E000D85031 /* PortalFunctions.swift in Sources */,
+				33E7BADD299F608900D85031 /* ResidentialStatusEnum.swift in Sources */,
 				33E7BABE299E08BB00D85031 /* BloodGroupEnum.swift in Sources */,
 				33E7BAC4299E3F2C00D85031 /* MainDatabase.swift in Sources */,
+				33E7BAD0299E659200D85031 /* PortalOptions.swift in Sources */,
 				33E7BACB299E463900D85031 /* StudentPortal.swift in Sources */,
 				33E37E1D299AA0910051EA44 /* Student.swift in Sources */,
 				33E37E1B299AA0870051EA44 /* Admin.swift in Sources */,

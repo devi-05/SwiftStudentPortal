@@ -7,10 +7,27 @@
 
 import Foundation
 
+print("welcome to student portal")
 var student = studentPortal()
-for _ in 1...2 {
-    student.signUp()
+
+
+for options in PortalOptions.allCases.enumerated(){
+    print("\(options.element.rawValue) \(options.element)")
 }
+
+ let preference:Int = UtilFunctions.getIntegerInput()
+    switch preference{
+    case 1:
+        for _ in 1...2 {
+            student.signUp()
+        }
+    case 2:
+        student.signOut()
+    default:
+        print("invalid value")
+    }
+    
+
 
 
 
