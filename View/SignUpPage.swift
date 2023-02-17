@@ -15,12 +15,17 @@ public func portalSignUp(){
     if(db.checkMailId(mailId: mailId)){
         print("mailId already exists")
         print("sign up failed")
+        
     }
     else{
         print("enter your password to sign up")
         let password:String = readLine() ?? ""
         accountObj.createAccount(mailId: mailId, password: password)
         print("signed up successfully")
+        let profilePageObj = ProfileManager()
+        profilePageObj.createProfile(mailId: mailId)
+        print("created your profile successfully")
+        print(profilePageObj.viewProfile(mailId: mailId))
     }
     
 }

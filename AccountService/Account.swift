@@ -6,12 +6,13 @@
 //
 
 
-var db = DatabaseManager.dbObj
+var db = DatabaseManager()
 struct Account{
     
     func createAccount(mailId:String,password:String) {
-        
-        db.add(mailId: mailId, password: password)
+        print("in create account function")
+        db.addMailIdAndPassword(mailId: mailId, password: password)
+       
         
     }
     func forgotpassword(mailId:String,newPassword:String)->Bool{
@@ -20,7 +21,7 @@ struct Account{
             return false
         }
         else{
-            db.add(mailId: mailId, password: newPassword)
+            db.addMailIdAndPassword(mailId: mailId, password: newPassword)
             return true
         }
     }

@@ -9,12 +9,10 @@ import Foundation
 
 public struct DatabaseManager{
     
-    static let dbObj=DatabaseManager()
-    private init(){}
     
-    var dbMainObj = Database()
+    var dbMainObj = Database.dbObj
     
-    mutating func add(mailId:String,password:String){
+    mutating func addMailIdAndPassword(mailId:String,password:String){
         dbMainObj.accountDb[mailId]=password
     }
     
@@ -27,6 +25,24 @@ public struct DatabaseManager{
     func getpassword(mailId:String) ->String?{
         dbMainObj.accountDb[mailId] 
     }
-    
+    mutating func addToStudentDb(mailId:String,student:Student){
+        print("aded in student db")
+        print(student)
+        dbMainObj.studentDb[mailId] = student
+    }
+    mutating func addToAdminDb(mailId:String,admin:Admin){
+        dbMainObj.adminDb[mailId]=admin
+    }
+    func getUser<T:User>(mailId:String)->T{
+        print(dbMainObj.studentDb)
+        print(dbMainObj.adminDb)
+        print(dbMainObj.studentDb[mailId])
+        if(UtilFunctions.isStudent(mailId: mailId)){
+            return dbMainObj.studentDb[mailId] as! T
+        }
+        else{
+            return dbMainObj.adminDb[mailId] as! T
+        }
+    }
 }
 

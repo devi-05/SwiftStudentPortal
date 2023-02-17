@@ -8,15 +8,15 @@
 import Foundation
 
 class Admin:User,CustomStringConvertible{
-    private let employeeId:Int
+    private let adminId:String
     private let dateOfJoining:String
-    init(mailId: String, name: String, bloodGroup: BloodGroup, address: String, phoneNumber: Int,employeeId:Int,dateOfJoining:String){
-        self.employeeId = employeeId
+    init(mailId: String, name: String, bloodGroup: BloodGroup, address: String, phoneNumber: Int,adminId:String,dateOfJoining:String){
+        self.adminId = adminId
         self.dateOfJoining = dateOfJoining
         super.init(mailId: mailId, name: name, bloodGroup: bloodGroup, address: address, phoneNumber: phoneNumber)
     }
     public var description :String{
-        return " mailId is \(userMailId)\n name is \(userName)\n bloodgroup is \(userBloodGroup)\n address is \(userAddress)\n employeeId is \(employeeId)\n doj is \(dateOfJoining)"
+        return " mailId is \(userMailId)\n name is \(userName)\n bloodgroup is \(userBloodGroup)\n address is \(userAddress)\n employeeId is \(adminId)\n doj is \(dateOfJoining)"
     }
    
 }

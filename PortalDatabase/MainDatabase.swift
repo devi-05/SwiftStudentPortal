@@ -8,5 +8,11 @@
 import Foundation
 
 public struct Database{
-    public var accountDb:[String:String] = [:]
+    static let dbObj=Database()
+    private init(){}
+
+     var accountDb:[String:String] = [:]
+     var studentDb:[String:Student] = [:]
+     var adminDb:[String:Admin] = [:]
+    
 }

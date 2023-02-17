@@ -38,5 +38,11 @@ public struct UtilFunctions{
         let dateStr =  dateFormatter.string(from: Date())
         return dateStr
     }
+    static func getEmployeedoj()->String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        let dateStr =  dateFormatter.string(from: Date())
+        return dateStr
+    }
     
 }

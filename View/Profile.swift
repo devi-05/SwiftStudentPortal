@@ -8,55 +8,68 @@
 import Foundation
 
 class Profile{
+    var db = DatabaseManager()
+    var rollNumberInitialCount = 1
     func getUserDetails(mailId:String){
         print("Enter details to create your profile")
         print("Enter name:")
         let name:String = UtilFunctions.getStringInput()
         print("Enter PhoneNumber:")
-        var phoneNumber:Int = UtilFunctions.getIntegerInput()
+        let phoneNumber:Int = UtilFunctions.getIntegerInput()
         print("Enter Address:")
-        var address:String = UtilFunctions.getStringInput()
+        let address:String = UtilFunctions.getStringInput()
         print("Enter bloodGroup from below options:")
         for bgOptions in BloodGroup.allCases.enumerated(){
             print("\(bgOptions.element.rawValue). \(bgOptions.element)")
         }
-        var bloodGroupOptionsArray:[BloodGroup] = BloodGroup.allCases
+        let bloodGroupOptionsArray:[BloodGroup] = BloodGroup.allCases
         let bloodGroupPreference:Int = UtilFunctions.getIntegerInput()
-        let bloodGroup:BloodGroup = bloodGroupOptionsArray[bloodGroupPreference]
+        let bloodGroup:BloodGroup = bloodGroupOptionsArray[bloodGroupPreference-1]
         
         if(UtilFunctions.isStudent(mailId: mailId)){
-            var rollNumberInitialCount = 1
+
             let rollNumber:String = "S"+String(rollNumberInitialCount)
             rollNumberInitialCount+=1
             print("Enter department from below options:")
             for deptOptions in DeptEnum.allCases.enumerated(){
                 print("\(deptOptions.element.rawValue). \(deptOptions.element)")
             }
-            var departmentOptionsArray:[DeptEnum]=DeptEnum.allCases
+            let departmentOptionsArray:[DeptEnum]=DeptEnum.allCases
             let deptPreference:Int = UtilFunctions.getIntegerInput()
-            let department:DeptEnum = departmentOptionsArray[deptPreference]
+            let department:DeptEnum = departmentOptionsArray[deptPreference-1]
             let joiningYear:String = UtilFunctions.getStudentjoiningyear()
             print("Enter your mode of joining from options below:")
             for options in ModeOfJoiningEnum.allCases.enumerated(){
                 print("\(options.element.rawValue). \(options.element)")
             }
             let modePreference:Int = UtilFunctions.getIntegerInput()
-            var modeOfJoiningArray:[ModeOfJoiningEnum] = ModeOfJoiningEnum.allCases
-            var modeOfJoining:ModeOfJoiningEnum = modeOfJoiningArray[modePreference]
-            var modeOfJoiningFees:Int = modeOfJoiningAndFees[modeOfJoining]!
+            let modeOfJoiningArray:[ModeOfJoiningEnum] = ModeOfJoiningEnum.allCases
+            let modeOfJoining:ModeOfJoiningEnum = modeOfJoiningArray[modePreference-1]
+            let modeOfJoiningFees:Int = modeOfJoiningAndFees[modeOfJoining]!
             print("Enter your residential status from options below:")
             for options in ResidentialStatusEnum.allCases.enumerated(){
                 print("\(options.element.rawValue). \(options.element)")
             }
             let residentialPreference:Int = UtilFunctions.getIntegerInput()
-            var residentialStatusArray:[ResidentialStatusEnum] = ResidentialStatusEnum.allCases
-            var residentialStatus:ResidentialStatusEnum = residentialStatusArray[residentialPreference]
-            var residentialStatusFees:Int = residentialStatusAndFees[residentialStatus]!
-             let transportFees:Int = 40000
+            let residentialStatusArray:[ResidentialStatusEnum] = ResidentialStatusEnum.allCases
+            let residentialStatus:ResidentialStatusEnum = residentialStatusArray[residentialPreference-1]
+            let residentialStatusFees:Int = residentialStatusAndFees[residentialStatus]!
+            let transportFees:Int = 40000
             let miscellaneousFees:Int = 45000
-            var totalFees:Int = modeOfJoiningFees+transportFees+miscellaneousFees
-            var feesPaid:Int = 0
-            var newStudent = 
+            let totalFees:Int = modeOfJoiningFees+transportFees+miscellaneousFees
+            let feesPaid:Int = 0
+            print("helo")
+            let newStudent = Student(mailId: mailId, name: name, bloodGroup: bloodGroup, address: address, phoneNumber: phoneNumber, rollNumber: rollNumber, department: department, joiningYear: joiningYear, modeOfJoining: modeOfJoining, modeOfJoiningFees: modeOfJoiningFees, transportFees: transportFees, miscellaneousFees: miscellaneousFees, residentialStatus: residentialStatus, residentialStatusFees: residentialStatusFees, totalFees: totalFees, feesPaid: feesPaid)
+            print(newStudent)
+            db.addToStudentDb(mailId: mailId, student: newStudent)
+        }
+        else{
+            let adminId:String = "A" + String(rollNumberInitialCount)
+            let dateofJoining:String = UtilFunctions.getEmployeedoj()
+            let newAdmin = Admin(mailId: mailId, name: name, bloodGroup: bloodGroup, address: address, phoneNumber: phoneNumber, adminId: adminId, dateOfJoining: dateofJoining)
+            
+            db.addToAdminDb(mailId: mailId, admin: newAdmin)
+            
         }
     }
     
