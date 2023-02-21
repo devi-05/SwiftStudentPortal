@@ -8,17 +8,22 @@
 import Foundation
 
 class ProfileManager{
+    
     func createProfile(mailId:String){
-        let profileobj = Profile()
+        var profileobj = Profile()
         profileobj.getUserDetails(mailId: mailId)
     }
     func viewProfile(mailId:String)-> User?{
         let db = DatabaseManager.dbManagerObj
         return db.getUser(mailId: mailId)
     }
-    func editProfile<T>(attribute:String,newAttribute:T,mailId:String){
+    func editProfile(attribute:EditStudentProfileEnum,newAttribute:Any,mailId:String){
         let db = DatabaseManager.dbManagerObj
+        if(attribute == .residentialStatus){
+            db.editResidentialStatus(newResidentialStatus: newAttribute as! ResidentialStatusEnum ,newResidentialStatusFees: residentialStatusAndFees[newAttribute as! ResidentialStatusEnum] ,mailId: mailId)
+        }
         db.editProfileInDb(attribute: attribute,newAttribute: newAttribute, mailId: mailId)
     }
+    
 }
 

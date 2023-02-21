@@ -8,7 +8,7 @@
 import Foundation
 
 
-public func displayMenuOptions(mailId:String){
+func displayMenuOptions(mailId:String){
 MenuLoop:while(true){
     print("Welcome to Menu Page!")
     print("Enter your preference from below options")

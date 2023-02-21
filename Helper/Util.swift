@@ -25,12 +25,7 @@ public struct UtilFunctions{
         }
     }
     static func isStudent(mailId:String)->Bool{
-        if(mailId.contains("@student.in")){
-            return true
-        }
-        else{
-            return false
-        }
+        return mailId.contains("@student.in")
     }
     static func getStudentjoiningyear()->String{
         let dateFormatter = DateFormatter()

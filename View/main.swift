@@ -8,8 +8,8 @@
 import Foundation
 
 
-var student = studentPortal()
-
+    let student = studentPortal()
+    
 MainLoop: while(true){
     
     print("welcome to student portal")
@@ -34,7 +34,7 @@ MainLoop: while(true){
     }
     
 }
-
+    
 
 
 

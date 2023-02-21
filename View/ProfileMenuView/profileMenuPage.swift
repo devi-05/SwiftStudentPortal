@@ -67,7 +67,7 @@ ProfileMenuLoop:while(true){
             case .editOwnProfile:
                 editOwnProfile(mailId: mailId)
             case .editStudentProfile:
-                editStudentProfile(mailId: mailId)
+                editStudentProfile()
             }
         }
     case .exit:

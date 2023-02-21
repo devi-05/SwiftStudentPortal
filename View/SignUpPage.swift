@@ -9,7 +9,7 @@ import Foundation
 
 public func portalSignUp(){
     let db = DatabaseManager.dbManagerObj
-    let accountObj = Account()
+    let accountObj = AccountServiceManager()
     print("welcome to signup page")
     print("enter your mailId to sign up")
     let mailId:String = readLine() ?? ""

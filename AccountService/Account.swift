@@ -6,15 +6,15 @@
 //
 
 
-var db = DatabaseManager.dbManagerObj
-struct Account{
+
+struct AccountServiceManager{
+    var db = DatabaseManager.dbManagerObj
     
     func createAccount(mailId:String,password:String) {
-        print("in create account function")
-        db.addMailIdAndPassword(mailId: mailId, password: password)
-       
         
+        db.addMailIdAndPassword(mailId: mailId, password: password)
     }
+    
     func forgotpassword(mailId:String,newPassword:String)->Bool{
         let oldPassword = db.getpassword(mailId: mailId)
         if(oldPassword==newPassword){

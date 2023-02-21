@@ -19,16 +19,18 @@ func editOwnProfile(mailId:String){
     case .address:
         print("Enter your new address:")
         let newAddress:String = UtilFunctions.getStringInput()
-        db.editProfileInDb(attribute: "address", newAttribute: newAddress, mailId: mailId)
+        db.editProfileInDb(attribute: .address, newAttribute: newAddress, mailId: mailId)
     case .phoneNumber:
         print("Enter your new phoneNumber:")
         let newPhonenumber:Int = UtilFunctions.getIntegerInput()
-        db.editProfileInDb(attribute: "phoneNumber",newAttribute: newPhonenumber, mailId: mailId)
+        db.editProfileInDb(attribute: .phoneNumber,newAttribute: newPhonenumber, mailId: mailId)
     }
     
 }
 
-func editStudentProfile(mailId:String){
+func editStudentProfile(){
+    print("Enter student MailId:")
+    let studentMailId:String = UtilFunctions.getStringInput()
     let profManagerObj = ProfileManager()
     for options in EditStudentProfileEnum.allCases.enumerated(){
         print("\(options.element.rawValue). \(options.element)")
@@ -40,11 +42,11 @@ func editStudentProfile(mailId:String){
     case .address:
         print("Enter new address:")
         let newAddress:String = UtilFunctions.getStringInput()
-        profManagerObj.editProfile(attribute: "address",newAttribute: newAddress, mailId: mailId)
+        profManagerObj.editProfile(attribute: .address,newAttribute: newAddress, mailId: studentMailId)
     case .phoneNumber:
         print("Enter new phoneNumber:")
         let newPhonenumber:Int = UtilFunctions.getIntegerInput()
-        profManagerObj.editProfile(attribute: "phoneNumber",newAttribute: newPhonenumber, mailId: mailId)
+        profManagerObj.editProfile(attribute: .phoneNumber,newAttribute: newPhonenumber, mailId: studentMailId)
     case .residentialStatus:
         print("Enter new residential status from options below:")
         for options in ResidentialStatusEnum.allCases.enumerated(){
@@ -53,7 +55,7 @@ func editStudentProfile(mailId:String){
         let residentialPreference:Int = UtilFunctions.getIntegerInput()
         let residentialStatusArray:[ResidentialStatusEnum] = ResidentialStatusEnum.allCases
         let newResidentialStatus:ResidentialStatusEnum = residentialStatusArray[residentialPreference-1]
-        profManagerObj.editProfile(attribute: "residentialStatus", newAttribute: newResidentialStatus, mailId: mailId)
+        profManagerObj.editProfile(attribute: .residentialStatus, newAttribute: newResidentialStatus, mailId: studentMailId)
     }
     
 }

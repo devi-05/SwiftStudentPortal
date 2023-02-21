@@ -7,10 +7,10 @@
 
 import Foundation
 
-class Profile{
+struct Profile{
     var db = DatabaseManager.dbManagerObj
     var rollNumberInitialCount = 1
-    func getUserDetails(mailId:String){
+    mutating func getUserDetails(mailId:String){
         print("Enter details to create your profile")
         print("Enter name:")
         let name:String = UtilFunctions.getStringInput()
@@ -58,6 +58,8 @@ class Profile{
             let miscellaneousFees:Int = 45000
             let totalFees:Int = modeOfJoiningFees+transportFees+miscellaneousFees
             let feesPaid:Int = 0
+            
+        
             let newStudent = Student(mailId: mailId, name: name, bloodGroup: bloodGroup, address: address, phoneNumber: phoneNumber, rollNumber: rollNumber, department: department, joiningYear: joiningYear, modeOfJoining: modeOfJoining, modeOfJoiningFees: modeOfJoiningFees, transportFees: transportFees, miscellaneousFees: miscellaneousFees, residentialStatus: residentialStatus, residentialStatusFees: residentialStatusFees, totalFees: totalFees, feesPaid: feesPaid)
             db.addToStudentDb(mailId: mailId, student: newStudent)
         }

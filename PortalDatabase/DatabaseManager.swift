@@ -42,7 +42,6 @@ public class DatabaseManager{
             }
             else{
                 return nil
-                
             }
         }
         else{
@@ -61,19 +60,46 @@ public class DatabaseManager{
             return nil
         }
     }
-    func editProfileInDb<T>(attribute:String,newAttribute:T,mailId:String){
+    func editProfileInDb(attribute:EditStudentProfileEnum,newAttribute:Any,mailId:String){
         if(UtilFunctions.isStudent(mailId: mailId)){
-            if(attribute == "address"){
+            if(attribute == .address){
                 dbMainObj.studentDb[mailId]?.userAddress = newAttribute as! String
             }
-            else if (attribute == "phoneNumber"){
+            else if (attribute == .phoneNumber){
                 dbMainObj.studentDb[mailId]?.userPhoneNumber = newAttribute as! Int
             }
-            else if (attribute == "residentialStatus"){
-                dbMainObj.studentDb[mailId]?.studentResidentialStatus = newAttribute as! ResidentialStatusEnum
+        }
+        else{
+            
+            if(attribute == .address){
+                dbMainObj.adminDb[mailId]?.userAddress = newAttribute as! String
             }
+            else if (attribute == .phoneNumber){
+                dbMainObj.adminDb[mailId]?.userPhoneNumber = newAttribute as! Int
+            }
+            
+            
         }
         
+    }
+    func editResidentialStatus(newResidentialStatus:ResidentialStatusEnum,newResidentialStatusFees:Int,mailId:String){
+        dbMainObj.studentDb[mailId]?.studentResidentialStatus = newResidentialStatus
+        dbMainObj.studentDb[mailId]?.studentResidentialStatusFees = newResidentialStatusFees
+    }
+    
+    func getTotalFees(mailId:String)->Int?{
+        
+        guard let totalFees = dbMainObj.studentDb[mailId]?.studentTotalFees else{
+            return nil
+        }
+        return totalFees
+        
+    }
+    func getFeePaid(mailId:String)->Int?{
+        guard let totalFeesPaid = dbMainObj.studentDb[mailId]?.studentTotalFees else{
+            return nil
+        }
+        return totalFeesPaid
     }
 }
 

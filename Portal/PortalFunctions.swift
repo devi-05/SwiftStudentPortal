@@ -8,9 +8,11 @@
 import Foundation
 
 protocol Portal{
+    
     func signUp()
     func signIn()
     func signOut()
+    
 }
 
 
