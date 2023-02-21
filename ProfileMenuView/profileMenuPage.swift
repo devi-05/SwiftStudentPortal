@@ -17,8 +17,6 @@ public func profileMenuPage(mailId:String){
     let profileMenuOptionPreference:Int = UtilFunctions.getIntegerInput()
     let profileMenuPreference:ProfileMenuoptions = profileMenuOptionsArray[profileMenuOptionPreference-1]
     switch profileMenuPreference{
-//    case .createProfile:
-//        profileManagerObj.createProfile(mailId:mailId)
     case .viewProfile:
         if let userProfile = profileManagerObj.viewProfile(mailId: mailId){
             print(userProfile)
@@ -27,6 +25,21 @@ public func profileMenuPage(mailId:String){
             print("No user found!")
         }
     case .editProfile:
-        profileManagerObj.editProfile(mailId: mailId)
+        if(UtilFunctions.isStudent(mailId: mailId)){
+            editOwnProfile(mailId: mailId)}
+        else{
+            for options in AdminEditOptions.allCases.enumerated(){
+                print("\(options.element.rawValue). \(options.element)")
+            }
+            let adminEditOptionsArray:[AdminEditOptions] = AdminEditOptions.allCases
+            let adminEditOptionPreference:Int = UtilFunctions.getIntegerInput()
+            let adminEditPreference:AdminEditOptions = adminEditOptionsArray[adminEditOptionPreference-1]
+            switch adminEditPreference{
+            case .editOwnProfile:
+                editOwnProfile(mailId: mailId)
+            case .editStudentProfile:
+                edit
+            }
+        }
     }
 }

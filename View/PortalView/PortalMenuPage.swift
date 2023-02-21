@@ -21,10 +21,9 @@ public func displayMenuOptions(mailId:String){
     switch menuPreference{
     case .profilepage:
         profileMenuPage(mailId:mailId)
-        
     case .feePage:
         print("fee")
-    case .Resultpage:
+    case .resultPage:
         print("result")
     }
 }

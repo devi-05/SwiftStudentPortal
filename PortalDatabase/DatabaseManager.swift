@@ -61,5 +61,19 @@ public class DatabaseManager{
             return nil
         }
     }
+    func editProfileInDb<T>(attribute:String,newAttribute:T,mailId:String){
+        if(UtilFunctions.isStudent(mailId: mailId)){
+            if(attribute == "address"){
+                dbMainObj.studentDb[mailId]?.userAddress = newAttribute as! String
+            }
+            else if (attribute == "phoneNumber"){
+                dbMainObj.studentDb[mailId]?.userPhoneNumber = newAttribute as! Int
+            }
+            else if (attribute == "residentialStatus"){
+                dbMainObj.studentDb[mailId]?.studentResidentialStatus = newAttribute as! ResidentialStatusEnum
+            }
+        }
+        
+    }
 }
 

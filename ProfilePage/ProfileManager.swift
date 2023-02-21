@@ -16,7 +16,9 @@ class ProfileManager{
         let db = DatabaseManager.dbManagerObj
         return db.getUser(mailId: mailId)
     }
-    func editProfile(mailId:String){
-        
+    func editProfile<T>(attribute:String,newAttribute:T,mailId:String){
+        let db = DatabaseManager.dbManagerObj
+        db.editProfileInDb(attribute: attribute,newAttribute: newAttribute, mailId: mailId)
     }
 }
+

@@ -12,6 +12,10 @@
 		331F6E4B29A285290062B334 /* PortalMenuPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331F6E4A29A285290062B334 /* PortalMenuPage.swift */; };
 		331F6E4D29A32BFE0062B334 /* ProfileMenuOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331F6E4C29A32BFE0062B334 /* ProfileMenuOptions.swift */; };
 		331F6E4F29A48C090062B334 /* profileMenuPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331F6E4E29A48C090062B334 /* profileMenuPage.swift */; };
+		331F6E5A29A49E960062B334 /* EditOwnProfileEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331F6E5929A49E960062B334 /* EditOwnProfileEnum.swift */; };
+		331F6E5C29A49F000062B334 /* EditStudentProfileEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331F6E5B29A49F000062B334 /* EditStudentProfileEnum.swift */; };
+		331F6E5E29A49F710062B334 /* ProfileEditMenuPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331F6E5D29A49F710062B334 /* ProfileEditMenuPage.swift */; };
+		331F6E6229A4A6700062B334 /* AdminEditOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331F6E6129A4A6700062B334 /* AdminEditOptions.swift */; };
 		33E37E13299AA0680051EA44 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E37E12299AA0680051EA44 /* main.swift */; };
 		33E37E1B299AA0870051EA44 /* Admin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E37E1A299AA0870051EA44 /* Admin.swift */; };
 		33E37E1D299AA0910051EA44 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E37E1C299AA0910051EA44 /* Student.swift */; };
@@ -50,6 +54,10 @@
 		331F6E4A29A285290062B334 /* PortalMenuPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortalMenuPage.swift; sourceTree = "<group>"; };
 		331F6E4C29A32BFE0062B334 /* ProfileMenuOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMenuOptions.swift; sourceTree = "<group>"; };
 		331F6E4E29A48C090062B334 /* profileMenuPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileMenuPage.swift; sourceTree = "<group>"; };
+		331F6E5929A49E960062B334 /* EditOwnProfileEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditOwnProfileEnum.swift; sourceTree = "<group>"; };
+		331F6E5B29A49F000062B334 /* EditStudentProfileEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditStudentProfileEnum.swift; sourceTree = "<group>"; };
+		331F6E5D29A49F710062B334 /* ProfileEditMenuPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditMenuPage.swift; sourceTree = "<group>"; };
+		331F6E6129A4A6700062B334 /* AdminEditOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminEditOptions.swift; sourceTree = "<group>"; };
 		33E37E0F299AA0680051EA44 /* StudentPortal */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = StudentPortal; sourceTree = BUILT_PRODUCTS_DIR; };
 		33E37E12299AA0680051EA44 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		33E37E1A299AA0870051EA44 /* Admin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Admin.swift; sourceTree = "<group>"; };
@@ -82,7 +90,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		331F6E5029A48EB60062B334 /* ProfileView */ = {
+		331F6E5029A48EB60062B334 /* ProfileCreator */ = {
 			isa = PBXGroup;
 			children = (
 				33E7BADC299F608900D85031 /* ResidentialStatusEnum.swift */,
@@ -91,7 +99,7 @@
 				33E7BAD3299F451900D85031 /* Profile.swift */,
 				33E7BABD299E08BB00D85031 /* BloodGroupEnum.swift */,
 			);
-			path = ProfileView;
+			path = ProfileCreator;
 			sourceTree = "<group>";
 		};
 		331F6E5329A48F750062B334 /* PortalView */ = {
@@ -101,6 +109,18 @@
 				331F6E4A29A285290062B334 /* PortalMenuPage.swift */,
 			);
 			path = PortalView;
+			sourceTree = "<group>";
+		};
+		331F6E5629A49E250062B334 /* ProfileMenuView */ = {
+			isa = PBXGroup;
+			children = (
+				331F6E4E29A48C090062B334 /* profileMenuPage.swift */,
+				331F6E5929A49E960062B334 /* EditOwnProfileEnum.swift */,
+				331F6E5B29A49F000062B334 /* EditStudentProfileEnum.swift */,
+				331F6E5D29A49F710062B334 /* ProfileEditMenuPage.swift */,
+				331F6E6129A4A6700062B334 /* AdminEditOptions.swift */,
+			);
+			path = ProfileMenuView;
 			sourceTree = "<group>";
 		};
 		33E37E06299AA0680051EA44 = {
@@ -115,6 +135,7 @@
 				33E7BAB6299DEF1E00D85031 /* Portal */,
 				33E37E19299AA0750051EA44 /* Users */,
 				33E37E11299AA0680051EA44 /* View */,
+				331F6E5629A49E250062B334 /* ProfileMenuView */,
 				33E37E10299AA0680051EA44 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -134,8 +155,7 @@
 				33E7BAD1299F3B3C00D85031 /* SignUpPage.swift */,
 				331F6E4629A27AE60062B334 /* SignInPage.swift */,
 				331F6E5329A48F750062B334 /* PortalView */,
-				331F6E5029A48EB60062B334 /* ProfileView */,
-				331F6E4E29A48C090062B334 /* profileMenuPage.swift */,
+				331F6E5029A48EB60062B334 /* ProfileCreator */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -277,6 +297,9 @@
 				33E37E13299AA0680051EA44 /* main.swift in Sources */,
 				33E7BADB299F5AFE00D85031 /* ModeEnum.swift in Sources */,
 				33E7BAD9299F556D00D85031 /* DepartmentEnum.swift in Sources */,
+				331F6E6229A4A6700062B334 /* AdminEditOptions.swift in Sources */,
+				331F6E5C29A49F000062B334 /* EditStudentProfileEnum.swift in Sources */,
+				331F6E5A29A49E960062B334 /* EditOwnProfileEnum.swift in Sources */,
 				331F6E4B29A285290062B334 /* PortalMenuPage.swift in Sources */,
 				33E7BAC8299E43E000D85031 /* PortalFunctions.swift in Sources */,
 				33E7BADD299F608900D85031 /* ResidentialStatusEnum.swift in Sources */,
@@ -289,6 +312,7 @@
 				33E37E1B299AA0870051EA44 /* Admin.swift in Sources */,
 				33E7BADF299F8A0A00D85031 /* ProfileManager.swift in Sources */,
 				331F6E4F29A48C090062B334 /* profileMenuPage.swift in Sources */,
+				331F6E5E29A49F710062B334 /* ProfileEditMenuPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
