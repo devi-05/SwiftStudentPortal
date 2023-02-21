@@ -6,7 +6,7 @@
 //
 
 
-var db = DatabaseManager()
+var db = DatabaseManager.dbManagerObj
 struct Account{
     
     func createAccount(mailId:String,password:String) {

@@ -7,12 +7,15 @@
 
 import Foundation
 
-public struct DatabaseManager{
+public class DatabaseManager{
     
     
-    var dbMainObj = Database.dbObj
+    private var dbMainObj = Database()
     
-    mutating func addMailIdAndPassword(mailId:String,password:String){
+    static let dbManagerObj=DatabaseManager()
+    private init(){}
+    
+    func addMailIdAndPassword(mailId:String,password:String){
         dbMainObj.accountDb[mailId]=password
     }
     
@@ -23,25 +26,39 @@ public struct DatabaseManager{
         return true
     }
     func getpassword(mailId:String) ->String?{
-        dbMainObj.accountDb[mailId] 
+        dbMainObj.accountDb[mailId]
     }
-    mutating func addToStudentDb(mailId:String,student:Student){
-        print("aded in student db")
-        print(student)
+    func addToStudentDb(mailId:String,student:Student){
+        
         dbMainObj.studentDb[mailId] = student
     }
-    mutating func addToAdminDb(mailId:String,admin:Admin){
+    func addToAdminDb(mailId:String,admin:Admin){
         dbMainObj.adminDb[mailId]=admin
     }
-    func getUser<T:User>(mailId:String)->T{
-        print(dbMainObj.studentDb)
-        print(dbMainObj.adminDb)
-        print(dbMainObj.studentDb[mailId])
+    func getUser<T:User>(mailId:String)->T?{
         if(UtilFunctions.isStudent(mailId: mailId)){
-            return dbMainObj.studentDb[mailId] as! T
+            if let studentProfile = dbMainObj.studentDb[mailId] {
+                return studentProfile as? T
+            }
+            else{
+                return nil
+                
+            }
         }
         else{
-            return dbMainObj.adminDb[mailId] as! T
+            if let adminProfile = dbMainObj.adminDb[mailId]  {
+                return adminProfile as? T}
+            else{
+                return nil
+            }
+        }
+    }
+    func getUserName(mailId:String)->String?{
+        if let userName = dbMainObj.studentDb[mailId]?.userName{
+            return userName
+        }
+        else{
+            return nil
         }
     }
 }

@@ -12,8 +12,11 @@ class ProfileManager{
         let profileobj = Profile()
         profileobj.getUserDetails(mailId: mailId)
     }
-    func viewProfile(mailId:String){
-        let db = DatabaseManager()
-        print(db.getUser(mailId: mailId))
+    func viewProfile(mailId:String)-> User?{
+        let db = DatabaseManager.dbManagerObj
+        return db.getUser(mailId: mailId)
+    }
+    func editProfile(mailId:String){
+        
     }
 }

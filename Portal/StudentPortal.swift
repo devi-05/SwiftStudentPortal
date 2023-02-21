@@ -13,9 +13,8 @@ struct studentPortal:Portal{
         portalSignUp()
         }
     
-    
     func signIn() {
-        
+        portalSignIn()
     }
     
     func signOut() {

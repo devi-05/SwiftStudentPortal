@@ -16,7 +16,7 @@ class Admin:User,CustomStringConvertible{
         super.init(mailId: mailId, name: name, bloodGroup: bloodGroup, address: address, phoneNumber: phoneNumber)
     }
     public var description :String{
-        return " mailId is \(userMailId)\n name is \(userName)\n bloodgroup is \(userBloodGroup)\n address is \(userAddress)\n employeeId is \(adminId)\n doj is \(dateOfJoining)"
+        return " MailId : \(userMailId)\n Name : \(userName)\n Bloodgroup : \(userBloodGroup)\n Address : \(userAddress)\n EmployeeId : \(adminId)\n Doj : \(dateOfJoining)"
     }
    
 }

@@ -7,12 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		331F6E4729A27AE60062B334 /* SignInPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331F6E4629A27AE60062B334 /* SignInPage.swift */; };
+		331F6E4929A2810B0062B334 /* PortalMenuOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331F6E4829A2810B0062B334 /* PortalMenuOptions.swift */; };
+		331F6E4B29A285290062B334 /* PortalMenuPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331F6E4A29A285290062B334 /* PortalMenuPage.swift */; };
+		331F6E4D29A32BFE0062B334 /* ProfileMenuOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331F6E4C29A32BFE0062B334 /* ProfileMenuOptions.swift */; };
+		331F6E4F29A48C090062B334 /* profileMenuPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331F6E4E29A48C090062B334 /* profileMenuPage.swift */; };
 		33E37E13299AA0680051EA44 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E37E12299AA0680051EA44 /* main.swift */; };
 		33E37E1B299AA0870051EA44 /* Admin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E37E1A299AA0870051EA44 /* Admin.swift */; };
 		33E37E1D299AA0910051EA44 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E37E1C299AA0910051EA44 /* Student.swift */; };
 		33E7BABC299E06B700D85031 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E7BABB299E06B700D85031 /* User.swift */; };
 		33E7BABE299E08BB00D85031 /* BloodGroupEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E7BABD299E08BB00D85031 /* BloodGroupEnum.swift */; };
-		33E7BAC1299E355700D85031 /* Tester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E7BAC0299E355700D85031 /* Tester.swift */; };
 		33E7BAC4299E3F2C00D85031 /* MainDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E7BAC3299E3F2C00D85031 /* MainDatabase.swift */; };
 		33E7BAC6299E3F6F00D85031 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E7BAC5299E3F6F00D85031 /* DatabaseManager.swift */; };
 		33E7BAC8299E43E000D85031 /* PortalFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E7BAC7299E43E000D85031 /* PortalFunctions.swift */; };
@@ -41,13 +45,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		331F6E4629A27AE60062B334 /* SignInPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInPage.swift; sourceTree = "<group>"; };
+		331F6E4829A2810B0062B334 /* PortalMenuOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortalMenuOptions.swift; sourceTree = "<group>"; };
+		331F6E4A29A285290062B334 /* PortalMenuPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortalMenuPage.swift; sourceTree = "<group>"; };
+		331F6E4C29A32BFE0062B334 /* ProfileMenuOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMenuOptions.swift; sourceTree = "<group>"; };
+		331F6E4E29A48C090062B334 /* profileMenuPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileMenuPage.swift; sourceTree = "<group>"; };
 		33E37E0F299AA0680051EA44 /* StudentPortal */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = StudentPortal; sourceTree = BUILT_PRODUCTS_DIR; };
 		33E37E12299AA0680051EA44 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		33E37E1A299AA0870051EA44 /* Admin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Admin.swift; sourceTree = "<group>"; };
 		33E37E1C299AA0910051EA44 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		33E7BABB299E06B700D85031 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		33E7BABD299E08BB00D85031 /* BloodGroupEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodGroupEnum.swift; sourceTree = "<group>"; };
-		33E7BAC0299E355700D85031 /* Tester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tester.swift; sourceTree = "<group>"; };
 		33E7BAC3299E3F2C00D85031 /* MainDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDatabase.swift; sourceTree = "<group>"; };
 		33E7BAC5299E3F6F00D85031 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		33E7BAC7299E43E000D85031 /* PortalFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortalFunctions.swift; sourceTree = "<group>"; };
@@ -74,13 +82,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		331F6E5029A48EB60062B334 /* ProfileView */ = {
+			isa = PBXGroup;
+			children = (
+				33E7BADC299F608900D85031 /* ResidentialStatusEnum.swift */,
+				33E7BAD8299F556D00D85031 /* DepartmentEnum.swift */,
+				33E7BADA299F5AFE00D85031 /* ModeEnum.swift */,
+				33E7BAD3299F451900D85031 /* Profile.swift */,
+				33E7BABD299E08BB00D85031 /* BloodGroupEnum.swift */,
+			);
+			path = ProfileView;
+			sourceTree = "<group>";
+		};
+		331F6E5329A48F750062B334 /* PortalView */ = {
+			isa = PBXGroup;
+			children = (
+				331F6E4829A2810B0062B334 /* PortalMenuOptions.swift */,
+				331F6E4A29A285290062B334 /* PortalMenuPage.swift */,
+			);
+			path = PortalView;
+			sourceTree = "<group>";
+		};
 		33E37E06299AA0680051EA44 = {
 			isa = PBXGroup;
 			children = (
 				33E7BAD5299F4C9B00D85031 /* Helper */,
 				33E7BACC299E4A7000D85031 /* AccountService */,
 				33E7BAC2299E3F0900D85031 /* PortalDatabase */,
-				33E7BABF299E34D000D85031 /* Tester */,
 				33E7BAB9299DEF5E00D85031 /* ResultPage */,
 				33E7BAB8299DEF5500D85031 /* FeePage */,
 				33E7BAB7299DEF4500D85031 /* ProfilePage */,
@@ -102,15 +130,12 @@
 		33E37E11299AA0680051EA44 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				33E7BABD299E08BB00D85031 /* BloodGroupEnum.swift */,
 				33E37E12299AA0680051EA44 /* main.swift */,
-				33E7BACA299E463900D85031 /* StudentPortal.swift */,
-				33E7BACF299E659200D85031 /* PortalOptions.swift */,
 				33E7BAD1299F3B3C00D85031 /* SignUpPage.swift */,
-				33E7BAD3299F451900D85031 /* Profile.swift */,
-				33E7BADA299F5AFE00D85031 /* ModeEnum.swift */,
-				33E7BAD8299F556D00D85031 /* DepartmentEnum.swift */,
-				33E7BADC299F608900D85031 /* ResidentialStatusEnum.swift */,
+				331F6E4629A27AE60062B334 /* SignInPage.swift */,
+				331F6E5329A48F750062B334 /* PortalView */,
+				331F6E5029A48EB60062B334 /* ProfileView */,
+				331F6E4E29A48C090062B334 /* profileMenuPage.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -128,6 +153,8 @@
 		33E7BAB6299DEF1E00D85031 /* Portal */ = {
 			isa = PBXGroup;
 			children = (
+				33E7BACF299E659200D85031 /* PortalOptions.swift */,
+				33E7BACA299E463900D85031 /* StudentPortal.swift */,
 				33E7BAC7299E43E000D85031 /* PortalFunctions.swift */,
 			);
 			path = Portal;
@@ -137,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				33E7BADE299F8A0A00D85031 /* ProfileManager.swift */,
+				331F6E4C29A32BFE0062B334 /* ProfileMenuOptions.swift */,
 			);
 			path = ProfilePage;
 			sourceTree = "<group>";
@@ -153,14 +181,6 @@
 			children = (
 			);
 			path = ResultPage;
-			sourceTree = "<group>";
-		};
-		33E7BABF299E34D000D85031 /* Tester */ = {
-			isa = PBXGroup;
-			children = (
-				33E7BAC0299E355700D85031 /* Tester.swift */,
-			);
-			path = Tester;
 			sourceTree = "<group>";
 		};
 		33E7BAC2299E3F0900D85031 /* PortalDatabase */ = {
@@ -246,25 +266,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				331F6E4729A27AE60062B334 /* SignInPage.swift in Sources */,
 				33E7BAD2299F3B3C00D85031 /* SignUpPage.swift in Sources */,
 				33E7BAC6299E3F6F00D85031 /* DatabaseManager.swift in Sources */,
 				33E7BAD7299F4CB500D85031 /* UtilFunctions.swift in Sources */,
 				33E7BACE299E4A8E00D85031 /* Account.swift in Sources */,
+				331F6E4929A2810B0062B334 /* PortalMenuOptions.swift in Sources */,
 				33E7BAD4299F451900D85031 /* Profile.swift in Sources */,
-				33E7BAC1299E355700D85031 /* Tester.swift in Sources */,
 				33E7BABC299E06B700D85031 /* User.swift in Sources */,
 				33E37E13299AA0680051EA44 /* main.swift in Sources */,
 				33E7BADB299F5AFE00D85031 /* ModeEnum.swift in Sources */,
 				33E7BAD9299F556D00D85031 /* DepartmentEnum.swift in Sources */,
+				331F6E4B29A285290062B334 /* PortalMenuPage.swift in Sources */,
 				33E7BAC8299E43E000D85031 /* PortalFunctions.swift in Sources */,
 				33E7BADD299F608900D85031 /* ResidentialStatusEnum.swift in Sources */,
 				33E7BABE299E08BB00D85031 /* BloodGroupEnum.swift in Sources */,
+				331F6E4D29A32BFE0062B334 /* ProfileMenuOptions.swift in Sources */,
 				33E7BAC4299E3F2C00D85031 /* MainDatabase.swift in Sources */,
 				33E7BAD0299E659200D85031 /* PortalOptions.swift in Sources */,
 				33E7BACB299E463900D85031 /* StudentPortal.swift in Sources */,
 				33E37E1D299AA0910051EA44 /* Student.swift in Sources */,
 				33E37E1B299AA0870051EA44 /* Admin.swift in Sources */,
 				33E7BADF299F8A0A00D85031 /* ProfileManager.swift in Sources */,
+				331F6E4F29A48C090062B334 /* profileMenuPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

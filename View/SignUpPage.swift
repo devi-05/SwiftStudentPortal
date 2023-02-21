@@ -8,6 +8,7 @@
 import Foundation
 
 public func portalSignUp(){
+    let db = DatabaseManager.dbManagerObj
     let accountObj = Account()
     print("welcome to signup page")
     print("enter your mailId to sign up")
@@ -25,7 +26,8 @@ public func portalSignUp(){
         let profilePageObj = ProfileManager()
         profilePageObj.createProfile(mailId: mailId)
         print("created your profile successfully")
-        print(profilePageObj.viewProfile(mailId: mailId))
+
+        displayMenuOptions(mailId: mailId)
     }
     
 }
