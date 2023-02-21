@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct UtilFunctions{
+public struct Util{
     static func getStringInput()->String{
         if let string = readLine(){
             return string

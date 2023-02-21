@@ -36,7 +36,7 @@ public class DatabaseManager{
         dbMainObj.adminDb[mailId]=admin
     }
     func getUser<T:User>(mailId:String)->T?{
-        if(UtilFunctions.isStudent(mailId: mailId)){
+        if(Util.isStudent(mailId: mailId)){
             if let studentProfile = dbMainObj.studentDb[mailId] {
                 return studentProfile as? T
             }
@@ -61,7 +61,7 @@ public class DatabaseManager{
         }
     }
     func editProfileInDb(attribute:EditStudentProfileEnum,newAttribute:Any,mailId:String){
-        if(UtilFunctions.isStudent(mailId: mailId)){
+        if(Util.isStudent(mailId: mailId)){
             if(attribute == .address){
                 dbMainObj.studentDb[mailId]?.userAddress = newAttribute as! String
             }
@@ -85,6 +85,7 @@ public class DatabaseManager{
     func editResidentialStatus(newResidentialStatus:ResidentialStatusEnum,newResidentialStatusFees:Int,mailId:String){
         dbMainObj.studentDb[mailId]?.studentResidentialStatus = newResidentialStatus
         dbMainObj.studentDb[mailId]?.studentResidentialStatusFees = newResidentialStatusFees
+        dbMainObj.studentDb[mailId]?.studentTotalFees = dbMainObj.studentDb[mailId]!.studentFeesWithoutResidentialFees+dbMainObj.studentDb[mailId]!.studentResidentialStatusFees
     }
     
     func getTotalFees(mailId:String)->Int?{

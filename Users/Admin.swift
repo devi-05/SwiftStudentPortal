@@ -10,10 +10,10 @@ import Foundation
 class Admin:User,CustomStringConvertible{
     private let adminId:String
     private let dateOfJoining:String
-    init(mailId: String, name: String, bloodGroup: BloodGroup, address: String, phoneNumber: Int,adminId:String,dateOfJoining:String){
+    init(_ mailId: String, _ name: String, _ bloodGroup: BloodGroup, _ address: String, _ phoneNumber: Int,_ adminId:String,_ dateOfJoining:String){
         self.adminId = adminId
         self.dateOfJoining = dateOfJoining
-        super.init(mailId: mailId, name: name, bloodGroup: bloodGroup, address: address, phoneNumber: phoneNumber)
+        super.init( mailId, name,  bloodGroup,  address,  phoneNumber)
     }
     public var description :String{
         return " MailId : \(userMailId)\n Name : \(userName)\n Bloodgroup : \(userBloodGroup)\n Address : \(userAddress)\n EmployeeId : \(adminId)\n Doj : \(dateOfJoining)"

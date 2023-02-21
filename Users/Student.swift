@@ -17,13 +17,14 @@ class Student:User,CustomStringConvertible{
     private let modeOfJoiningFees:Int
     private let transportFees:Int
     private let miscellaneousFees:Int
+    private let feesWithoutResidentialFees:Int
     private var residentialStatus:ResidentialStatusEnum
     private var residentialStatusFees:Int
     private var totalFees:Int
     private var feesPaid:Int
     
     
-    init(mailId: String, name: String, bloodGroup:BloodGroup, address: String, phoneNumber: Int,rollNumber: String, department: DeptEnum, joiningYear: String, modeOfJoining: ModeOfJoiningEnum, modeOfJoiningFees: Int, transportFees: Int, miscellaneousFees: Int, residentialStatus: ResidentialStatusEnum, residentialStatusFees: Int, totalFees: Int, feesPaid: Int) {
+    init(_ mailId: String, _ name: String, _ bloodGroup:BloodGroup, _ address: String, _ phoneNumber: Int,_ rollNumber: String, _ department: DeptEnum, _ joiningYear: String, _ modeOfJoining: ModeOfJoiningEnum, _ modeOfJoiningFees: Int, _ transportFees: Int, _ miscellaneousFees: Int,_ feesWithoutResidentialFees:Int, _ residentialStatus: ResidentialStatusEnum, _ residentialStatusFees: Int, _ totalFees: Int, _ feesPaid: Int) {
         
         self.rollNumber = rollNumber
         self.department = department
@@ -32,11 +33,12 @@ class Student:User,CustomStringConvertible{
         self.modeOfJoiningFees = modeOfJoiningFees
         self.transportFees = transportFees
         self.miscellaneousFees = miscellaneousFees
+        self.feesWithoutResidentialFees = feesWithoutResidentialFees
         self.residentialStatus = residentialStatus
         self.residentialStatusFees = residentialStatusFees
         self.totalFees = totalFees
         self.feesPaid = feesPaid
-        super.init(mailId: mailId, name: name, bloodGroup: bloodGroup, address: address, phoneNumber: phoneNumber)
+        super.init(mailId, name, bloodGroup, address, phoneNumber)
         
     }
     
@@ -80,6 +82,11 @@ class Student:User,CustomStringConvertible{
     public var studentMiscellaneousFees:Int{
         get{
             return self.miscellaneousFees
+        }
+    }
+    public var studentFeesWithoutResidentialFees:Int{
+        get{
+            return self.feesWithoutResidentialFees
         }
     }
     

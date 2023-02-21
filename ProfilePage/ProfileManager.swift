@@ -10,7 +10,7 @@ import Foundation
 class ProfileManager{
     
     func createProfile(mailId:String){
-        var profileobj = Profile()
+        var profileobj = ProfilePageDelegator()
         profileobj.getUserDetails(mailId: mailId)
     }
     func viewProfile(mailId:String)-> User?{
@@ -20,7 +20,7 @@ class ProfileManager{
     func editProfile(attribute:EditStudentProfileEnum,newAttribute:Any,mailId:String){
         let db = DatabaseManager.dbManagerObj
         if(attribute == .residentialStatus){
-            db.editResidentialStatus(newResidentialStatus: newAttribute as! ResidentialStatusEnum ,newResidentialStatusFees: residentialStatusAndFees[newAttribute as! ResidentialStatusEnum] ,mailId: mailId)
+            db.editResidentialStatus(newResidentialStatus: newAttribute as! ResidentialStatusEnum ,newResidentialStatusFees: (newAttribute as! ResidentialStatusEnum).getResidentialFees() ,mailId: mailId)
         }
         db.editProfileInDb(attribute: attribute,newAttribute: newAttribute, mailId: mailId)
     }

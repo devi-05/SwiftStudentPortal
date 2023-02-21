@@ -14,7 +14,7 @@ class User{
     private let bloodGroup:BloodGroup
     private var address:String
     private var phoneNumber:Int
-    init(mailId: String, name: String, bloodGroup: BloodGroup, address: String, phoneNumber: Int) {
+    init(_ mailId: String, _ name: String, _ bloodGroup: BloodGroup, _ address: String, _ phoneNumber: Int) {
         self.mailId = mailId
         self.name = name
         self.bloodGroup = bloodGroup

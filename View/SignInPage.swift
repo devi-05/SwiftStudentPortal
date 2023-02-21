@@ -9,24 +9,28 @@ import Foundation
 
 
 public func portalSignIn(){
+    print("Welcome to Sign In page!")
+    print("------------------------------------------------------------------------------------------")
     let db = DatabaseManager.dbManagerObj
+    let portalMenuPageObj = PortalMenuPage()
     print("Enter your mailId to sign In:")
-    let mailId = UtilFunctions.getStringInput()
+    let mailId = Util.getStringInput()
     if(!db.checkMailId(mailId: mailId)){
         print("MailId doesnt exist")
     }
     else{
         print("Enter your Password to sign In:")
-        var password = UtilFunctions.getStringInput()
+        var password = Util.getStringInput()
         let existingPassword = db.getpassword(mailId: mailId)
         while(password != existingPassword){
             print("Password mismatch")
             print("Re-enter your existing password")
-            password = UtilFunctions.getStringInput()
+            password = Util.getStringInput()
         }
         print("signed in successfully")
+        print("------------------------------------------------------------------------------------------")
         let currentUser:String
-        if(UtilFunctions.isStudent(mailId: mailId)){
+        if(Util.isStudent(mailId: mailId)){
             currentUser = "Student"
         }
         else{
@@ -37,8 +41,8 @@ public func portalSignIn(){
         else{
             print("Error in signing in!")
         }
-        
-        profileMenuPage(mailId: mailId)
+        print("------------------------------------------------------------------------------------------")
+        portalMenuPageObj.displayMenuOptions(mailId: mailId)
         
     }
     

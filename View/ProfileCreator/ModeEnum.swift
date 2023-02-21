@@ -9,9 +9,16 @@ import Foundation
 
 public enum ModeOfJoiningEnum:Int,CaseIterable{
     case counseling=1,management
+    func getModeOfJoiningFees()->Int{
+        switch self{
+        case .counseling:
+            return 50000
+        case .management:
+            return 100000
+        }
+    }
 }
 
 
-public let modeOfJoiningAndFees:[ModeOfJoiningEnum:Int]=[.counseling:50000,.management:100000]
 
 

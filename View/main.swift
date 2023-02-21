@@ -12,14 +12,20 @@ import Foundation
     
 MainLoop: while(true){
     
+    print("------------------------------------------------------------------------------------------")
+    
     print("welcome to student portal")
+    
+    print("------------------------------------------------------------------------------------------")
     
     for options in PortalOptions.allCases.enumerated(){
         print("\(options.element.rawValue). \(options.element)")
     }
     
+    print("------------------------------------------------------------------------------------------")
+    
     print("Enter your preference:")
-    let preference:Int = UtilFunctions.getIntegerInput()
+    let preference:Int = Util.getIntegerInput()
     
     switch preference{
     case 1:

@@ -8,6 +8,14 @@
 import Foundation
 public enum ResidentialStatusEnum:Int,CaseIterable{
     case dayScholar=1,hosteller
+    func getResidentialFees()->Int{
+        switch self{
+        case .dayScholar:
+            return 0
+        case .hosteller:
+            return 35000
+        }
+    }
 }
 
-public let residentialStatusAndFees:[ResidentialStatusEnum:Int]=[.dayScholar:0,.hosteller:35000]
+
