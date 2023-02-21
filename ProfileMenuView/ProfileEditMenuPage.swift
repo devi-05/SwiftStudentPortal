@@ -19,11 +19,11 @@ func editOwnProfile(mailId:String){
     case .address:
         print("Enter your new address:")
         let newAddress:String = UtilFunctions.getStringInput()
-        db.editOwnProfileInDb(attribute: "address",newAttribute: newAddress, mailId: mailId)
+        db.editProfileInDb(attribute: "address", newAttribute: newAddress, mailId: mailId)
     case .phoneNumber:
         print("Enter your new phoneNumber:")
         let newPhonenumber:Int = UtilFunctions.getIntegerInput()
-        db.editOwnProfileInDb(attribute: "phoneNumber",newAttribute: newPhonenumber, mailId: mailId)
+        db.editProfileInDb(attribute: "phoneNumber",newAttribute: newPhonenumber, mailId: mailId)
     }
     
 }

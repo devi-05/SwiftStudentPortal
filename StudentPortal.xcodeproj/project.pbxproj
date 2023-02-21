@@ -16,6 +16,7 @@
 		331F6E5C29A49F000062B334 /* EditStudentProfileEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331F6E5B29A49F000062B334 /* EditStudentProfileEnum.swift */; };
 		331F6E5E29A49F710062B334 /* ProfileEditMenuPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331F6E5D29A49F710062B334 /* ProfileEditMenuPage.swift */; };
 		331F6E6229A4A6700062B334 /* AdminEditOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331F6E6129A4A6700062B334 /* AdminEditOptions.swift */; };
+		3337FC8D29A4CA4C00F003C4 /* AdminViewOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3337FC8C29A4CA4C00F003C4 /* AdminViewOptions.swift */; };
 		33E37E13299AA0680051EA44 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E37E12299AA0680051EA44 /* main.swift */; };
 		33E37E1B299AA0870051EA44 /* Admin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E37E1A299AA0870051EA44 /* Admin.swift */; };
 		33E37E1D299AA0910051EA44 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E37E1C299AA0910051EA44 /* Student.swift */; };
@@ -58,6 +59,7 @@
 		331F6E5B29A49F000062B334 /* EditStudentProfileEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditStudentProfileEnum.swift; sourceTree = "<group>"; };
 		331F6E5D29A49F710062B334 /* ProfileEditMenuPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditMenuPage.swift; sourceTree = "<group>"; };
 		331F6E6129A4A6700062B334 /* AdminEditOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminEditOptions.swift; sourceTree = "<group>"; };
+		3337FC8C29A4CA4C00F003C4 /* AdminViewOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewOptions.swift; sourceTree = "<group>"; };
 		33E37E0F299AA0680051EA44 /* StudentPortal */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = StudentPortal; sourceTree = BUILT_PRODUCTS_DIR; };
 		33E37E12299AA0680051EA44 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		33E37E1A299AA0870051EA44 /* Admin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Admin.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				331F6E5B29A49F000062B334 /* EditStudentProfileEnum.swift */,
 				331F6E5D29A49F710062B334 /* ProfileEditMenuPage.swift */,
 				331F6E6129A4A6700062B334 /* AdminEditOptions.swift */,
+				3337FC8C29A4CA4C00F003C4 /* AdminViewOptions.swift */,
 			);
 			path = ProfileMenuView;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				331F6E4729A27AE60062B334 /* SignInPage.swift in Sources */,
 				33E7BAD2299F3B3C00D85031 /* SignUpPage.swift in Sources */,
 				33E7BAC6299E3F6F00D85031 /* DatabaseManager.swift in Sources */,
+				3337FC8D29A4CA4C00F003C4 /* AdminViewOptions.swift in Sources */,
 				33E7BAD7299F4CB500D85031 /* UtilFunctions.swift in Sources */,
 				33E7BACE299E4A8E00D85031 /* Account.swift in Sources */,
 				331F6E4929A2810B0062B334 /* PortalMenuOptions.swift in Sources */,

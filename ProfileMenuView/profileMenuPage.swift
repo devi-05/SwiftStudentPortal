@@ -18,11 +18,39 @@ public func profileMenuPage(mailId:String){
     let profileMenuPreference:ProfileMenuoptions = profileMenuOptionsArray[profileMenuOptionPreference-1]
     switch profileMenuPreference{
     case .viewProfile:
-        if let userProfile = profileManagerObj.viewProfile(mailId: mailId){
-            print(userProfile)
+        if(UtilFunctions.isStudent(mailId: mailId)){
+            if let userProfile = profileManagerObj.viewProfile(mailId: mailId){
+                print(userProfile)
+            }
+            else{
+                print("No user found!")
+            }
         }
         else{
-            print("No user found!")
+            for options in AdminViewOptions.allCases.enumerated(){
+                print("\(options.element.rawValue). \(options.element)")
+            }
+            let adminViewOptionsArray:[AdminViewOptions] = AdminViewOptions.allCases
+            let adminViewOptionPreference:Int = UtilFunctions.getIntegerInput()
+            let adminViewPreference:AdminViewOptions = adminViewOptionsArray[adminViewOptionPreference-1]
+            switch adminViewPreference{
+            case .viewOwnProfile:
+                if let userProfile = profileManagerObj.viewProfile(mailId: mailId){
+                    print(userProfile)
+                }
+                else{
+                    print("No user found!")
+                }
+            case .viewstudentProfile:
+                print("Enter Student MailId:")
+                let studentMailId:String = UtilFunctions.getStringInput()
+                if let userProfile = profileManagerObj.viewProfile(mailId: studentMailId){
+                    print(userProfile)
+                }
+                else{
+                    print("No user found!")
+                }
+            }
         }
     case .editProfile:
         if(UtilFunctions.isStudent(mailId: mailId)){
@@ -38,7 +66,7 @@ public func profileMenuPage(mailId:String){
             case .editOwnProfile:
                 editOwnProfile(mailId: mailId)
             case .editStudentProfile:
-                edit
+                editStudentProfile(mailId: mailId)
             }
         }
     }
