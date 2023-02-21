@@ -16,10 +16,12 @@ public func portalSignIn(){
         print("MailId doesnt exist")
     }
     else{
+        print("Enter your Password to sign In:")
         var password = UtilFunctions.getStringInput()
         let existingPassword = db.getpassword(mailId: mailId)
         while(password != existingPassword){
             print("Password mismatch")
+            print("Re-enter your existing password")
             password = UtilFunctions.getStringInput()
         }
         print("signed in successfully")
@@ -30,10 +32,16 @@ public func portalSignIn(){
         else{
             currentUser = "Admin"
         }
-        print("welcome \(String(describing: db.getUserName(mailId: mailId)))!..You logged in as \(currentUser)")
+        if let UserName = db.getUserName(mailId: mailId){
+            print("welcome \(UserName)!..You logged in as \(currentUser)")}
+        else{
+            print("Error in signing in!")
+        }
+        
+        profileMenuPage(mailId: mailId)
         
     }
-    profileMenuPage(mailId: mailId)
+    
     
 }
 

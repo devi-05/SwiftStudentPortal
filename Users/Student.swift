@@ -121,7 +121,7 @@ class Student:User,CustomStringConvertible{
     
     
     public var description :String{
-        return " MailId : \(userMailId)\n Name : \(userName)\n Rollnumber : \(studentRollNumber)\n Department : \(studentDepartment)\n Joining year : \(studentJoiningYear)\n Mode of joining : \(studentModeOfJoining)\n Mode of joining fees : \(studentModeOfJoiningFees)\n Transport fees : \(studentTransportFees)\n Miscellaneous fees : \(studentMiscellaneousFees)\n Residential status : \(studentResidentialStatus)\n Residential status fees : \(studentResidentialStatusFees)\n Total fees : \(studentTotalFees)\n Fees paid : \(studentTotalFeesPaid)"
+        return " MailId : \(userMailId)\n Name : \(userName)\n Address: \(userAddress)\n PhoneNumber: \(userPhoneNumber)\n BloodGroup: \(userBloodGroup)\n Rollnumber : \(studentRollNumber)\n Department : \(studentDepartment)\n Joining year : \(studentJoiningYear)\n Mode of joining : \(studentModeOfJoining)\n Mode of joining fees : \(studentModeOfJoiningFees)\n Transport fees : \(studentTransportFees)\n Miscellaneous fees : \(studentMiscellaneousFees)\n Residential status : \(studentResidentialStatus)\n Residential status fees : \(studentResidentialStatusFees)\n Total fees : \(studentTotalFees)\n Fees paid : \(studentTotalFeesPaid)"
     }
 
     

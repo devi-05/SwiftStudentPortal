@@ -9,6 +9,7 @@ import Foundation
 
 public func profileMenuPage(mailId:String){
     let profileManagerObj = ProfileManager()
+ProfileMenuLoop:while(true){
     print("Welcome to profile page!")
     for profileOptions in ProfileMenuoptions.allCases.enumerated(){
         print("\(profileOptions.element.rawValue). \(profileOptions.element)")
@@ -69,5 +70,10 @@ public func profileMenuPage(mailId:String){
                 editStudentProfile(mailId: mailId)
             }
         }
+    case .exit:
+        print("Exiting from profile Page")
+        break ProfileMenuLoop
     }
+    
+}
 }

@@ -9,6 +9,7 @@ import Foundation
 
 
 public func displayMenuOptions(mailId:String){
+MenuLoop:while(true){
     print("Welcome to Menu Page!")
     print("Enter your preference from below options")
     for menuOptions in PortalMenuOptions.allCases.enumerated(){
@@ -25,6 +26,10 @@ public func displayMenuOptions(mailId:String){
         print("fee")
     case .resultPage:
         print("result")
+    case .exit:
+        print("Exiting from MenuPage")
+        break MenuLoop
     }
 }
-
+    
+}

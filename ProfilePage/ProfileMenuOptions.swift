@@ -8,5 +8,5 @@
 import Foundation
 
 public enum ProfileMenuoptions:Int,CaseIterable{
-    case viewProfile=1,editProfile
+    case viewProfile=1,editProfile,exit
 }
