@@ -20,6 +20,7 @@
 		3337FC8F29A4D3AF00F003C4 /* PaymentModeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3337FC8E29A4D3AF00F003C4 /* PaymentModeEnum.swift */; };
 		3337FC9129A4D49600F003C4 /* PaymentServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3337FC9029A4D49600F003C4 /* PaymentServiceManager.swift */; };
 		3337FC9629A4D77600F003C4 /* FeePortal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3337FC9529A4D77600F003C4 /* FeePortal.swift */; };
+		33AB1A4529A72B9700238621 /* FeePortalOptionsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AB1A4429A72B9700238621 /* FeePortalOptionsEnum.swift */; };
 		33E37E13299AA0680051EA44 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E37E12299AA0680051EA44 /* main.swift */; };
 		33E37E1B299AA0870051EA44 /* Admin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E37E1A299AA0870051EA44 /* Admin.swift */; };
 		33E37E1D299AA0910051EA44 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E37E1C299AA0910051EA44 /* Student.swift */; };
@@ -66,6 +67,7 @@
 		3337FC8E29A4D3AF00F003C4 /* PaymentModeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentModeEnum.swift; sourceTree = "<group>"; };
 		3337FC9029A4D49600F003C4 /* PaymentServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentServiceManager.swift; sourceTree = "<group>"; };
 		3337FC9529A4D77600F003C4 /* FeePortal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeePortal.swift; sourceTree = "<group>"; };
+		33AB1A4429A72B9700238621 /* FeePortalOptionsEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeePortalOptionsEnum.swift; sourceTree = "<group>"; };
 		33E37E0F299AA0680051EA44 /* StudentPortal */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = StudentPortal; sourceTree = BUILT_PRODUCTS_DIR; };
 		33E37E12299AA0680051EA44 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		33E37E1A299AA0870051EA44 /* Admin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Admin.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				3337FC8E29A4D3AF00F003C4 /* PaymentModeEnum.swift */,
+				33AB1A4429A72B9700238621 /* FeePortalOptionsEnum.swift */,
 				3337FC9529A4D77600F003C4 /* FeePortal.swift */,
 			);
 			path = FeeMenuView;
@@ -330,6 +333,7 @@
 				331F6E4D29A32BFE0062B334 /* ProfileMenuOptions.swift in Sources */,
 				33E7BAC4299E3F2C00D85031 /* MainDatabase.swift in Sources */,
 				33E7BAD0299E659200D85031 /* PortalOptions.swift in Sources */,
+				33AB1A4529A72B9700238621 /* FeePortalOptionsEnum.swift in Sources */,
 				33E7BACB299E463900D85031 /* StudentPortal.swift in Sources */,
 				33E37E1D299AA0910051EA44 /* Student.swift in Sources */,
 				33E37E1B299AA0870051EA44 /* Admin.swift in Sources */,

@@ -59,9 +59,9 @@ struct ProfilePageDelegator{
             let feesWithoutResidentialFees = modeOfJoiningFees+transportFees+miscellaneousFees
             let totalFees:Int = feesWithoutResidentialFees+residentialStatusFees
             let feesPaid:Int = 0
-            
+            let feesBalance:Int = (totalFees-feesPaid)
         
-            let newStudent = Student(mailId, name, bloodGroup, address, phoneNumber, rollNumber, department, joiningYear, modeOfJoining, modeOfJoiningFees, transportFees, miscellaneousFees,feesWithoutResidentialFees, residentialStatus, residentialStatusFees, totalFees, feesPaid)
+            let newStudent = Student(mailId, name, bloodGroup, address, phoneNumber, rollNumber, department, joiningYear, modeOfJoining, modeOfJoiningFees, transportFees, miscellaneousFees,feesWithoutResidentialFees, residentialStatus, residentialStatusFees, totalFees, feesPaid, feesBalance)
             db.addToStudentDb(mailId: mailId, student: newStudent)
         }
         else{

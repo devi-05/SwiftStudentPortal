@@ -8,7 +8,7 @@
 import Foundation
 
 public enum PaymentModeEnum:Int,CaseIterable{
-    case UPI,debitCard,creditCard,netBanking
+    case UPI=1,debitCard,creditCard,netBanking
     func getConvenienceFees()->Double{
         switch self{
         case .UPI:

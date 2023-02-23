@@ -8,7 +8,7 @@
 import Foundation
 
 
-    let student = studentPortal()
+    let student = StudentPortal()
     
 MainLoop: while(true){
     

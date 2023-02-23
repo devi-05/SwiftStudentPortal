@@ -22,9 +22,10 @@ class Student:User,CustomStringConvertible{
     private var residentialStatusFees:Int
     private var totalFees:Int
     private var feesPaid:Int
+    private var feesBalance:Int
     
     
-    init(_ mailId: String, _ name: String, _ bloodGroup:BloodGroup, _ address: String, _ phoneNumber: Int,_ rollNumber: String, _ department: DeptEnum, _ joiningYear: String, _ modeOfJoining: ModeOfJoiningEnum, _ modeOfJoiningFees: Int, _ transportFees: Int, _ miscellaneousFees: Int,_ feesWithoutResidentialFees:Int, _ residentialStatus: ResidentialStatusEnum, _ residentialStatusFees: Int, _ totalFees: Int, _ feesPaid: Int) {
+    init(_ mailId: String, _ name: String, _ bloodGroup:BloodGroup, _ address: String, _ phoneNumber: Int,_ rollNumber: String, _ department: DeptEnum, _ joiningYear: String, _ modeOfJoining: ModeOfJoiningEnum, _ modeOfJoiningFees: Int, _ transportFees: Int, _ miscellaneousFees: Int,_ feesWithoutResidentialFees:Int, _ residentialStatus: ResidentialStatusEnum, _ residentialStatusFees: Int, _ totalFees: Int, _ feesPaid: Int,_ feesBalance:Int) {
         
         self.rollNumber = rollNumber
         self.department = department
@@ -38,6 +39,7 @@ class Student:User,CustomStringConvertible{
         self.residentialStatusFees = residentialStatusFees
         self.totalFees = totalFees
         self.feesPaid = feesPaid
+        self.feesBalance = feesBalance
         super.init(mailId, name, bloodGroup, address, phoneNumber)
         
     }
@@ -125,10 +127,18 @@ class Student:User,CustomStringConvertible{
             self.feesPaid = newValue
         }
     }
+    public var studentFeesBalance:Int{
+        get{
+            return self.feesBalance
+        }
+        set{
+            self.feesBalance = newValue
+        }
+    }
     
     
     public var description :String{
-        return " MailId : \(userMailId)\n Name : \(userName)\n Address: \(userAddress)\n PhoneNumber: \(userPhoneNumber)\n BloodGroup: \(userBloodGroup)\n Rollnumber : \(studentRollNumber)\n Department : \(studentDepartment)\n Joining year : \(studentJoiningYear)\n Mode of joining : \(studentModeOfJoining)\n Mode of joining fees : \(studentModeOfJoiningFees)\n Transport fees : \(studentTransportFees)\n Miscellaneous fees : \(studentMiscellaneousFees)\n Residential status : \(studentResidentialStatus)\n Residential status fees : \(studentResidentialStatusFees)\n Total fees : \(studentTotalFees)\n Fees paid : \(studentTotalFeesPaid)"
+        return " MailId : \(userMailId)\n Name : \(userName)\n Address: \(userAddress)\n PhoneNumber: \(userPhoneNumber)\n BloodGroup: \(userBloodGroup)\n Rollnumber : \(studentRollNumber)\n Department : \(studentDepartment)\n Joining year : \(studentJoiningYear)\n Mode of joining : \(studentModeOfJoining)\n Mode of joining fees : \(studentModeOfJoiningFees)\n Transport fees : \(studentTransportFees)\n Miscellaneous fees : \(studentMiscellaneousFees)\n Residential status : \(studentResidentialStatus)\n Residential status fees : \(studentResidentialStatusFees)\n Total fees : \(studentTotalFees)\n Fees paid : \(studentTotalFeesPaid)\n Fees Balance : \(studentFeesBalance)"
     }
 
     

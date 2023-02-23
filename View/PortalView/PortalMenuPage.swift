@@ -9,7 +9,7 @@ import Foundation
 
 
 struct PortalMenuPage{
-    let profileMenuPageObj = ProfileMenuController()
+    
     func displayMenuOptions(mailId:String){
     MenuLoop:while(true){
         print("------------------------------------------------------------------------------------------")
@@ -25,9 +25,11 @@ struct PortalMenuPage{
         
         switch menuPreference{
         case .profilepage:
+            let profileMenuPageObj = ProfileMenuController()
             profileMenuPageObj.profileMenuPageController(mailId:mailId)
         case .feePage:
-            print("fee")
+            let feeMenuPageObj = FeePortal()
+            feeMenuPageObj.feePageView(mailId: mailId)
         case .resultPage:
             print("result")
         case .exit:

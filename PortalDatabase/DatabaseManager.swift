@@ -53,12 +53,7 @@ public class DatabaseManager{
         }
     }
     func getUserName(mailId:String)->String?{
-        if let userName = dbMainObj.studentDb[mailId]?.userName{
-            return userName
-        }
-        else{
-            return nil
-        }
+        return dbMainObj.studentDb[mailId]?.userName
     }
     func editProfileInDb(attribute:EditStudentProfileEnum,newAttribute:Any,mailId:String){
         if(Util.isStudent(mailId: mailId)){
@@ -90,17 +85,30 @@ public class DatabaseManager{
     
     func getTotalFees(mailId:String)->Int?{
         
-        guard let totalFees = dbMainObj.studentDb[mailId]?.studentTotalFees else{
-            return nil
-        }
-        return totalFees
+        return dbMainObj.studentDb[mailId]?.studentTotalFees
         
     }
     func getFeePaid(mailId:String)->Int?{
-        guard let totalFeesPaid = dbMainObj.studentDb[mailId]?.studentTotalFees else{
-            return nil
-        }
-        return totalFeesPaid
+        return dbMainObj.studentDb[mailId]?.studentTotalFeesPaid
     }
+    func getFeeBalance(mailId:String)->Int?{
+        return dbMainObj.studentDb[mailId]?.studentFeesBalance
+    }
+    
+    func getFeesWithoutResidentialFees(mailId:String)->[Int?]{
+        return [dbMainObj.studentDb[mailId]?.studentModeOfJoiningFees,dbMainObj.studentDb[mailId]?.studentTransportFees,dbMainObj.studentDb[mailId]?.studentMiscellaneousFees]
+    }
+    func getResidentialFees(mailId:String)->Int?{
+        return dbMainObj.studentDb[mailId]?.studentResidentialStatusFees
+    }
+    func updateFees(mailId:String,feesPaid:Int,feesBalance:Int){
+        dbMainObj.studentDb[mailId]?.studentTotalFeesPaid = feesPaid
+        dbMainObj.studentDb[mailId]?.studentFeesBalance = feesBalance
+    }
+    func updateAndReturnBalance(mailId:String,feeBalance:Int)->Int?{
+        dbMainObj.studentDb[mailId]?.studentFeesBalance = feeBalance
+        return dbMainObj.studentDb[mailId]?.studentFeesBalance
+    }
+    
 }
 

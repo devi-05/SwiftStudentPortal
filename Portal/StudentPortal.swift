@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct studentPortal:Portal{
+struct StudentPortal:Portal{
     
     func signUp() {
         portalSignUp()
