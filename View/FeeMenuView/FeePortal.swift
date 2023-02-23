@@ -8,46 +8,96 @@
 import Foundation
 
 struct FeePortal{
-    func feePageView(mailId:String){
-        let db = DatabaseManager.dbManagerObj
+    let db = DatabaseManager.dbManagerObj
+    func feePageView(mailId: String){
         let paymentServiceManagerObj = PaymentServiceManager()
+    FeePortalLoop:while(true){
         print("------------------------------------------------------------------------------------------")
         print("Welcome to Fee Portal!")
         print("------------------------------------------------------------------------------------------")
-        for options in FeePortalOptionsEnum.allCases.enumerated(){
-            print("\(options.element.rawValue). \(options.element)")
-        }
-        print("Enter your preference from above options:")
-        let option:Int = Util.getIntegerInput()
-        let feePortalOptionArray:[FeePortalOptionsEnum]=FeePortalOptionsEnum.allCases
-        let feePortalOptionPreference = feePortalOptionArray[option-1]
-        switch feePortalOptionPreference{
-        case .pay:
-            let feesWithoutResidentialFees = db.getFeesWithoutResidentialFees(mailId: mailId)
-            print("------------------------------------------------------------------------------------------")
-            print("Mode of Joining Fees:\( feesWithoutResidentialFees[0]!)\nTransport fees: \( feesWithoutResidentialFees[1]!)\nMiscellaneous Fees: \( feesWithoutResidentialFees[2]!)\nResidential Fees: \( db.getResidentialFees(mailId: mailId)!) ")
-            print("------------------------------------------------------------------------------------------")
-            print("Total fees: \(Double(db.getTotalFees(mailId: mailId)!))")
-            print("Enter Mode of Payment:")
-            for options in PaymentModeEnum.allCases.enumerated(){
+        let feePortalOptionPreference:String
+        if(Util.isStudent(mailId: mailId)){
+            for options in StudentFeePortalOptions.allCases.enumerated(){
                 print("\(options.element.rawValue). \(options.element)")
             }
-            let preference:Int = Util.getIntegerInput()
-            let paymentModeEnumArray:[PaymentModeEnum]=PaymentModeEnum.allCases
-            let modeOfPayment = paymentModeEnumArray[preference-1]
-            let convenienceFees = modeOfPayment.getConvenienceFees()
-            let calculatedTotalFees = Double(db.getTotalFees(mailId: mailId)!) + ((Double(db.getTotalFees(mailId: mailId)!) * (convenienceFees/100)))
-            print("------------------------------------------------------------------------------------------")
-            print("Total fees with convenience fees: \(calculatedTotalFees)\nFees Paid: \( db.getFeePaid(mailId: mailId)!)\nFees balance: \(db.updateAndReturnBalance(mailId: mailId, feeBalance: Int(calculatedTotalFees))!)")
-            print("------------------------------------------------------------------------------------------")
-            print("Enter amount to be paid:")
-            let amount:Int = Util.getIntegerInput()
-            paymentServiceManagerObj.pay(mailId: mailId,amount: amount)
-            print("final:\(db.getTotalFees(mailId: mailId)!) \(db.getFeePaid(mailId: mailId)!) \(db.getFeeBalance(mailId: mailId)!)")
-        default:
-        print("")
+            print("Enter your preference from above options:")
+            let option:Int = Util.getIntegerInput()
+            let feePortalOptionArray:[StudentFeePortalOptions]=StudentFeePortalOptions.allCases
+            feePortalOptionPreference = feePortalOptionArray[option-1].toString()
         }
-        
+        else{
+            for options in AdminFeePortalOptions.allCases.enumerated(){
+                print("\(options.element.rawValue). \(options.element)")
+            }
+            print("Enter your preference from above options:")
+            let option:Int = Util.getIntegerInput()
+            let feePortalOptionArray:[AdminFeePortalOptions]=AdminFeePortalOptions.allCases
+            feePortalOptionPreference = feePortalOptionArray[option-1].toString()
+        }
+        switch feePortalOptionPreference{
+        case "pay":
+            if(db.getFeeBalance(mailId: mailId)! > 0){
+                let feesWithoutResidentialFees = db.getFeesWithoutResidentialFees(mailId: mailId)
+                print("------------------------------------------------------------------------------------------")
+                print("Mode of Joining Fees:Rs.\( feesWithoutResidentialFees[0]!)\nTransport fees: Rs.\( feesWithoutResidentialFees[1]!)\nMiscellaneous Fees: Rs.\( feesWithoutResidentialFees[2]!)\nResidential Fees: Rs.\( db.getResidentialFees(mailId: mailId)!) ")
+                print("------------------------------------------------------------------------------------------")
+                print("Total fees: Rs.\(db.getTotalFees(mailId: mailId)!)")
+                print("Fees Balance : Rs.\(db.getFeeBalance(mailId: mailId)!)")
+                print("Enter Mode of Payment:")
+                for options in PaymentModeEnum.allCases.enumerated(){
+                    print("\(options.element.rawValue). \(options.element)")
+                }
+                let preference:Int = Util.getIntegerInput()
+                let paymentModeEnumArray:[PaymentModeEnum]=PaymentModeEnum.allCases
+                let modeOfPayment = paymentModeEnumArray[preference-1]
+                let convenienceFeePercent = modeOfPayment.getConvenienceFees()
+                let calculatedFeeBalance = Double(db.getFeeBalance(mailId: mailId)!) + ((Double(db.getFeeBalance(mailId: mailId)!) * (convenienceFeePercent/100)))
+                print("------------------------------------------------------------------------------------------")
+                print("Total fees : Rs.\(db.getTotalFees(mailId: mailId)!)\nFees Paid: Rs.\( db.getFeePaid(mailId: mailId)!)\nConvenienceFees: Rs.\(Int(Double(db.getFeeBalance(mailId: mailId)!) * (convenienceFeePercent/100)))\nFees balance: Rs.\(Int(calculatedFeeBalance))")
+                db.updateBalance(mailId: mailId, feeBalance: Int(calculatedFeeBalance))
+                print("------------------------------------------------------------------------------------------")
+                print("Enter amount to be paid:")
+                let amount:Int = Util.getIntegerInput()
+                paymentServiceManagerObj.pay(mailId: mailId,amount: amount)
+                print("Payment Successful!")
+                print("Do you want receipt for this payment(y/n)")
+                let receiptPreference = Util.getStringInput()
+                if(receiptPreference == "y"){
+                    getReceipt(mailId: mailId, amount: amount, modeOfPayment: modeOfPayment)
+                }
+            }
+            else{
+                print("No Balance...Full Fees Paid!")
+            }
+            
+        case "getBalance":
+            if(!Util.isStudent(mailId: mailId)){
+                print("Enter student mailId:")
+                let studentMailId = Util.getStringInput()
+                print(paymentServiceManagerObj.getBalance(mailId: studentMailId))
+            }
+            else{
+                print(paymentServiceManagerObj.getBalance(mailId: mailId))}
+        case "updateFees":
+            paymentServiceManagerObj.updateFees()
+            print("Successfully updated!")
+        case "backToMenuPage":
+            break FeePortalLoop
+            
+        default:
+            break FeePortalLoop
+        }
+    }
+}
+
+    func getReceipt(mailId:String,amount:Int,modeOfPayment:PaymentModeEnum){
+        print("Payer Details:")
+        print("------------------------------------------------------------------------------------------")
+        print("Name:\(db.getUserName(mailId: mailId)!) \nMailId:\(mailId) \n\(db.getRollNumberAndDepartment(mailId: mailId))")
+        print("------------------------------------------------------------------------------------------")
+        print("Payment Details:")
+        print("------------------------------------------------------------------------------------------")
+        print("Transaction status : Success \nCurrent Transaction Amount: Rs.\(amount) \nMode of payment: \(modeOfPayment) \nFees Paid till date: Rs.\(db.getFeePaid(mailId: mailId)!) \nFees balance: Rs.\(db.getFeeBalance(mailId: mailId)!)")
         
     }
     

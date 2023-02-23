@@ -8,5 +8,5 @@
 import Foundation
 
 public enum PortalMenuOptions:Int,CaseIterable{
-    case profilepage=1,feePage,resultPage,exit
+    case profilepage=1,feePage,resultPage,signOut
 }

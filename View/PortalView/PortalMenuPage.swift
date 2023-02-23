@@ -32,8 +32,9 @@ struct PortalMenuPage{
             feeMenuPageObj.feePageView(mailId: mailId)
         case .resultPage:
             print("result")
-        case .exit:
-            print("Exiting from MenuPage")
+        case .signOut:
+            let signoutObj = StudentPortal()
+            signoutObj.signOut()
             break MenuLoop
         }
     }

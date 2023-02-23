@@ -8,5 +8,5 @@
 import Foundation
 
 public enum PortalOptions:Int,CaseIterable{
-    case signUp=1,signIn,signOut
+    case signUp=1,signIn,exit
 }

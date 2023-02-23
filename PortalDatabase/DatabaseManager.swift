@@ -20,13 +20,13 @@ public class DatabaseManager{
     }
     
     func checkMailId(mailId:String)->Bool{
-        guard(dbMainObj.accountDb.keys.contains(mailId)) else{
-            return false
-        }
-        return true
+        return dbMainObj.accountDb.keys.contains(mailId)
     }
     func getpassword(mailId:String) ->String?{
-        dbMainObj.accountDb[mailId]
+        guard let password = dbMainObj.accountDb[mailId] else{
+            return nil
+        }
+        return password
     }
     func addToStudentDb(mailId:String,student:Student){
         
@@ -53,7 +53,16 @@ public class DatabaseManager{
         }
     }
     func getUserName(mailId:String)->String?{
-        return dbMainObj.studentDb[mailId]?.userName
+        guard let userName = dbMainObj.studentDb[mailId]?.userName else{
+            return nil
+        }
+        return userName
+    }
+    func getRollNumberAndDepartment(mailId:String)->String{
+        guard let rollNumber = dbMainObj.studentDb[mailId]?.studentRollNumber, let department = dbMainObj.studentDb[mailId]?.studentDepartment else{
+            return ""
+        }
+        return "RollNumber: \(rollNumber) \nDepartment: \(department)"
     }
     func editProfileInDb(attribute:EditStudentProfileEnum,newAttribute:Any,mailId:String){
         if(Util.isStudent(mailId: mailId)){
@@ -105,9 +114,11 @@ public class DatabaseManager{
         dbMainObj.studentDb[mailId]?.studentTotalFeesPaid = feesPaid
         dbMainObj.studentDb[mailId]?.studentFeesBalance = feesBalance
     }
-    func updateAndReturnBalance(mailId:String,feeBalance:Int)->Int?{
+    func updateBalance(mailId:String,feeBalance:Int){
         dbMainObj.studentDb[mailId]?.studentFeesBalance = feeBalance
-        return dbMainObj.studentDb[mailId]?.studentFeesBalance
+    }
+    func getStudentDb() -> [String:Student]{
+        return dbMainObj.studentDb
     }
     
 }

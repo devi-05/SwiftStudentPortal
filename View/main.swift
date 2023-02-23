@@ -33,7 +33,6 @@ MainLoop: while(true){
     case 2:
         student.signIn()
     case 3:
-        student.signOut()
         break MainLoop
     default:
         print("invalid value")

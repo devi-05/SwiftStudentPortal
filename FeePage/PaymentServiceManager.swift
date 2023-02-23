@@ -18,4 +18,17 @@ class PaymentServiceManager{
         feesPaid += amount
         db.updateFees(mailId: mailId, feesPaid: feesPaid, feesBalance: feesBalance)
     }
+    func getBalance(mailId:String) ->String{
+        if(db.checkMailId(mailId: mailId)){
+            return "Name:\(db.getUserName(mailId: mailId)!) \nMailId:\(mailId) \n\(db.getRollNumberAndDepartment(mailId: mailId)) \nFeesBalance: \(db.getFeeBalance(mailId: mailId)!)"}
+        else{
+            return "student doesn't exist"
+        }
+    }
+    
+    func updateFees(){
+        for mailId in db.getStudentDb().keys {
+            db.updateBalance(mailId: mailId, feeBalance: (db.getTotalFees(mailId: mailId)! + db.getFeeBalance(mailId: mailId)!))
+        }
+    }
 }
