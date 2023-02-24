@@ -8,7 +8,7 @@
 
 
 struct AccountServiceManager{
-    var db = DatabaseManager.dbManagerObj
+    var db = DatabaseManager.sharedInstance
     
     func createAccount(mailId:String,password:String) {
         

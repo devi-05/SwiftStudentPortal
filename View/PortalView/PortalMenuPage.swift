@@ -31,7 +31,8 @@ struct PortalMenuPage{
             let feeMenuPageObj = FeePortal()
             feeMenuPageObj.feePageView(mailId: mailId)
         case .resultPage:
-            print("result")
+            let resultportalObj = ResultPortal()
+            resultportalObj.resultPageView(mailId: mailId)
         case .signOut:
             let signoutObj = StudentPortal()
             signoutObj.signOut()

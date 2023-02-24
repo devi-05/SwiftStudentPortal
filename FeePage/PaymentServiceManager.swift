@@ -9,7 +9,7 @@ import Foundation
 
 
 class PaymentServiceManager{
-    let db = DatabaseManager.dbManagerObj
+    let db = DatabaseManager.sharedInstance
     func pay(mailId:String,amount:Int){
         guard var feesPaid = db.getFeePaid(mailId: mailId),var feesBalance = db.getFeeBalance(mailId: mailId) else{
             return

@@ -11,7 +11,7 @@ import Foundation
 public func portalSignIn(){
     print("Welcome to Sign In page!")
     print("------------------------------------------------------------------------------------------")
-    let db = DatabaseManager.dbManagerObj
+    let db = DatabaseManager.sharedInstance
     let portalMenuPageObj = PortalMenuPage()
     print("Enter your mailId to sign In:")
     let mailId = Util.getStringInput()

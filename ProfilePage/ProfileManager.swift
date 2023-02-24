@@ -14,11 +14,11 @@ class ProfileManager{
         profileobj.getUserDetails(mailId: mailId)
     }
     func viewProfile(mailId:String)-> User?{
-        let db = DatabaseManager.dbManagerObj
+        let db = DatabaseManager.sharedInstance
         return db.getUser(mailId: mailId)
     }
     func editProfile(attribute:EditStudentProfileEnum,newAttribute:Any,mailId:String){
-        let db = DatabaseManager.dbManagerObj
+        let db = DatabaseManager.sharedInstance
         if(attribute == .residentialStatus){
             db.editResidentialStatus(newResidentialStatus: newAttribute as! ResidentialStatusEnum ,newResidentialStatusFees: (newAttribute as! ResidentialStatusEnum).getResidentialFees() ,mailId: mailId)
         }

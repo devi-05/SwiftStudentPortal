@@ -8,7 +8,7 @@
 import Foundation
 
 public func portalSignUp(){
-    let db = DatabaseManager.dbManagerObj
+    let db = DatabaseManager.sharedInstance
     let portalMenuPageObj = PortalMenuPage()
     let accountObj = AccountServiceManager()
     print("------------------------------------------------------------------------------------------")

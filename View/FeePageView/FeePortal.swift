@@ -8,7 +8,7 @@
 import Foundation
 
 struct FeePortal{
-    let db = DatabaseManager.dbManagerObj
+    let db = DatabaseManager.sharedInstance
     func feePageView(mailId: String){
         let paymentServiceManagerObj = PaymentServiceManager()
     FeePortalLoop:while(true){

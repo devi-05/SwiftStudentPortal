@@ -22,6 +22,12 @@
 		3337FC9629A4D77600F003C4 /* FeePortal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3337FC9529A4D77600F003C4 /* FeePortal.swift */; };
 		33AB1A4529A72B9700238621 /* StudentFeePortalOptionsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AB1A4429A72B9700238621 /* StudentFeePortalOptionsEnum.swift */; };
 		33AB1A4729A7D91700238621 /* AdminFeePortalOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AB1A4629A7D91700238621 /* AdminFeePortalOptions.swift */; };
+		33AB1A4C29A877E300238621 /* Grades.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AB1A4B29A877E300238621 /* Grades.swift */; };
+		33AB1A4E29A87A8C00238621 /* ResultPortal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AB1A4D29A87A8C00238621 /* ResultPortal.swift */; };
+		33AB1A5029A87D6A00238621 /* StudentResultOptionsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AB1A4F29A87D6A00238621 /* StudentResultOptionsEnum.swift */; };
+		33AB1A5229A87DC000238621 /* AdminResultOptionEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AB1A5129A87DC000238621 /* AdminResultOptionEnum.swift */; };
+		33AB1A5429A8888900238621 /* ResultGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AB1A5329A8888900238621 /* ResultGenerator.swift */; };
+		33AB1A5629A88B0700238621 /* ResultManagementSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AB1A5529A88B0700238621 /* ResultManagementSystem.swift */; };
 		33E37E13299AA0680051EA44 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E37E12299AA0680051EA44 /* main.swift */; };
 		33E37E1B299AA0870051EA44 /* Admin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E37E1A299AA0870051EA44 /* Admin.swift */; };
 		33E37E1D299AA0910051EA44 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E37E1C299AA0910051EA44 /* Student.swift */; };
@@ -70,6 +76,12 @@
 		3337FC9529A4D77600F003C4 /* FeePortal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeePortal.swift; sourceTree = "<group>"; };
 		33AB1A4429A72B9700238621 /* StudentFeePortalOptionsEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentFeePortalOptionsEnum.swift; sourceTree = "<group>"; };
 		33AB1A4629A7D91700238621 /* AdminFeePortalOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminFeePortalOptions.swift; sourceTree = "<group>"; };
+		33AB1A4B29A877E300238621 /* Grades.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grades.swift; sourceTree = "<group>"; };
+		33AB1A4D29A87A8C00238621 /* ResultPortal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultPortal.swift; sourceTree = "<group>"; };
+		33AB1A4F29A87D6A00238621 /* StudentResultOptionsEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentResultOptionsEnum.swift; sourceTree = "<group>"; };
+		33AB1A5129A87DC000238621 /* AdminResultOptionEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminResultOptionEnum.swift; sourceTree = "<group>"; };
+		33AB1A5329A8888900238621 /* ResultGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultGenerator.swift; sourceTree = "<group>"; };
+		33AB1A5529A88B0700238621 /* ResultManagementSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultManagementSystem.swift; sourceTree = "<group>"; };
 		33E37E0F299AA0680051EA44 /* StudentPortal */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = StudentPortal; sourceTree = BUILT_PRODUCTS_DIR; };
 		33E37E12299AA0680051EA44 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		33E37E1A299AA0870051EA44 /* Admin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Admin.swift; sourceTree = "<group>"; };
@@ -123,7 +135,7 @@
 			path = PortalView;
 			sourceTree = "<group>";
 		};
-		331F6E5629A49E250062B334 /* ProfileMenuView */ = {
+		331F6E5629A49E250062B334 /* ProfilePageView */ = {
 			isa = PBXGroup;
 			children = (
 				331F6E4E29A48C090062B334 /* ProfileMenuController.swift */,
@@ -133,18 +145,31 @@
 				331F6E6129A4A6700062B334 /* AdminEditOptions.swift */,
 				3337FC8C29A4CA4C00F003C4 /* AdminViewOptions.swift */,
 			);
-			path = ProfileMenuView;
+			path = ProfilePageView;
 			sourceTree = "<group>";
 		};
-		3337FC9429A4D60100F003C4 /* FeeMenuView */ = {
+		3337FC9429A4D60100F003C4 /* FeePageView */ = {
 			isa = PBXGroup;
 			children = (
 				3337FC8E29A4D3AF00F003C4 /* PaymentModeEnum.swift */,
 				33AB1A4429A72B9700238621 /* StudentFeePortalOptionsEnum.swift */,
 				33AB1A4629A7D91700238621 /* AdminFeePortalOptions.swift */,
 				3337FC9529A4D77600F003C4 /* FeePortal.swift */,
+				33AB1A4A29A877CE00238621 /* ResultPageView */,
 			);
-			path = FeeMenuView;
+			path = FeePageView;
+			sourceTree = "<group>";
+		};
+		33AB1A4A29A877CE00238621 /* ResultPageView */ = {
+			isa = PBXGroup;
+			children = (
+				33AB1A4B29A877E300238621 /* Grades.swift */,
+				33AB1A4F29A87D6A00238621 /* StudentResultOptionsEnum.swift */,
+				33AB1A5129A87DC000238621 /* AdminResultOptionEnum.swift */,
+				33AB1A4D29A87A8C00238621 /* ResultPortal.swift */,
+				33AB1A5529A88B0700238621 /* ResultManagementSystem.swift */,
+			);
+			path = ResultPageView;
 			sourceTree = "<group>";
 		};
 		33E37E06299AA0680051EA44 = {
@@ -179,8 +204,8 @@
 				331F6E4629A27AE60062B334 /* SignInPage.swift */,
 				331F6E5329A48F750062B334 /* PortalView */,
 				331F6E5029A48EB60062B334 /* ProfileCreator */,
-				331F6E5629A49E250062B334 /* ProfileMenuView */,
-				3337FC9429A4D60100F003C4 /* FeeMenuView */,
+				331F6E5629A49E250062B334 /* ProfilePageView */,
+				3337FC9429A4D60100F003C4 /* FeePageView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -225,6 +250,7 @@
 		33E7BAB9299DEF5E00D85031 /* ResultPage */ = {
 			isa = PBXGroup;
 			children = (
+				33AB1A5329A8888900238621 /* ResultGenerator.swift */,
 			);
 			path = ResultPage;
 			sourceTree = "<group>";
@@ -318,22 +344,28 @@
 				3337FC8D29A4CA4C00F003C4 /* AdminViewOptions.swift in Sources */,
 				33E7BAD7299F4CB500D85031 /* Util.swift in Sources */,
 				33E7BACE299E4A8E00D85031 /* Account.swift in Sources */,
+				33AB1A5229A87DC000238621 /* AdminResultOptionEnum.swift in Sources */,
 				331F6E4929A2810B0062B334 /* PortalMenuOptions.swift in Sources */,
 				33E7BAD4299F451900D85031 /* ProfilePageDelegator.swift in Sources */,
+				33AB1A5629A88B0700238621 /* ResultManagementSystem.swift in Sources */,
 				33E7BABC299E06B700D85031 /* User.swift in Sources */,
+				33AB1A5429A8888900238621 /* ResultGenerator.swift in Sources */,
 				33E37E13299AA0680051EA44 /* main.swift in Sources */,
 				33E7BADB299F5AFE00D85031 /* ModeEnum.swift in Sources */,
 				33E7BAD9299F556D00D85031 /* DepartmentEnum.swift in Sources */,
 				331F6E6229A4A6700062B334 /* AdminEditOptions.swift in Sources */,
 				331F6E5C29A49F000062B334 /* EditStudentProfileEnum.swift in Sources */,
+				33AB1A4E29A87A8C00238621 /* ResultPortal.swift in Sources */,
 				3337FC9629A4D77600F003C4 /* FeePortal.swift in Sources */,
 				3337FC8F29A4D3AF00F003C4 /* PaymentModeEnum.swift in Sources */,
 				331F6E5A29A49E960062B334 /* EditOwnProfileEnum.swift in Sources */,
 				331F6E4B29A285290062B334 /* PortalMenuPage.swift in Sources */,
 				33AB1A4729A7D91700238621 /* AdminFeePortalOptions.swift in Sources */,
+				33AB1A4C29A877E300238621 /* Grades.swift in Sources */,
 				33E7BAC8299E43E000D85031 /* PortalFunctions.swift in Sources */,
 				33E7BADD299F608900D85031 /* ResidentialStatusEnum.swift in Sources */,
 				33E7BABE299E08BB00D85031 /* BloodGroupEnum.swift in Sources */,
+				33AB1A5029A87D6A00238621 /* StudentResultOptionsEnum.swift in Sources */,
 				331F6E4D29A32BFE0062B334 /* ProfileMenuOptions.swift in Sources */,
 				33E7BAC4299E3F2C00D85031 /* MainDatabase.swift in Sources */,
 				33E7BAD0299E659200D85031 /* PortalOptions.swift in Sources */,

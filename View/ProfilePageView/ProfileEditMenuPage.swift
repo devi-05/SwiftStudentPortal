@@ -8,7 +8,7 @@
 import Foundation
 
 func editOwnProfile(mailId:String){
-    let db = DatabaseManager.dbManagerObj
+    let db = DatabaseManager.sharedInstance
     for editOptions in EditOwnProfileEnum.allCases.enumerated(){
         print("\(editOptions.element.rawValue). \(editOptions.element)")
     }

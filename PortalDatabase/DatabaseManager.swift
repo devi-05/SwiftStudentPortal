@@ -12,7 +12,7 @@ public class DatabaseManager{
     
     private var dbMainObj = Database()
     
-    static let dbManagerObj=DatabaseManager()
+    static let sharedInstance=DatabaseManager()
     private init(){}
     
     func addMailIdAndPassword(mailId:String,password:String){
@@ -119,6 +119,18 @@ public class DatabaseManager{
     }
     func getStudentDb() -> [String:Student]{
         return dbMainObj.studentDb
+    }
+    func updateCreditsAndGradePoints(mailId:String,semNum:Int,totalCredits:Int,totalGradePoints:Double,result:String,gpa:Double){
+        dbMainObj.studentTotalCreditdb[mailId] = [semNum:totalCredits]
+        dbMainObj.studentCreditsWithGradePoints[mailId] = [semNum:totalGradePoints]
+        dbMainObj.studentResults[mailId] = [semNum:[result:gpa]]
+    }
+    func getEntireResults(mailId:String)->[Int:[String:Double]]{
+        return dbMainObj.studentResults[mailId]!
+    }
+    
+    func getResult(mailId:String,semNum:Int)->[String:Double]{
+        return (dbMainObj.studentResults[mailId]?[semNum])!
     }
     
 }
