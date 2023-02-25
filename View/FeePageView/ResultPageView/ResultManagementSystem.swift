@@ -11,8 +11,8 @@ class ResultComputingSystem{
     func computeResults(mailId:String){
         let resultGeneratorObj = ResultGenerator()
         var subjects:[String] = []
-        var credits:[Int] = []
-        var grades:[Grades] = []
+        var credits:[String] = []
+        var grades:[String] = []
         var gradePoints:[Double] = []
         print("Enter semester number:")
         let semNum = Util.getIntegerInput()
@@ -26,7 +26,7 @@ class ResultComputingSystem{
             subjects.append(sub)
             print("Enter credits: [1 - 5]")
             let subCredit = Util.getIntegerInput()
-            credits.append(subCredit)
+            credits.append(String(subCredit))
             totalCreditsSum += subCredit
             print("Enter grades:")
             for options in Grades.allCases.enumerated(){
@@ -35,16 +35,19 @@ class ResultComputingSystem{
             let gradeArray:[Grades]=Grades.allCases
             let preference = Util.getIntegerInput()
             let grade = gradeArray[preference-1]
-            grades.append(grade)
+            grades.append(grade.toString())
             gradePoints.append(Double(subCredit*grade.getGradePoints()))
             totalGradePoints += Double(subCredit*grade.getGradePoints())
         }
-        var result:String = ""
-        result += "subjects     Credits     grades \n"
-        result += " --------------------------------"
-        for i in 0...(subjects.count-1){
-            result += "\n\(subjects[i])       \(credits[i])     \(grades[i])"
-        }
+//        var result:String = ""
+//        result += "subjects     Credits     grades \n-------------------------"
+//        for i in 0...(subjects.count-1){
+//            result += "\n\(subjects[i])       \(credits[i])     \(grades[i])"
+//        }
+        var result:[[String]]=[]
+        result.append(subjects)
+        result.append(credits)
+        result.append(grades)
         
         let gpa:Double
         gpa = (totalGradePoints)/Double((totalCreditsSum))

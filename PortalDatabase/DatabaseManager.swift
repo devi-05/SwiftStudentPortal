@@ -7,8 +7,8 @@
 
 import Foundation
 
+typealias resultReturnType = [Int:[[[String]]:Double]]
 public class DatabaseManager{
-    
     
     private var dbMainObj = Database()
     
@@ -120,17 +120,35 @@ public class DatabaseManager{
     func getStudentDb() -> [String:Student]{
         return dbMainObj.studentDb
     }
-    func updateCreditsAndGradePoints(mailId:String,semNum:Int,totalCredits:Int,totalGradePoints:Double,result:String,gpa:Double){
+    func updateCreditsAndGradePoints(mailId:String,semNum:Int,totalCredits:Int,totalGradePoints:Double){
         dbMainObj.studentTotalCreditdb[mailId] = [semNum:totalCredits]
         dbMainObj.studentCreditsWithGradePoints[mailId] = [semNum:totalGradePoints]
-        dbMainObj.studentResults[mailId] = [semNum:[result:gpa]]
     }
-    func getEntireResults(mailId:String)->[Int:[String:Double]]{
+    func updateResults(mailId:String,semNum:Int,result:[[String]],gpa:Double){
+        var tempDict:[Int:[[[String]]:Double]] = [:]
+        if(dbMainObj.studentResults[mailId]==nil){
+            print("in empty update")
+            tempDict[semNum] = [result:gpa]
+            dbMainObj.studentResults[mailId] = tempDict
+        }
+        else{
+            if(dbMainObj.studentResults[mailId]?[semNum] == nil){
+                tempDict = dbMainObj.studentResults[mailId]!
+                tempDict[semNum] = [result:gpa]
+                dbMainObj.studentResults[mailId] = tempDict
+            }
+        }
+    }
+    
+    func getEntireResults(mailId:String)->resultReturnType{
         return dbMainObj.studentResults[mailId]!
     }
     
-    func getResult(mailId:String,semNum:Int)->[String:Double]{
+    func getResult(mailId:String,semNum:Int)->[[[String]]:Double]{
         return (dbMainObj.studentResults[mailId]?[semNum])!
+    }
+    func getCredits(mailId:String){
+        print(dbMainObj.studentTotalCreditdb[mailId]!)
     }
     
 }

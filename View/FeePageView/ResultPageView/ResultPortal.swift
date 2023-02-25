@@ -37,14 +37,24 @@ struct ResultPortal{
             let studentMailId = Util.getStringInput()
             resultManagementObj.computeResults(mailId: studentMailId)
         case "viewSemResult":
-            print("view sem result")
             let resultGeneratorObj = ResultGenerator()
             if(!Util.isStudent(mailId: mailId)){
                 print("Enter student MailId:")
                 let studentMailId = Util.getStringInput()
                 print("Enter semester Number:")
                 let semNum = Util.getIntegerInput()
-                print(resultGeneratorObj.viewSemResult(mailId: studentMailId,semNum:semNum))}
+                let result = resultGeneratorObj.viewSemResult(mailId: studentMailId,semNum:semNum).keys
+                let subjects = result[result.startIndex][0]
+                let credits = result[result.startIndex][1]
+                let grades = result[result.startIndex][2]
+                print("subjects     Credits     grades")
+                print("-----------------------------------------")
+                for i in 0...(subjects.count-1){
+                    print("\(subjects[i])              \(credits[i])            \(grades[i])")
+                }
+                let gpa = resultGeneratorObj.viewSemResult(mailId: studentMailId,semNum:semNum).values
+                print("GPA: \(gpa[gpa.startIndex])")
+            }
             else{
                 print("Enter semester Number:")
                 let semNum = Util.getIntegerInput()
@@ -55,12 +65,20 @@ struct ResultPortal{
             if(!Util.isStudent(mailId: mailId)){
                 print("Enter student MailId:")
                 let studentMailId = Util.getStringInput()
-                print(resultGeneratorObj.viewEntireSemResult(mailId: studentMailId))}
+                resultGeneratorObj.viewEntireSemResult(mailId: studentMailId)}
             else{
-                print(resultGeneratorObj.viewEntireSemResult(mailId: mailId))
+                resultGeneratorObj.viewEntireSemResult(mailId: mailId)
             }
         case "calculateCgpa":
-            print(" ")
+            let resultGeneratorObj = ResultGenerator()
+            if(!Util.isStudent(mailId: mailId)){
+                print("Enter student MailId:")
+                let studentMailId = Util.getStringInput()
+                resultGeneratorObj.calculateCgpa(mailId: studentMailId)}
+            else{
+                resultGeneratorObj.calculateCgpa(mailId: mailId)
+            }
+            
         case "backToMenuPage":
             break ResultPageLoop
         default:

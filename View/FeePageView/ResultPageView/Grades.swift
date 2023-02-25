@@ -23,4 +23,18 @@ enum Grades:Int,CaseIterable{
             return 6
         }
     }
+    func toString()->String{
+        switch self{
+        case .O:
+            return "O"
+        case .A:
+            return "A"
+        case .B:
+            return "B"
+        case .C:
+            return "C"
+        case .D:
+            return "D"
+        }
+    }
 }

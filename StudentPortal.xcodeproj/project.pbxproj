@@ -28,6 +28,7 @@
 		33AB1A5229A87DC000238621 /* AdminResultOptionEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AB1A5129A87DC000238621 /* AdminResultOptionEnum.swift */; };
 		33AB1A5429A8888900238621 /* ResultGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AB1A5329A8888900238621 /* ResultGenerator.swift */; };
 		33AB1A5629A88B0700238621 /* ResultManagementSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AB1A5529A88B0700238621 /* ResultManagementSystem.swift */; };
+		33AB1A5829AA009900238621 /* ResultGeneratorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AB1A5729AA009900238621 /* ResultGeneratorDelegate.swift */; };
 		33E37E13299AA0680051EA44 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E37E12299AA0680051EA44 /* main.swift */; };
 		33E37E1B299AA0870051EA44 /* Admin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E37E1A299AA0870051EA44 /* Admin.swift */; };
 		33E37E1D299AA0910051EA44 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E37E1C299AA0910051EA44 /* Student.swift */; };
@@ -82,6 +83,7 @@
 		33AB1A5129A87DC000238621 /* AdminResultOptionEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminResultOptionEnum.swift; sourceTree = "<group>"; };
 		33AB1A5329A8888900238621 /* ResultGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultGenerator.swift; sourceTree = "<group>"; };
 		33AB1A5529A88B0700238621 /* ResultManagementSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultManagementSystem.swift; sourceTree = "<group>"; };
+		33AB1A5729AA009900238621 /* ResultGeneratorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultGeneratorDelegate.swift; sourceTree = "<group>"; };
 		33E37E0F299AA0680051EA44 /* StudentPortal */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = StudentPortal; sourceTree = BUILT_PRODUCTS_DIR; };
 		33E37E12299AA0680051EA44 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		33E37E1A299AA0870051EA44 /* Admin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Admin.swift; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 			isa = PBXGroup;
 			children = (
 				33AB1A5329A8888900238621 /* ResultGenerator.swift */,
+				33AB1A5729AA009900238621 /* ResultGeneratorDelegate.swift */,
 			);
 			path = ResultPage;
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 				33AB1A4729A7D91700238621 /* AdminFeePortalOptions.swift in Sources */,
 				33AB1A4C29A877E300238621 /* Grades.swift in Sources */,
 				33E7BAC8299E43E000D85031 /* PortalFunctions.swift in Sources */,
+				33AB1A5829AA009900238621 /* ResultGeneratorDelegate.swift in Sources */,
 				33E7BADD299F608900D85031 /* ResidentialStatusEnum.swift in Sources */,
 				33E7BABE299E08BB00D85031 /* BloodGroupEnum.swift in Sources */,
 				33AB1A5029A87D6A00238621 /* StudentResultOptionsEnum.swift in Sources */,
