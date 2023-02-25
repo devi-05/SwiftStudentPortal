@@ -120,14 +120,10 @@ public class DatabaseManager{
     func getStudentDb() -> [String:Student]{
         return dbMainObj.studentDb
     }
-    func updateCreditsAndGradePoints(mailId:String,semNum:Int,totalCredits:Int,totalGradePoints:Double){
-        dbMainObj.studentTotalCreditdb[mailId] = [semNum:totalCredits]
-        dbMainObj.studentCreditsWithGradePoints[mailId] = [semNum:totalGradePoints]
-    }
+
     func updateResults(mailId:String,semNum:Int,result:[[String]],gpa:Double){
         var tempDict:[Int:[[[String]]:Double]] = [:]
         if(dbMainObj.studentResults[mailId]==nil){
-            print("in empty update")
             tempDict[semNum] = [result:gpa]
             dbMainObj.studentResults[mailId] = tempDict
         }
@@ -147,8 +143,58 @@ public class DatabaseManager{
     func getResult(mailId:String,semNum:Int)->[[[String]]:Double]{
         return (dbMainObj.studentResults[mailId]?[semNum])!
     }
-    func getCredits(mailId:String){
-        print(dbMainObj.studentTotalCreditdb[mailId]!)
+    func setCredits(mailId:String,semNum:Int,credits:Int){
+        var tempCreditDict:[Int:Int] = [:]
+        
+        if dbMainObj.studentTotalCreditdb[mailId] == nil{
+            tempCreditDict[semNum] = credits
+            dbMainObj.studentTotalCreditdb[mailId] = tempCreditDict
+        }
+        else{
+            if let credit = dbMainObj.studentTotalCreditdb[mailId]{
+                tempCreditDict = credit
+                tempCreditDict[semNum] = credits
+                dbMainObj.studentTotalCreditdb[mailId] = tempCreditDict
+            }
+        }
+    }
+    func setGradePoints(mailId:String,semNum:Int,gradePoints:Double){
+        var tempGradeDict:[Int:Double] = [:]
+        if(dbMainObj.studentCreditsWithGradePoints[mailId]==nil){
+            tempGradeDict[semNum]=gradePoints
+            dbMainObj.studentCreditsWithGradePoints[mailId] = tempGradeDict
+        }
+        else{
+            if let gradePoint = dbMainObj.studentCreditsWithGradePoints[mailId]{
+                tempGradeDict = gradePoint
+                tempGradeDict[semNum] = gradePoints
+                dbMainObj.studentCreditsWithGradePoints[mailId] = tempGradeDict
+            }
+        }
+    }
+    func getTotalCredits(mailId:String)->Int?{
+        if let credit = dbMainObj.studentTotalCreditdb[mailId]{
+            var creditCollection = 0
+            for i in credit.values{
+                creditCollection+=i
+            }
+            return  creditCollection
+        }
+        else{
+            return nil
+        }
+    }
+    func getTotalGrades(mailId:String)->Double?{
+        if let grades = dbMainObj.studentCreditsWithGradePoints[mailId]{
+            var gradeCollection:Double = 0
+            for i in grades.values{
+                gradeCollection+=i
+            }
+            return  gradeCollection
+        }
+        else{
+            return nil
+        }
     }
     
 }

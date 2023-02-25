@@ -10,7 +10,7 @@ import Foundation
 
 struct PortalMenuPage{
     
-    func displayMenuOptions(mailId:String){
+    func displayMenuOptions(mailId: String){
     MenuLoop:while(true){
         print("------------------------------------------------------------------------------------------")
         print("Welcome to Menu Page!")

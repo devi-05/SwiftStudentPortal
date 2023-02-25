@@ -170,6 +170,7 @@
 				33AB1A5129A87DC000238621 /* AdminResultOptionEnum.swift */,
 				33AB1A4D29A87A8C00238621 /* ResultPortal.swift */,
 				33AB1A5529A88B0700238621 /* ResultManagementSystem.swift */,
+				33AB1A5729AA009900238621 /* ResultGeneratorDelegate.swift */,
 			);
 			path = ResultPageView;
 			sourceTree = "<group>";
@@ -253,7 +254,6 @@
 			isa = PBXGroup;
 			children = (
 				33AB1A5329A8888900238621 /* ResultGenerator.swift */,
-				33AB1A5729AA009900238621 /* ResultGeneratorDelegate.swift */,
 			);
 			path = ResultPage;
 			sourceTree = "<group>";

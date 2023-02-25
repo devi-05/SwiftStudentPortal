@@ -10,7 +10,8 @@ import Foundation
 class ResultGenerator{
     private var db = DatabaseManager.sharedInstance
     func addResult(mailId:String,semNum:Int,credits:Int,gradePoints:Double,result:[[String]],gpa:Double){
-        db.updateCreditsAndGradePoints(mailId: mailId, semNum: semNum, totalCredits: credits, totalGradePoints: gradePoints)
+        db.setCredits(mailId: mailId, semNum: semNum, credits: credits)
+        db.setGradePoints(mailId: mailId, semNum: semNum, gradePoints: gradePoints)
         db.updateResults(mailId: mailId, semNum: semNum, result: result, gpa: gpa)
         
     }
@@ -18,11 +19,14 @@ class ResultGenerator{
         return db.getResult(mailId: mailId, semNum: semNum)
     }
     func viewEntireSemResult(mailId:String){
-        var resultDelegate = ResultGeneratorDelegate()
+        let resultDelegate = ResultGeneratorDelegate()
         resultDelegate.displayEntireResults(result: db.getEntireResults(mailId: mailId))
-        //return db.getEntireResults(mailId: mailId)
+        
     }
-    func calculateCgpa(mailId:String){
-        db.getCredits(mailId: mailId)
+    func calculateCgpa(mailId:String)->Double?{
+        guard let totalCredits = db.getTotalCredits(mailId: mailId) else { return nil }
+        guard let totalGradePoints = db.getTotalGrades(mailId: mailId) else { return nil }
+        let roundedCgpa = round((totalGradePoints/Double(totalCredits)) * 100) / 100.0
+        return roundedCgpa
     }
 }

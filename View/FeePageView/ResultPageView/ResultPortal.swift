@@ -47,13 +47,15 @@ struct ResultPortal{
                 let subjects = result[result.startIndex][0]
                 let credits = result[result.startIndex][1]
                 let grades = result[result.startIndex][2]
-                print("subjects     Credits     grades")
-                print("-----------------------------------------")
+                print("---------------------------------------------------")
                 for i in 0...(subjects.count-1){
-                    print("\(subjects[i])              \(credits[i])            \(grades[i])")
+                    print("SUBJECT NAME:\(subjects[i])         \nCREDITS:\(credits[i])            \nGRADES:\(grades[i])")
+                    print("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-")
                 }
+                print("---------------------------------------------------")
                 let gpa = resultGeneratorObj.viewSemResult(mailId: studentMailId,semNum:semNum).values
                 print("GPA: \(gpa[gpa.startIndex])")
+               
             }
             else{
                 print("Enter semester Number:")
@@ -74,9 +76,24 @@ struct ResultPortal{
             if(!Util.isStudent(mailId: mailId)){
                 print("Enter student MailId:")
                 let studentMailId = Util.getStringInput()
-                resultGeneratorObj.calculateCgpa(mailId: studentMailId)}
+                if let cgpa = resultGeneratorObj.calculateCgpa(mailId: studentMailId){
+                    print("---------------------------------------------------")
+                    print("Your CGPA is\(cgpa)")
+                    print("---------------------------------------------------")
+                }
+                else{
+                    print("---------------------------------------------------")
+                    print("cgpa is not updated!")
+                    print("---------------------------------------------------")
+                }
+            }
             else{
-                resultGeneratorObj.calculateCgpa(mailId: mailId)
+                if let cgpa = resultGeneratorObj.calculateCgpa(mailId: mailId){
+                    print(cgpa)
+                }
+                else{
+                    print("cgpa is not updated!")
+                }
             }
             
         case "backToMenuPage":
@@ -85,7 +102,6 @@ struct ResultPortal{
             break ResultPageLoop
             
         }
-        
     }
     }
 }

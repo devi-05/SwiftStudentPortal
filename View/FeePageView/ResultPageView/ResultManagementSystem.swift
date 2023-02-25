@@ -39,11 +39,7 @@ class ResultComputingSystem{
             gradePoints.append(Double(subCredit*grade.getGradePoints()))
             totalGradePoints += Double(subCredit*grade.getGradePoints())
         }
-//        var result:String = ""
-//        result += "subjects     Credits     grades \n-------------------------"
-//        for i in 0...(subjects.count-1){
-//            result += "\n\(subjects[i])       \(credits[i])     \(grades[i])"
-//        }
+
         var result:[[String]]=[]
         result.append(subjects)
         result.append(credits)
@@ -51,8 +47,8 @@ class ResultComputingSystem{
         
         let gpa:Double
         gpa = (totalGradePoints)/Double((totalCreditsSum))
-        
-        resultGeneratorObj.addResult(mailId: mailId, semNum: semNum, credits: totalCreditsSum, gradePoints: totalGradePoints, result: result,gpa:gpa)
+        let roundedGpa = round(gpa*100)/100.0
+        resultGeneratorObj.addResult(mailId: mailId, semNum: semNum, credits: totalCreditsSum, gradePoints: totalGradePoints, result: result,gpa:roundedGpa)
         
         print("Results added successfully!")
     }
