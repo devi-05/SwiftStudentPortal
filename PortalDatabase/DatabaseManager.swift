@@ -136,12 +136,12 @@ public class DatabaseManager{
         }
     }
     
-    func getEntireResults(mailId:String)->resultReturnType{
-        return dbMainObj.studentResults[mailId]!
+    func getEntireResults(mailId:String)->resultReturnType?{
+        return dbMainObj.studentResults[mailId]
     }
     
-    func getResult(mailId:String,semNum:Int)->[[[String]]:Double]{
-        return (dbMainObj.studentResults[mailId]?[semNum])!
+    func getResult(mailId:String,semNum:Int)->[[[String]]:Double]?{
+        return (dbMainObj.studentResults[mailId]?[semNum])
     }
     func setCredits(mailId:String,semNum:Int,credits:Int){
         var tempCreditDict:[Int:Int] = [:]
@@ -194,6 +194,22 @@ public class DatabaseManager{
         }
         else{
             return nil
+        }
+    }
+    func doesStudentExist(mailId:String)->Bool{
+        return dbMainObj.accountDb[mailId] != nil
+    }
+    func doesSemNumExist(mailId:String,semNum:Int)->Bool{
+        
+        return dbMainObj.studentResults[mailId]?[semNum] == nil
+        
+    }
+    func getConsecutiveSemNum(mailId:String)->Int{
+        if(dbMainObj.studentResults[mailId] == nil){
+            return 0
+        }
+        else{
+            return (dbMainObj.studentResults[mailId]?.keys[(dbMainObj.studentResults[mailId]?.keys.startIndex)!])!
         }
     }
     

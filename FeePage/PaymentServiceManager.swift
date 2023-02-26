@@ -22,7 +22,9 @@ class PaymentServiceManager{
         if(db.checkMailId(mailId: mailId)){
             return "Name:\(db.getUserName(mailId: mailId)!) \nMailId:\(mailId) \n\(db.getRollNumberAndDepartment(mailId: mailId)) \nFeesBalance: \(db.getFeeBalance(mailId: mailId)!)"}
         else{
-            return "student doesn't exist"
+            print("---------------------------------------------------")
+            return "Student doesn't exist!"
+            print("---------------------------------------------------")
         }
     }
     

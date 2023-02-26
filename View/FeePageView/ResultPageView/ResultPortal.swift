@@ -11,6 +11,8 @@ import Foundation
 struct ResultPortal{
     func resultPageView(mailId:String){
     ResultPageLoop:while(true){
+        let db = DatabaseManager.sharedInstance
+        
         print("Welcome to Result Portal!")
         let preference:String
         if(Util.isStudent(mailId: mailId)){
@@ -35,66 +37,44 @@ struct ResultPortal{
             let resultManagementObj = ResultComputingSystem()
             print("Enter student MailId:")
             let studentMailId = Util.getStringInput()
+            guard db.doesStudentExist(mailId: studentMailId) else{
+                print("---------------------------------------------------")
+                print("student doesn't exist")
+                print("---------------------------------------------------")
+                return
+            }
             resultManagementObj.computeResults(mailId: studentMailId)
         case "viewSemResult":
-            let resultGeneratorObj = ResultGenerator()
-            if(!Util.isStudent(mailId: mailId)){
-                print("Enter student MailId:")
-                let studentMailId = Util.getStringInput()
-                print("Enter semester Number:")
-                let semNum = Util.getIntegerInput()
-                let result = resultGeneratorObj.viewSemResult(mailId: studentMailId,semNum:semNum).keys
-                let subjects = result[result.startIndex][0]
-                let credits = result[result.startIndex][1]
-                let grades = result[result.startIndex][2]
-                print("---------------------------------------------------")
-                for i in 0...(subjects.count-1){
-                    print("SUBJECT NAME:\(subjects[i])         \nCREDITS:\(credits[i])            \nGRADES:\(grades[i])")
-                    print("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-")
-                }
-                print("---------------------------------------------------")
-                let gpa = resultGeneratorObj.viewSemResult(mailId: studentMailId,semNum:semNum).values
-                print("GPA: \(gpa[gpa.startIndex])")
-               
-            }
-            else{
-                print("Enter semester Number:")
-                let semNum = Util.getIntegerInput()
-                print(resultGeneratorObj.viewSemResult(mailId: mailId,semNum:semNum))
-            }
+           let semesterResultViewer = SemesterResultViewer()
+            semesterResultViewer.viewSemesterResult(mailId: mailId)
+            
         case "viewEntireSemResult":
             let resultGeneratorObj = ResultGenerator()
             if(!Util.isStudent(mailId: mailId)){
                 print("Enter student MailId:")
                 let studentMailId = Util.getStringInput()
-                resultGeneratorObj.viewEntireSemResult(mailId: studentMailId)}
+                guard db.doesStudentExist(mailId: studentMailId) else{
+                    print("---------------------------------------------------")
+                    print("student doesn't exist")
+                    print("---------------------------------------------------")
+                    return
+                }
+                if(resultGeneratorObj.viewEntireSemResult(mailId: studentMailId)){
+                    print("---------------------------------------------------")
+                    print("Result were not updated!")
+                    print("---------------------------------------------------")
+                }}
             else{
-                resultGeneratorObj.viewEntireSemResult(mailId: mailId)
+                
+                if(resultGeneratorObj.viewEntireSemResult(mailId: mailId)){
+                    print("---------------------------------------------------")
+                    print("Result were not updated!")
+                    print("---------------------------------------------------")
+                }
             }
         case "calculateCgpa":
-            let resultGeneratorObj = ResultGenerator()
-            if(!Util.isStudent(mailId: mailId)){
-                print("Enter student MailId:")
-                let studentMailId = Util.getStringInput()
-                if let cgpa = resultGeneratorObj.calculateCgpa(mailId: studentMailId){
-                    print("---------------------------------------------------")
-                    print("Your CGPA is\(cgpa)")
-                    print("---------------------------------------------------")
-                }
-                else{
-                    print("---------------------------------------------------")
-                    print("cgpa is not updated!")
-                    print("---------------------------------------------------")
-                }
-            }
-            else{
-                if let cgpa = resultGeneratorObj.calculateCgpa(mailId: mailId){
-                    print(cgpa)
-                }
-                else{
-                    print("cgpa is not updated!")
-                }
-            }
+           let cgpaManipulator = CgpaManipulator()
+            cgpaManipulator.manipulateCgpa(mailId: mailId)
             
         case "backToMenuPage":
             break ResultPageLoop

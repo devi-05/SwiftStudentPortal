@@ -6,57 +6,65 @@
 //
 
 import Foundation
-
-func editOwnProfile(mailId:String){
+struct ProfileEditMenupage{
     let db = DatabaseManager.sharedInstance
-    for editOptions in EditOwnProfileEnum.allCases.enumerated(){
-        print("\(editOptions.element.rawValue). \(editOptions.element)")
-    }
-    let editOptionArray:[EditOwnProfileEnum] = EditOwnProfileEnum.allCases
-    let editOptionPreference = Util.getIntegerInput()
-    let editOption:EditOwnProfileEnum = editOptionArray[editOptionPreference-1]
-    switch editOption{
-    case .address:
-        print("Enter your new address:")
-        let newAddress:String = Util.getStringInput()
-        db.editProfileInDb(attribute: .address, newAttribute: newAddress, mailId: mailId)
-    case .phoneNumber:
-        print("Enter your new phoneNumber:")
-        let newPhonenumber:Int = Util.getIntegerInput()
-        db.editProfileInDb(attribute: .phoneNumber,newAttribute: newPhonenumber, mailId: mailId)
-    }
-    
-}
-
-func editStudentProfile(){
-    print("Enter student MailId:")
-    let studentMailId:String = Util.getStringInput()
-    let profManagerObj = ProfileManager()
-    for options in EditStudentProfileEnum.allCases.enumerated(){
-        print("\(options.element.rawValue). \(options.element)")
-    }
-    let editOptionArray:[EditStudentProfileEnum] = EditStudentProfileEnum.allCases
-    let editOptionPreference = Util.getIntegerInput()
-    let editOption:EditStudentProfileEnum = editOptionArray[editOptionPreference-1]
-    switch editOption{
-    case .address:
-        print("Enter new address:")
-        let newAddress:String = Util.getStringInput()
-        profManagerObj.editProfile(attribute: .address,newAttribute: newAddress, mailId: studentMailId)
-    case .phoneNumber:
-        print("Enter new phoneNumber:")
-        let newPhonenumber:Int = Util.getIntegerInput()
-        profManagerObj.editProfile(attribute: .phoneNumber,newAttribute: newPhonenumber, mailId: studentMailId)
-    case .residentialStatus:
-        print("Enter new residential status from options below:")
-        for options in ResidentialStatusEnum.allCases.enumerated(){
-            print("\(options.element.rawValue). \(options.element)")
+    func editOwnProfile(mailId:String){
+        
+        for editOptions in EditOwnProfileEnum.allCases.enumerated(){
+            print("\(editOptions.element.rawValue). \(editOptions.element)")
         }
-        let residentialPreference:Int = Util.getIntegerInput()
-        let residentialStatusArray:[ResidentialStatusEnum] = ResidentialStatusEnum.allCases
-        let newResidentialStatus:ResidentialStatusEnum = residentialStatusArray[residentialPreference-1]
-        profManagerObj.editProfile(attribute: .residentialStatus, newAttribute: newResidentialStatus, mailId: studentMailId)
+        let editOptionArray:[EditOwnProfileEnum] = EditOwnProfileEnum.allCases
+        let editOptionPreference = Util.getIntegerInput()
+        let editOption:EditOwnProfileEnum = editOptionArray[editOptionPreference-1]
+        switch editOption{
+        case .address:
+            print("Enter your new address:")
+            let newAddress:String = Util.getStringInput()
+            db.editProfileInDb(attribute: .address, newAttribute: newAddress, mailId: mailId)
+        case .phoneNumber:
+            print("Enter your new phoneNumber:")
+            let newPhonenumber:Int = Util.getIntegerInput()
+            db.editProfileInDb(attribute: .phoneNumber,newAttribute: newPhonenumber, mailId: mailId)
+        }
+        
+    }
+    
+    func editStudentProfile(){
+        print("Enter student MailId:")
+        let studentMailId:String = Util.getStringInput()
+        guard db.doesStudentExist(mailId: studentMailId) else{
+            print("---------------------------------------------------")
+            print("Student doesnt exist!")
+            print("---------------------------------------------------")
+            return
+        }
+            let profManagerObj = ProfileManager()
+                for options in EditStudentProfileEnum.allCases.enumerated(){
+                    print("\(options.element.rawValue). \(options.element)")
+                }
+        let editOptionArray:[EditStudentProfileEnum] = EditStudentProfileEnum.allCases
+        let editOptionPreference = Util.getIntegerInput()
+        let editOption:EditStudentProfileEnum = editOptionArray[editOptionPreference-1]
+        switch editOption{
+        case .address:
+            print("Enter new address:")
+            let newAddress:String = Util.getStringInput()
+            profManagerObj.editProfile(attribute: .address,newAttribute: newAddress, mailId: studentMailId)
+        case .phoneNumber:
+            print("Enter new phoneNumber:")
+            let newPhonenumber:Int = Util.getIntegerInput()
+            profManagerObj.editProfile(attribute: .phoneNumber,newAttribute: newPhonenumber, mailId: studentMailId)
+        case .residentialStatus:
+            print("Enter new residential status from options below:")
+            for options in ResidentialStatusEnum.allCases.enumerated(){
+                print("\(options.element.rawValue). \(options.element)")
+            }
+            let residentialPreference:Int = Util.getIntegerInput()
+            let residentialStatusArray:[ResidentialStatusEnum] = ResidentialStatusEnum.allCases
+            let newResidentialStatus:ResidentialStatusEnum = residentialStatusArray[residentialPreference-1]
+            profManagerObj.editProfile(attribute: .residentialStatus, newAttribute: newResidentialStatus, mailId: studentMailId)
+        }
+        
     }
     
 }
-

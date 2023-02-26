@@ -10,6 +10,7 @@ struct ProfileMenuController{
     
     func profileMenuPageController(mailId:String){
         let profileManagerObj = ProfileManager()
+        let editprofileManagerObj = ProfileEditMenupage()
     ProfileMenuLoop:while(true){
         print("Welcome to profile page!")
         for profileOptions in ProfileMenuoptions.allCases.enumerated(){
@@ -38,11 +39,8 @@ struct ProfileMenuController{
                 switch adminViewPreference{
                 case .viewOwnProfile:
                     if let userProfile = profileManagerObj.viewProfile(mailId: mailId){
-                        print(userProfile)
-                    }
-                    else{
-                        print("No user found!")
-                    }
+                        print(userProfile)}
+                   
                 case .viewstudentProfile:
                     print("Enter Student MailId:")
                     let studentMailId:String = Util.getStringInput()
@@ -50,13 +48,15 @@ struct ProfileMenuController{
                         print(userProfile)
                     }
                     else{
-                        print("No user found!")
+                        print("---------------------------------------------------")
+                        print("No such student found!")
+                        print("---------------------------------------------------")
                     }
                 }
             }
         case .editProfile:
             if(Util.isStudent(mailId: mailId)){
-                editOwnProfile(mailId: mailId)}
+                editprofileManagerObj.editOwnProfile(mailId: mailId)}
             else{
                 for options in AdminEditOptions.allCases.enumerated(){
                     print("\(options.element.rawValue). \(options.element)")
@@ -66,9 +66,9 @@ struct ProfileMenuController{
                 let adminEditPreference:AdminEditOptions = adminEditOptionsArray[adminEditOptionPreference-1]
                 switch adminEditPreference{
                 case .editOwnProfile:
-                    editOwnProfile(mailId: mailId)
+                    editprofileManagerObj.editOwnProfile(mailId: mailId)
                 case .editStudentProfile:
-                    editStudentProfile()
+                    editprofileManagerObj.editStudentProfile()
                 }
             }
         case .exit:

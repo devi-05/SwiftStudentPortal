@@ -15,12 +15,16 @@ class ResultGenerator{
         db.updateResults(mailId: mailId, semNum: semNum, result: result, gpa: gpa)
         
     }
-    func viewSemResult(mailId:String,semNum:Int)->[[[String]]:Double]{
+    func viewSemResult(mailId:String,semNum:Int)->[[[String]]:Double]?{
         return db.getResult(mailId: mailId, semNum: semNum)
     }
-    func viewEntireSemResult(mailId:String){
+    func viewEntireSemResult(mailId:String)->Bool{
         let resultDelegate = ResultGeneratorDelegate()
-        resultDelegate.displayEntireResults(result: db.getEntireResults(mailId: mailId))
+        guard let results = db.getEntireResults(mailId: mailId) else{
+            return true
+        }
+        resultDelegate.displayEntireResults(result: results)
+        return false
         
     }
     func calculateCgpa(mailId:String)->Double?{

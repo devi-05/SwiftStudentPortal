@@ -10,12 +10,21 @@ import Foundation
 class ResultComputingSystem{
     func computeResults(mailId:String){
         let resultGeneratorObj = ResultGenerator()
+        let db = DatabaseManager.sharedInstance
         var subjects:[String] = []
         var credits:[String] = []
         var grades:[String] = []
         var gradePoints:[Double] = []
         print("Enter semester number:")
         let semNum = Util.getIntegerInput()
+        guard db.doesSemNumExist(mailId: mailId, semNum: semNum) else{
+            print("Results are updated for entered semester Number!")
+            return
+        }
+        guard (db.getConsecutiveSemNum(mailId: mailId)+1 == semNum) else{
+            print("Enter correct semester number ...once verify previous semester results are updated!")
+            return
+        }
         print("Enter number of subjects:")
         let numOfSub = Util.getIntegerInput()
         var totalCreditsSum:Int = 0

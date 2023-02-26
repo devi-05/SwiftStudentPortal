@@ -30,4 +30,18 @@ struct ResultGeneratorDelegate{
         }
         
     }
+    func displaySingleSemResults(results:[[[String]] : Double]?){
+        let result = results!.keys
+        let subjects = result[result.startIndex][0]
+        let credits = result[result.startIndex][1]
+        let grades = result[result.startIndex][2]
+        print("---------------------------------------------------")
+        for i in 0...(subjects.count-1){
+            print("SUBJECT NAME:\(subjects[i])         \nCREDITS:\(credits[i])            \nGRADES:\(grades[i])")
+            print("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-")
+        }
+        print("---------------------------------------------------")
+        let gpa = results!.values
+        print("GPA: \(gpa[gpa.startIndex])")
+    }
 }
