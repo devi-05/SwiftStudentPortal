@@ -23,6 +23,4 @@ public enum PaymentModeEnum:Int,CaseIterable{
         
     }
 }
-//let paymentModeEnumAndConvenienceFees:[PaymentModeEnum:Double]=[.UPI:0,.debitCard:1.5,.creditCard:3,.netBanking:3.5]
-
 

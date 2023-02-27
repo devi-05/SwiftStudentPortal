@@ -11,7 +11,7 @@ import Foundation
 struct ResultPortal{
     func resultPageView(mailId:String){
     ResultPageLoop:while(true){
-        let db = DatabaseManager.sharedInstance
+         let db = DatabaseManager.sharedInstance
         
         print("Welcome to Result Portal!")
         let preference:String
@@ -20,7 +20,7 @@ struct ResultPortal{
                 print("\(options.element.rawValue). \(options.element)")
             }
             let studentResultOptionArray:[StudentResultOptionEnum]=StudentResultOptionEnum.allCases
-            let input = Util.getIntegerInput()
+            let input = Validator.inputVerification(num: studentResultOptionArray.count)
             preference = studentResultOptionArray[input-1].toString()
         }
         else{
@@ -28,7 +28,7 @@ struct ResultPortal{
                 print("\(options.element.rawValue). \(options.element)")
             }
             let adminResultOptionArray:[AdminResultOptionEnum]=AdminResultOptionEnum.allCases
-            let input = Util.getIntegerInput()
+            let input = Validator.inputVerification(num: adminResultOptionArray.count)
             preference = adminResultOptionArray[input-1].toString()
             
         }
@@ -36,7 +36,11 @@ struct ResultPortal{
         case "addResult":
             let resultManagementObj = ResultComputingSystem()
             print("Enter student MailId:")
-            let studentMailId = Util.getStringInput()
+            let studentMailId = Validator.mailVerifier()
+            guard Util.isStudent(mailId: mailId) else{
+                print("Enter student mailId alone!")
+                return
+            }
             guard db.doesStudentExist(mailId: studentMailId) else{
                 print("---------------------------------------------------")
                 print("student doesn't exist")
@@ -52,26 +56,28 @@ struct ResultPortal{
             let resultGeneratorObj = ResultGenerator()
             if(!Util.isStudent(mailId: mailId)){
                 print("Enter student MailId:")
-                let studentMailId = Util.getStringInput()
-                guard db.doesStudentExist(mailId: studentMailId) else{
+                let studentMailId = Validator.mailVerifier()
+                if (!db.doesStudentExist(mailId: studentMailId)){
                     print("---------------------------------------------------")
                     print("student doesn't exist")
                     print("---------------------------------------------------")
-                    return
+                    
                 }
-                if(resultGeneratorObj.viewEntireSemResult(mailId: studentMailId)){
-                    print("---------------------------------------------------")
-                    print("Result were not updated!")
-                    print("---------------------------------------------------")
-                }}
-            else{
-                
-                if(resultGeneratorObj.viewEntireSemResult(mailId: mailId)){
-                    print("---------------------------------------------------")
-                    print("Result were not updated!")
-                    print("---------------------------------------------------")
-                }
+                else{
+                    if(resultGeneratorObj.viewEntireSemResult(mailId: studentMailId)){
+                        print("---------------------------------------------------")
+                        print("Result were not updated!")
+                        print("---------------------------------------------------")
+                    }}
             }
+                else{
+                    
+                    if(resultGeneratorObj.viewEntireSemResult(mailId: mailId)){
+                        print("---------------------------------------------------")
+                        print("Result were not updated!")
+                        print("---------------------------------------------------")
+                    }
+                }
         case "calculateCgpa":
            let cgpaManipulator = CgpaManipulator()
             cgpaManipulator.manipulateCgpa(mailId: mailId)

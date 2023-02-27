@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ResultComputingSystem{
+struct ResultComputingSystem{
     func computeResults(mailId:String){
         let resultGeneratorObj = ResultGenerator()
         let db = DatabaseManager.sharedInstance
@@ -16,7 +16,7 @@ class ResultComputingSystem{
         var grades:[String] = []
         var gradePoints:[Double] = []
         print("Enter semester number:")
-        let semNum = Util.getIntegerInput()
+        let semNum = Validator.inputVerification(num: 8)
         guard db.doesSemNumExist(mailId: mailId, semNum: semNum) else{
             print("Results are updated for entered semester Number!")
             return
@@ -34,7 +34,7 @@ class ResultComputingSystem{
             let sub = Util.getStringInput()
             subjects.append(sub)
             print("Enter credits: [1 - 5]")
-            let subCredit = Util.getIntegerInput()
+            let subCredit = Validator.inputVerification(num: 5)
             credits.append(String(subCredit))
             totalCreditsSum += subCredit
             print("Enter grades:")
@@ -42,7 +42,7 @@ class ResultComputingSystem{
                 print("\(options.element.rawValue). \(options.element)")
             }
             let gradeArray:[Grades]=Grades.allCases
-            let preference = Util.getIntegerInput()
+            let preference = Validator.inputVerification(num: gradeArray.count)
             let grade = gradeArray[preference-1]
             grades.append(grade.toString())
             gradePoints.append(Double(subCredit*grade.getGradePoints()))

@@ -10,9 +10,30 @@ import Foundation
 public struct Util{
     static func getStringInput()->String{
         if let string = readLine(){
-            return string
+                return string
+            }
+        
+        else{
+            print("Enter characters alone!")
+            return getStringInput()
+        }
+    }
+    static func getAlphaNumericInput()->String{
+        if let string = readLine(){
+            let result = string.range(
+                of: #"^[a-zA-Z0-9@.]{3,50}$"#,
+                options: .regularExpression
+            )
+            if(result != nil){
+                return string
+            }
+            else{
+                print("Enter proper input with length of 3 to 50 alone!")
+                return getStringInput()
+            }
         }
         else{
+            print("Enter characters alone!")
             return getStringInput()
         }
     }
@@ -21,6 +42,7 @@ public struct Util{
             return integer
         }
         else{
+            print("Enter numbers alone!")
             return getIntegerInput()
         }
     }

@@ -7,12 +7,13 @@
 
 import Foundation
 
-public struct Database{
+ struct Database{
     
-     var accountDb:[String:String] = [:]
-     var studentDb:[String:Student] = [:]
-     var adminDb:[String:Admin] = [:]
-     var studentTotalCreditdb:[String:[Int:Int]] = [:]
-     var studentCreditsWithGradePoints:[String:[Int:Double]] = [:]
-    var studentResults:[String:[Int:[[[String]]:Double]]] = [:]
+        var accountDb:[String:String] = [:]
+        var studentDb:[String:Student] = [:]
+        var adminDb:[String:Admin] = [:]
+        var studentTotalCreditdb:[String:[Int:Int]] = [:]
+        var studentCreditsWithGradePoints:[String:[Int:Double]] = [:]
+        var studentResults:[String:[Int:[[[String]]:Double]]] = [:]
+    
 }

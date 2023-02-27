@@ -8,13 +8,14 @@
 import Foundation
 
 struct StudentPortal:Portal{
-    
     func signUp() {
-        portalSignUp()
+        let signupObj = SignUp()
+        signupObj.portalSignUp()
         }
     
     func signIn() {
-        portalSignIn()
+        let signInObj = SignIn()
+        signInObj.portalSignIn()
     }
     
     func signOut() {

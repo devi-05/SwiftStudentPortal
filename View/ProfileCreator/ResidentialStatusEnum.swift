@@ -16,6 +16,14 @@ public enum ResidentialStatusEnum:Int,CaseIterable{
             return 35000
         }
     }
+    func toString()->String{
+        switch self{
+        case .dayScholar:
+            return "dayScholar"
+        case .hosteller:
+            return "hosteller"
+        }
+    }
 }
 
 

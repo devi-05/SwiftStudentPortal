@@ -13,8 +13,8 @@ class User{
     private let name:String
     private let bloodGroup:BloodGroup
     private var address:String
-    private var phoneNumber:Int
-    init(_ mailId: String, _ name: String, _ bloodGroup: BloodGroup, _ address: String, _ phoneNumber: Int) {
+    private var phoneNumber:String
+    init(_ mailId: String, _ name: String, _ bloodGroup: BloodGroup, _ address: String, _ phoneNumber: String) {
         self.mailId = mailId
         self.name = name
         self.bloodGroup = bloodGroup
@@ -44,7 +44,7 @@ class User{
             self.address = newValue
         }
     }
-    public var userPhoneNumber:Int{
+    public var userPhoneNumber:String{
         get{
             return self.phoneNumber
         }

@@ -8,7 +8,7 @@
 import Foundation
 
 
-    let student = StudentPortal()
+fileprivate let student = StudentPortal()
     
 MainLoop: while(true){
     
@@ -25,7 +25,7 @@ MainLoop: while(true){
     print("------------------------------------------------------------------------------------------")
     
     print("Enter your preference:")
-    let preference:Int = Util.getIntegerInput()
+    let preference:Int = Validator.inputVerification(num: PortalOptions.allCases.count)
     
     switch preference{
     case 1:

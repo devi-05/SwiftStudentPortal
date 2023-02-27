@@ -8,22 +8,23 @@
 import Foundation
 
 struct ProfilePageDelegator{
-    var db = DatabaseManager.sharedInstance
+    private let db = DatabaseManager.sharedInstance
     var rollNumberInitialCount = 1
     mutating func getUserDetails(mailId:String){
         print("Enter details to create your profile")
         print("Enter name:")
-        let name:String = Util.getStringInput()
+        let name:String = Validator.nameVerifier()
         print("Enter PhoneNumber:")
-        let phoneNumber:Int = Util.getIntegerInput()
+        let phoneNumber:String = Validator.phoneNumberVerifier()
         print("Enter Address:")
         let address:String = Util.getStringInput()
         print("Enter bloodGroup from below options:")
+        
         for bgOptions in BloodGroup.allCases.enumerated(){
             print("\(bgOptions.element.rawValue). \(bgOptions.element)")
         }
         let bloodGroupOptionsArray:[BloodGroup] = BloodGroup.allCases
-        let bloodGroupPreference:Int = Util.getIntegerInput()
+        let bloodGroupPreference:Int = Validator.inputVerification(num: bloodGroupOptionsArray.count)
         let bloodGroup:BloodGroup = bloodGroupOptionsArray[bloodGroupPreference-1]
         
         if(Util.isStudent(mailId: mailId)){
@@ -31,27 +32,30 @@ struct ProfilePageDelegator{
             let rollNumber:String = "S"+String(rollNumberInitialCount)
             rollNumberInitialCount+=1
             print("Enter department from below options:")
+            
             for deptOptions in DeptEnum.allCases.enumerated(){
                 print("\(deptOptions.element.rawValue). \(deptOptions.element)")
             }
+            
             let departmentOptionsArray:[DeptEnum]=DeptEnum.allCases
-            let deptPreference:Int = Util.getIntegerInput()
+            let deptPreference:Int = Validator.inputVerification(num: departmentOptionsArray.count)
             let department:DeptEnum = departmentOptionsArray[deptPreference-1]
             let joiningYear:String = Util.getStudentjoiningyear()
+            
             print("Enter your mode of joining from options below:")
             for options in ModeOfJoiningEnum.allCases.enumerated(){
                 print("\(options.element.rawValue). \(options.element)")
             }
-            let modePreference:Int = Util.getIntegerInput()
             let modeOfJoiningArray:[ModeOfJoiningEnum] = ModeOfJoiningEnum.allCases
+            let modePreference:Int = Validator.inputVerification(num: modeOfJoiningArray.count)
             let modeOfJoining:ModeOfJoiningEnum = modeOfJoiningArray[modePreference-1]
             let modeOfJoiningFees:Int = modeOfJoining.getModeOfJoiningFees()
             print("Enter your residential status from options below:")
             for options in ResidentialStatusEnum.allCases.enumerated(){
                 print("\(options.element.rawValue). \(options.element)")
             }
-            let residentialPreference:Int = Util.getIntegerInput()
             let residentialStatusArray:[ResidentialStatusEnum] = ResidentialStatusEnum.allCases
+            let residentialPreference:Int = Validator.inputVerification(num: residentialStatusArray.count)
             let residentialStatus:ResidentialStatusEnum = residentialStatusArray[residentialPreference-1]
             let residentialStatusFees:Int = residentialStatus.getResidentialFees()
             let transportFees:Int = 40000

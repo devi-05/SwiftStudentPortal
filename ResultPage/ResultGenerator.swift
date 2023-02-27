@@ -18,14 +18,13 @@ class ResultGenerator{
     func viewSemResult(mailId:String,semNum:Int)->[[[String]]:Double]?{
         return db.getResult(mailId: mailId, semNum: semNum)
     }
-    func viewEntireSemResult(mailId:String)->Bool{
+    func viewEntireSemResult(mailId:String)->Bool {
         let resultDelegate = ResultGeneratorDelegate()
         guard let results = db.getEntireResults(mailId: mailId) else{
             return true
         }
         resultDelegate.displayEntireResults(result: results)
         return false
-        
     }
     func calculateCgpa(mailId:String)->Double?{
         guard let totalCredits = db.getTotalCredits(mailId: mailId) else { return nil }

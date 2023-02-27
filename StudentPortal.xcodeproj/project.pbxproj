@@ -31,6 +31,7 @@
 		33AB1A5829AA009900238621 /* ResultGeneratorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AB1A5729AA009900238621 /* ResultGeneratorDelegate.swift */; };
 		33AB1A5A29ABC60A00238621 /* SemesterResultViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AB1A5929ABC60A00238621 /* SemesterResultViewer.swift */; };
 		33AB1A5E29ABC7A800238621 /* CgpaManipulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AB1A5D29ABC7A800238621 /* CgpaManipulator.swift */; };
+		33AB1A6029AC722900238621 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AB1A5F29AC722900238621 /* Validator.swift */; };
 		33E37E13299AA0680051EA44 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E37E12299AA0680051EA44 /* main.swift */; };
 		33E37E1B299AA0870051EA44 /* Admin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E37E1A299AA0870051EA44 /* Admin.swift */; };
 		33E37E1D299AA0910051EA44 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E37E1C299AA0910051EA44 /* Student.swift */; };
@@ -88,6 +89,7 @@
 		33AB1A5729AA009900238621 /* ResultGeneratorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultGeneratorDelegate.swift; sourceTree = "<group>"; };
 		33AB1A5929ABC60A00238621 /* SemesterResultViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemesterResultViewer.swift; sourceTree = "<group>"; };
 		33AB1A5D29ABC7A800238621 /* CgpaManipulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CgpaManipulator.swift; sourceTree = "<group>"; };
+		33AB1A5F29AC722900238621 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		33E37E0F299AA0680051EA44 /* StudentPortal */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = StudentPortal; sourceTree = BUILT_PRODUCTS_DIR; };
 		33E37E12299AA0680051EA44 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		33E37E1A299AA0870051EA44 /* Admin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Admin.swift; sourceTree = "<group>"; };
@@ -161,7 +163,6 @@
 				33AB1A4429A72B9700238621 /* StudentFeePortalOptionsEnum.swift */,
 				33AB1A4629A7D91700238621 /* AdminFeePortalOptions.swift */,
 				3337FC9529A4D77600F003C4 /* FeePortal.swift */,
-				33AB1A4A29A877CE00238621 /* ResultPageView */,
 			);
 			path = FeePageView;
 			sourceTree = "<group>";
@@ -215,6 +216,7 @@
 				331F6E5029A48EB60062B334 /* ProfileCreator */,
 				331F6E5629A49E250062B334 /* ProfilePageView */,
 				3337FC9429A4D60100F003C4 /* FeePageView */,
+				33AB1A4A29A877CE00238621 /* ResultPageView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -285,6 +287,7 @@
 			isa = PBXGroup;
 			children = (
 				33E7BAD6299F4CB500D85031 /* Util.swift */,
+				33AB1A5F29AC722900238621 /* Validator.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 				33E7BADD299F608900D85031 /* ResidentialStatusEnum.swift in Sources */,
 				33E7BABE299E08BB00D85031 /* BloodGroupEnum.swift in Sources */,
 				33AB1A5029A87D6A00238621 /* StudentResultOptionsEnum.swift in Sources */,
+				33AB1A6029AC722900238621 /* Validator.swift in Sources */,
 				331F6E4D29A32BFE0062B334 /* ProfileMenuOptions.swift in Sources */,
 				33E7BAC4299E3F2C00D85031 /* MainDatabase.swift in Sources */,
 				33E7BAD0299E659200D85031 /* PortalOptions.swift in Sources */,

@@ -12,7 +12,7 @@ struct CgpaManipulator{
         let db = DatabaseManager.sharedInstance
         if(!Util.isStudent(mailId: mailId)){
             print("Enter student MailId:")
-            let studentMailId = Util.getStringInput()
+            let studentMailId = Validator.mailVerifier()
             guard db.doesStudentExist(mailId: studentMailId) else{
                 print("---------------------------------------------------")
                 print("student doesn't exist")

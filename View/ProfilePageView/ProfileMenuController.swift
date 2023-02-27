@@ -8,7 +8,7 @@
 import Foundation
 struct ProfileMenuController{
     
-    func profileMenuPageController(mailId:String){
+     func profileMenuPageController(mailId:String){
         let profileManagerObj = ProfileManager()
         let editprofileManagerObj = ProfileEditMenupage()
     ProfileMenuLoop:while(true){
@@ -17,7 +17,7 @@ struct ProfileMenuController{
             print("\(profileOptions.element.rawValue). \(profileOptions.element)")
         }
         let profileMenuOptionsArray:[ProfileMenuoptions] = ProfileMenuoptions.allCases
-        let profileMenuOptionPreference:Int = Util.getIntegerInput()
+        let profileMenuOptionPreference:Int = Validator.inputVerification(num: profileMenuOptionsArray.count)
         let profileMenuPreference:ProfileMenuoptions = profileMenuOptionsArray[profileMenuOptionPreference-1]
         switch profileMenuPreference{
         case .viewProfile:
@@ -34,7 +34,7 @@ struct ProfileMenuController{
                     print("\(options.element.rawValue). \(options.element)")
                 }
                 let adminViewOptionsArray:[AdminViewOptions] = AdminViewOptions.allCases
-                let adminViewOptionPreference:Int = Util.getIntegerInput()
+                let adminViewOptionPreference:Int = Validator.inputVerification(num: adminViewOptionsArray.count)
                 let adminViewPreference:AdminViewOptions = adminViewOptionsArray[adminViewOptionPreference-1]
                 switch adminViewPreference{
                 case .viewOwnProfile:
@@ -43,7 +43,11 @@ struct ProfileMenuController{
                    
                 case .viewstudentProfile:
                     print("Enter Student MailId:")
-                    let studentMailId:String = Util.getStringInput()
+                    let studentMailId:String = Validator.mailVerifier()
+                    guard Util.isStudent(mailId: studentMailId) else{
+                        print("Enter student mailId alone!")
+                        return
+                    }
                     if let userProfile = profileManagerObj.viewProfile(mailId: studentMailId){
                         print(userProfile)
                     }
@@ -62,7 +66,7 @@ struct ProfileMenuController{
                     print("\(options.element.rawValue). \(options.element)")
                 }
                 let adminEditOptionsArray:[AdminEditOptions] = AdminEditOptions.allCases
-                let adminEditOptionPreference:Int = Util.getIntegerInput()
+                let adminEditOptionPreference:Int = Validator.inputVerification(num: adminEditOptionsArray.count)
                 let adminEditPreference:AdminEditOptions = adminEditOptionsArray[adminEditOptionPreference-1]
                 switch adminEditPreference{
                 case .editOwnProfile:

@@ -8,7 +8,7 @@
 import Foundation
 
 struct FeePortal{
-    let db = DatabaseManager.sharedInstance
+    private let db = DatabaseManager.sharedInstance
     func feePageView(mailId: String){
         let paymentServiceManagerObj = PaymentServiceManager()
     FeePortalLoop:while(true){
@@ -21,8 +21,8 @@ struct FeePortal{
                 print("\(options.element.rawValue). \(options.element)")
             }
             print("Enter your preference from above options:")
-            let option:Int = Util.getIntegerInput()
             let feePortalOptionArray:[StudentFeePortalOptions]=StudentFeePortalOptions.allCases
+            let option:Int = Validator.inputVerification(num: feePortalOptionArray.count)
             feePortalOptionPreference = feePortalOptionArray[option-1].toString()
         }
         else{
@@ -30,8 +30,8 @@ struct FeePortal{
                 print("\(options.element.rawValue). \(options.element)")
             }
             print("Enter your preference from above options:")
-            let option:Int = Util.getIntegerInput()
             let feePortalOptionArray:[AdminFeePortalOptions]=AdminFeePortalOptions.allCases
+            let option:Int = Validator.inputVerification(num: feePortalOptionArray.count)
             feePortalOptionPreference = feePortalOptionArray[option-1].toString()
         }
         switch feePortalOptionPreference{
@@ -73,7 +73,7 @@ struct FeePortal{
         case "getBalance":
             if(!Util.isStudent(mailId: mailId)){
                 print("Enter student mailId:")
-                let studentMailId = Util.getStringInput()
+                let studentMailId = Validator.mailVerifier()
                 print(paymentServiceManagerObj.getBalance(mailId: studentMailId))
             }
             else{

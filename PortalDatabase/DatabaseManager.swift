@@ -8,7 +8,8 @@
 import Foundation
 
 typealias resultReturnType = [Int:[[[String]]:Double]]
-public class DatabaseManager{
+
+class DatabaseManager{
     
     private var dbMainObj = Database()
     
@@ -53,10 +54,17 @@ public class DatabaseManager{
         }
     }
     func getUserName(mailId:String)->String?{
-        guard let userName = dbMainObj.studentDb[mailId]?.userName else{
-            return nil
+        if(Util.isStudent(mailId: mailId)){
+            guard let userName = dbMainObj.studentDb[mailId]?.userName else{
+                return nil
+            }
+            return userName}
+        else{
+            guard let userName = dbMainObj.adminDb[mailId]?.userName else{
+                return nil
+            }
+            return userName
         }
-        return userName
     }
     func getRollNumberAndDepartment(mailId:String)->String{
         guard let rollNumber = dbMainObj.studentDb[mailId]?.studentRollNumber, let department = dbMainObj.studentDb[mailId]?.studentDepartment else{
@@ -64,22 +72,22 @@ public class DatabaseManager{
         }
         return "RollNumber: \(rollNumber) \nDepartment: \(department)"
     }
-    func editProfileInDb(attribute:EditStudentProfileEnum,newAttribute:Any,mailId:String){
+    func editProfileInDb(attribute:EditStudentProfileEnum,newAttribute:String,mailId:String){
         if(Util.isStudent(mailId: mailId)){
             if(attribute == .address){
-                dbMainObj.studentDb[mailId]?.userAddress = newAttribute as! String
+                dbMainObj.studentDb[mailId]?.userAddress = newAttribute
             }
             else if (attribute == .phoneNumber){
-                dbMainObj.studentDb[mailId]?.userPhoneNumber = newAttribute as! Int
+                dbMainObj.studentDb[mailId]?.userPhoneNumber = newAttribute
             }
         }
         else{
             
             if(attribute == .address){
-                dbMainObj.adminDb[mailId]?.userAddress = newAttribute as! String
+                dbMainObj.adminDb[mailId]?.userAddress = newAttribute
             }
-            else if (attribute == .phoneNumber){
-                dbMainObj.adminDb[mailId]?.userPhoneNumber = newAttribute as! Int
+                else if (attribute == .phoneNumber){
+                dbMainObj.adminDb[mailId]?.userPhoneNumber = newAttribute
             }
             
             

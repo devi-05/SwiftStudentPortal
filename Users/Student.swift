@@ -25,7 +25,7 @@ class Student:User,CustomStringConvertible{
     private var feesBalance:Int
     
     
-    init(_ mailId: String, _ name: String, _ bloodGroup:BloodGroup, _ address: String, _ phoneNumber: Int,_ rollNumber: String, _ department: DeptEnum, _ joiningYear: String, _ modeOfJoining: ModeOfJoiningEnum, _ modeOfJoiningFees: Int, _ transportFees: Int, _ miscellaneousFees: Int,_ feesWithoutResidentialFees:Int, _ residentialStatus: ResidentialStatusEnum, _ residentialStatusFees: Int, _ totalFees: Int, _ feesPaid: Int,_ feesBalance:Int) {
+    init(_ mailId: String, _ name: String, _ bloodGroup:BloodGroup, _ address: String, _ phoneNumber: String,_ rollNumber: String, _ department: DeptEnum, _ joiningYear: String, _ modeOfJoining: ModeOfJoiningEnum, _ modeOfJoiningFees: Int, _ transportFees: Int, _ miscellaneousFees: Int,_ feesWithoutResidentialFees:Int, _ residentialStatus: ResidentialStatusEnum, _ residentialStatusFees: Int, _ totalFees: Int, _ feesPaid: Int,_ feesBalance:Int) {
         
         self.rollNumber = rollNumber
         self.department = department

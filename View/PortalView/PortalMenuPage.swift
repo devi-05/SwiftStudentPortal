@@ -19,8 +19,9 @@ struct PortalMenuPage{
         for menuOptions in PortalMenuOptions.allCases.enumerated(){
             print("\(menuOptions.element.rawValue). \(menuOptions.element)")
         }
+        
         let menuOptionsArray:[PortalMenuOptions]=PortalMenuOptions.allCases
-        let menuOptionPreference:Int = Util.getIntegerInput()
+        let menuOptionPreference:Int = Validator.inputVerification(num: menuOptionsArray.count)
         let menuPreference:PortalMenuOptions = menuOptionsArray[menuOptionPreference-1]
         
         switch menuPreference{
