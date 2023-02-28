@@ -7,7 +7,7 @@
 
 import Foundation
 
-typealias resultReturnType = [Int:[[[String]]:Double]]
+
 
 class DatabaseManager{
     
@@ -129,27 +129,27 @@ class DatabaseManager{
         return dbMainObj.studentDb
     }
 
-    func updateResults(mailId:String,semNum:Int,result:[[String]],gpa:Double){
-        var tempDict:[Int:[[[String]]:Double]] = [:]
+    func updateResults(mailId:String,semNum:Int,result:Result,gpa:Double){
+        var tempDict:[Result] = []
         if(dbMainObj.studentResults[mailId]==nil){
-            tempDict[semNum] = [result:gpa]
+            tempDict.append(result)
             dbMainObj.studentResults[mailId] = tempDict
         }
         else{
             if(dbMainObj.studentResults[mailId]?[semNum] == nil){
                 tempDict = dbMainObj.studentResults[mailId]!
-                tempDict[semNum] = [result:gpa]
+                tempDict.append(result)
                 dbMainObj.studentResults[mailId] = tempDict
             }
         }
     }
     
-    func getEntireResults(mailId:String)->resultReturnType?{
+    func getEntireResults(mailId:String)->[Result]?{
         return dbMainObj.studentResults[mailId]
     }
     
-    func getResult(mailId:String,semNum:Int)->[[[String]]:Double]?{
-        return (dbMainObj.studentResults[mailId]?[semNum])
+    func getResult(mailId:String)->[Result]?{
+        return dbMainObj.studentResults[mailId]
     }
     func setCredits(mailId:String,semNum:Int,credits:Int){
         var tempCreditDict:[Int:Int] = [:]
@@ -207,18 +207,16 @@ class DatabaseManager{
     func doesStudentExist(mailId:String)->Bool{
         return dbMainObj.accountDb[mailId] != nil
     }
-    func doesSemNumExist(mailId:String,semNum:Int)->Bool{
-        
-        return dbMainObj.studentResults[mailId]?[semNum] == nil
-        
-    }
+    
     func getConsecutiveSemNum(mailId:String)->Int{
-        if(dbMainObj.studentResults[mailId] == nil){
+        guard let result = dbMainObj.studentResults[mailId] else{
             return 0
         }
-        else{
-            return (dbMainObj.studentResults[mailId]?.keys[(dbMainObj.studentResults[mailId]?.keys.startIndex)!])!
+        var semNumList:[Int] = []
+        for i in 0...(result.count-1){
+            semNumList.append(result[i].semesterNum)
         }
+        return semNumList.max()!
     }
     
 }

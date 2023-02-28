@@ -32,6 +32,8 @@
 		33AB1A5A29ABC60A00238621 /* SemesterResultViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AB1A5929ABC60A00238621 /* SemesterResultViewer.swift */; };
 		33AB1A5E29ABC7A800238621 /* CgpaManipulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AB1A5D29ABC7A800238621 /* CgpaManipulator.swift */; };
 		33AB1A6029AC722900238621 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33AB1A5F29AC722900238621 /* Validator.swift */; };
+		33BF924629ACC557007F8A2C /* Semester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BF924529ACC557007F8A2C /* Semester.swift */; };
+		33BF924829ACC58C007F8A2C /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33BF924729ACC58C007F8A2C /* Results.swift */; };
 		33E37E13299AA0680051EA44 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E37E12299AA0680051EA44 /* main.swift */; };
 		33E37E1B299AA0870051EA44 /* Admin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E37E1A299AA0870051EA44 /* Admin.swift */; };
 		33E37E1D299AA0910051EA44 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E37E1C299AA0910051EA44 /* Student.swift */; };
@@ -90,6 +92,8 @@
 		33AB1A5929ABC60A00238621 /* SemesterResultViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemesterResultViewer.swift; sourceTree = "<group>"; };
 		33AB1A5D29ABC7A800238621 /* CgpaManipulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CgpaManipulator.swift; sourceTree = "<group>"; };
 		33AB1A5F29AC722900238621 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
+		33BF924529ACC557007F8A2C /* Semester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Semester.swift; sourceTree = "<group>"; };
+		33BF924729ACC58C007F8A2C /* Results.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
 		33E37E0F299AA0680051EA44 /* StudentPortal */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = StudentPortal; sourceTree = BUILT_PRODUCTS_DIR; };
 		33E37E12299AA0680051EA44 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		33E37E1A299AA0870051EA44 /* Admin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Admin.swift; sourceTree = "<group>"; };
@@ -178,6 +182,8 @@
 				33AB1A5729AA009900238621 /* ResultGeneratorDelegate.swift */,
 				33AB1A5929ABC60A00238621 /* SemesterResultViewer.swift */,
 				33AB1A5D29ABC7A800238621 /* CgpaManipulator.swift */,
+				33BF924529ACC557007F8A2C /* Semester.swift */,
+				33BF924729ACC58C007F8A2C /* Results.swift */,
 			);
 			path = ResultPageView;
 			sourceTree = "<group>";
@@ -351,6 +357,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				331F6E4729A27AE60062B334 /* SignInPage.swift in Sources */,
+				33BF924629ACC557007F8A2C /* Semester.swift in Sources */,
 				33E7BAD2299F3B3C00D85031 /* SignUpPage.swift in Sources */,
 				33E7BAC6299E3F6F00D85031 /* DatabaseManager.swift in Sources */,
 				3337FC8D29A4CA4C00F003C4 /* AdminViewOptions.swift in Sources */,
@@ -373,6 +380,7 @@
 				3337FC9629A4D77600F003C4 /* FeePortal.swift in Sources */,
 				3337FC8F29A4D3AF00F003C4 /* PaymentModeEnum.swift in Sources */,
 				331F6E5A29A49E960062B334 /* EditOwnProfileEnum.swift in Sources */,
+				33BF924829ACC58C007F8A2C /* Results.swift in Sources */,
 				331F6E4B29A285290062B334 /* PortalMenuPage.swift in Sources */,
 				33AB1A4729A7D91700238621 /* AdminFeePortalOptions.swift in Sources */,
 				33AB1A4C29A877E300238621 /* Grades.swift in Sources */,

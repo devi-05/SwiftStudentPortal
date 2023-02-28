@@ -14,6 +14,6 @@ import Foundation
         var adminDb:[String:Admin] = [:]
         var studentTotalCreditdb:[String:[Int:Int]] = [:]
         var studentCreditsWithGradePoints:[String:[Int:Double]] = [:]
-        var studentResults:[String:[Int:[[[String]]:Double]]] = [:]
+        var studentResults:[String:[Result]] = [:]
     
 }

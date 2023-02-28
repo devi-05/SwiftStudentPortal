@@ -9,15 +9,13 @@ import Foundation
 
 class ResultGenerator{
     private var db = DatabaseManager.sharedInstance
-    func addResult(mailId:String,semNum:Int,credits:Int,gradePoints:Double,result:[[String]],gpa:Double){
+    func addResult(mailId:String,semNum:Int,credits:Int,gradePoints:Double,result:Result,gpa:Double){
         db.setCredits(mailId: mailId, semNum: semNum, credits: credits)
         db.setGradePoints(mailId: mailId, semNum: semNum, gradePoints: gradePoints)
         db.updateResults(mailId: mailId, semNum: semNum, result: result, gpa: gpa)
         
     }
-    func viewSemResult(mailId:String,semNum:Int)->[[[String]]:Double]?{
-        return db.getResult(mailId: mailId, semNum: semNum)
-    }
+    
     func viewEntireSemResult(mailId:String)->Bool {
         let resultDelegate = ResultGeneratorDelegate()
         guard let results = db.getEntireResults(mailId: mailId) else{

@@ -8,7 +8,7 @@
 import Foundation
 
 struct ProfilePageDelegator{
-    private let db = DatabaseManager.sharedInstance
+    private var db = DatabaseManager.sharedInstance
     var rollNumberInitialCount = 1
     mutating func getUserDetails(mailId:String){
         print("Enter details to create your profile")

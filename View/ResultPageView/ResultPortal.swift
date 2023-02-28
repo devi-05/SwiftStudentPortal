@@ -20,6 +20,7 @@ struct ResultPortal{
                 print("\(options.element.rawValue). \(options.element)")
             }
             let studentResultOptionArray:[StudentResultOptionEnum]=StudentResultOptionEnum.allCases
+            print("Enter your preference:")
             let input = Validator.inputVerification(num: studentResultOptionArray.count)
             preference = studentResultOptionArray[input-1].toString()
         }
@@ -37,7 +38,7 @@ struct ResultPortal{
             let resultManagementObj = ResultComputingSystem()
             print("Enter student MailId:")
             let studentMailId = Validator.mailVerifier()
-            guard Util.isStudent(mailId: mailId) else{
+            guard (!Util.isStudent(mailId: mailId)) else{
                 print("Enter student mailId alone!")
                 return
             }

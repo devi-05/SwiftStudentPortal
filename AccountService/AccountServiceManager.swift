@@ -16,7 +16,7 @@ struct AccountServiceManager{
         db.addMailIdAndPassword(mailId: mailId, password: password)
     }
     
-    func forgotpassword(mailId:String,newPassword:String)->Bool{
+     func forgotpassword(mailId:String,newPassword:String)->Bool{
         let oldPassword = db.getpassword(mailId: mailId)
         if(oldPassword==newPassword){
             return false
