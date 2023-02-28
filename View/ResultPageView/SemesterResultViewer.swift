@@ -16,6 +16,10 @@ struct SemesterResultViewer{
         if(!Util.isStudent(mailId: mailId)){
             print("Enter student MailId:")
             let studentMailId = Validator.mailVerifier()
+            guard (Util.isStudent(mailId: studentMailId)) else{
+                print("Enter student mailId alone!")
+                return
+            }
             guard (db.doesStudentExist(mailId: studentMailId)) else{
                 print("---------------------------------------------------")
                 print("student doesn't exist")

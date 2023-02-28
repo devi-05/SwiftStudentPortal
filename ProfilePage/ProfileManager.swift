@@ -17,11 +17,11 @@ class ProfileManager{
     func viewProfile(mailId:String)-> User?{
         return db.getUser(mailId: mailId)
     }
-    func editProfile(attribute:EditStudentProfileEnum,newAttribute:String,mailId:String){
-        db.editProfileInDb(attribute: attribute,newAttribute: newAttribute, mailId: mailId)
+    func editProfile(attribute:EditStudentProfile,newInput:String,mailId:String){
+        db.editProfileInDb(attribute: attribute,newInput: newInput, mailId: mailId)
     }
-    func editResidentialStatus(attribute:EditStudentProfileEnum,newAttribute:ResidentialStatusEnum,mailId:String){
-            db.editResidentialStatus(newResidentialStatus: newAttribute ,newResidentialStatusFees: newAttribute .getResidentialFees() ,mailId: mailId)
+    func editResidentialStatus(attribute:EditStudentProfile,newInput:ResidentialStatus,mailId:String){
+            db.editResidentialStatus(newResidentialStatus: newInput ,newResidentialStatusFees: newInput .getResidentialFees() ,mailId: mailId)
         
     }
     

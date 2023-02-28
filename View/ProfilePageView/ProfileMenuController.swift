@@ -13,12 +13,12 @@ struct ProfileMenuController{
         let editprofileManagerObj = ProfileEditMenupage()
     ProfileMenuLoop:while(true){
         print("Welcome to profile page!")
-        for profileOptions in ProfileMenuoptions.allCases.enumerated(){
+        for profileOptions in ProfileMenuoption.allCases.enumerated(){
             print("\(profileOptions.element.rawValue). \(profileOptions.element)")
         }
-        let profileMenuOptionsArray:[ProfileMenuoptions] = ProfileMenuoptions.allCases
-        let profileMenuOptionPreference:Int = Validator.inputVerification(num: profileMenuOptionsArray.count)
-        let profileMenuPreference:ProfileMenuoptions = profileMenuOptionsArray[profileMenuOptionPreference-1]
+        let profileMenuOptionsArray:[ProfileMenuoption] = ProfileMenuoption.allCases
+        let profileMenuOptionPreference = Validator.inputVerification(num: profileMenuOptionsArray.count)
+        let profileMenuPreference = profileMenuOptionsArray[profileMenuOptionPreference-1]
         switch profileMenuPreference{
         case .viewProfile:
             if(Util.isStudent(mailId: mailId)){
@@ -31,12 +31,12 @@ struct ProfileMenuController{
             }
             else{
 
-                for options in AdminViewOptions.allCases.enumerated(){
+                for options in AdminViewOption.allCases.enumerated(){
                     print("\(options.element.rawValue). \(options.element)")
                 }
-                let adminViewOptionsArray:[AdminViewOptions] = AdminViewOptions.allCases
-                let adminViewOptionPreference:Int = Validator.inputVerification(num: adminViewOptionsArray.count)
-                let adminViewPreference:AdminViewOptions = adminViewOptionsArray[adminViewOptionPreference-1]
+                let adminViewOptionsArray:[AdminViewOption] = AdminViewOption.allCases
+                let adminViewOptionPreference = Validator.inputVerification(num: adminViewOptionsArray.count)
+                let adminViewPreference = adminViewOptionsArray[adminViewOptionPreference-1]
                 switch adminViewPreference{
                 case .viewOwnProfile:
                     if let userProfile = profileManagerObj.viewProfile(mailId: mailId){
@@ -58,18 +58,17 @@ struct ProfileMenuController{
                         print("---------------------------------------------------")
                     }
                 }
-                print("end")
             }
         case .editProfile:
             if(Util.isStudent(mailId: mailId)){
                 editprofileManagerObj.editOwnProfile(mailId: mailId)}
             else{
-                for options in AdminEditOptions.allCases.enumerated(){
+                for options in AdminEditOption.allCases.enumerated(){
                     print("\(options.element.rawValue). \(options.element)")
                 }
-                let adminEditOptionsArray:[AdminEditOptions] = AdminEditOptions.allCases
-                let adminEditOptionPreference:Int = Validator.inputVerification(num: adminEditOptionsArray.count)
-                let adminEditPreference:AdminEditOptions = adminEditOptionsArray[adminEditOptionPreference-1]
+                let adminEditOptionsArray:[AdminEditOption] = AdminEditOption.allCases
+                let adminEditOptionPreference = Validator.inputVerification(num: adminEditOptionsArray.count)
+                let adminEditPreference = adminEditOptionsArray[adminEditOptionPreference-1]
                 switch adminEditPreference{
                 case .editOwnProfile:
                     editprofileManagerObj.editOwnProfile(mailId: mailId)

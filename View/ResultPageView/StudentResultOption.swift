@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum StudentResultOptionEnum:Int,CaseIterable{
+enum StudentResultOption:Int,CaseIterable{
     case viewSemResult=1,viewEntireSemResult,calculateCgpa,backToMenuPage
     func toString()->String{
         switch self{

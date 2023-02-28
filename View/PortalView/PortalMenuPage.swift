@@ -16,13 +16,13 @@ struct PortalMenuPage{
         print("Welcome to Menu Page!")
         print("------------------------------------------------------------------------------------------")
         print("Enter your preference from below options")
-        for menuOptions in PortalMenuOptions.allCases.enumerated(){
+        for menuOptions in PortalMenuOption.allCases.enumerated(){
             print("\(menuOptions.element.rawValue). \(menuOptions.element)")
         }
         
-        let menuOptionsArray:[PortalMenuOptions]=PortalMenuOptions.allCases
-        let menuOptionPreference:Int = Validator.inputVerification(num: menuOptionsArray.count)
-        let menuPreference:PortalMenuOptions = menuOptionsArray[menuOptionPreference-1]
+        let menuOptionsArray:[PortalMenuOption]=PortalMenuOption.allCases
+        let menuOptionPreference = Validator.inputVerification(num: menuOptionsArray.count)
+        let menuPreference = menuOptionsArray[menuOptionPreference-1]
         
         switch menuPreference{
         case .profilepage:

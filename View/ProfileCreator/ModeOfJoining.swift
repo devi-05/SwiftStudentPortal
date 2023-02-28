@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum ModeOfJoiningEnum:Int,CaseIterable{
+public enum ModeOfJoining:Int,CaseIterable{
     case counseling=1,management
     func getModeOfJoiningFees()->Int{
         switch self{

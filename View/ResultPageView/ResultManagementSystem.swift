@@ -32,7 +32,7 @@ struct ResultComputingSystem{
         }
         print("Enter number of subjects:")
         let numOfSub = Util.getIntegerInput()
-        var totalCreditsSum:Int = 0
+        var totalCreditsSum = 0
         var totalGradePoints:Double = 0
         for _ in 0...(numOfSub-1){
             print("Enter subject name:")
@@ -43,10 +43,10 @@ struct ResultComputingSystem{
             //credits.append(String(subCredit))
             totalCreditsSum += subCredit
             print("Enter grades:")
-            for options in Grades.allCases.enumerated(){
+            for options in Grade.allCases.enumerated(){
                 print("\(options.element.rawValue). \(options.element)")
             }
-            let gradeArray:[Grades]=Grades.allCases
+            let gradeArray:[Grade]=Grade.allCases
             let preference = Validator.inputVerification(num: gradeArray.count)
             let grade = gradeArray[preference-1]
             let semester = Semester(subject: sub, credit: subCredit, grades: grade)

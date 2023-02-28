@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum AdminResultOptionEnum:Int,CaseIterable{
+enum AdminResultOption:Int,CaseIterable{
     case addResult = 1,viewSemResult,viewEntireSemResult,calculateCgpa,backToMenuPage
     func toString()->String{
         switch self{

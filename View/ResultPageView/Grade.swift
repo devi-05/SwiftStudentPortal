@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Grades:Int,CaseIterable{
+enum Grade:Int,CaseIterable{
     case O=1,A,B,C,D
     func getGradePoints()->Int{
         switch self{

@@ -15,14 +15,14 @@ struct SignUp{
         print("Welcome to signup page!")
         print("------------------------------------------------------------------------------------------")
         print("enter your mailId to sign up")
-        let mailId:String = Validator.mailVerifier()
+        let mailId = Validator.mailVerifier()
         if(db.checkMailId(mailId: mailId)){
             print("mailId already exists")
             print("sign up failed")
         }
         else{
             print("enter your password to sign up")
-            let password:String = Validator.passwordVerifier()
+            let password = Validator.passwordVerifier()
             accountObj.createAccount(mailId: mailId, password: password)
             print("------------------------------------------------------------------------------------------")
             print("signed up successfully")

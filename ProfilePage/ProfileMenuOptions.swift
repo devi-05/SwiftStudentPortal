@@ -7,6 +7,6 @@
 
 import Foundation
 
-public enum ProfileMenuoptions:Int,CaseIterable{
+public enum ProfileMenuoption:Int,CaseIterable{
     case viewProfile=1,editProfile,exit
 }

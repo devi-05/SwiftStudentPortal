@@ -13,19 +13,19 @@ struct ProfilePageDelegator{
     mutating func getUserDetails(mailId:String){
         print("Enter details to create your profile")
         print("Enter name:")
-        let name:String = Validator.nameVerifier()
+        let name = Validator.nameVerifier()
         print("Enter PhoneNumber:")
-        let phoneNumber:String = Validator.phoneNumberVerifier()
+        let phoneNumber = Validator.phoneNumberVerifier()
         print("Enter Address:")
-        let address:String = Util.getStringInput()
+        let address = Util.getStringInput()
         print("Enter bloodGroup from below options:")
         
         for bgOptions in BloodGroup.allCases.enumerated(){
             print("\(bgOptions.element.rawValue). \(bgOptions.element)")
         }
         let bloodGroupOptionsArray:[BloodGroup] = BloodGroup.allCases
-        let bloodGroupPreference:Int = Validator.inputVerification(num: bloodGroupOptionsArray.count)
-        let bloodGroup:BloodGroup = bloodGroupOptionsArray[bloodGroupPreference-1]
+        let bloodGroupPreference = Validator.inputVerification(num: bloodGroupOptionsArray.count)
+        let bloodGroup = bloodGroupOptionsArray[bloodGroupPreference-1]
         
         if(Util.isStudent(mailId: mailId)){
 
@@ -33,37 +33,37 @@ struct ProfilePageDelegator{
             rollNumberInitialCount+=1
             print("Enter department from below options:")
             
-            for deptOptions in DeptEnum.allCases.enumerated(){
+            for deptOptions in Dept.allCases.enumerated(){
                 print("\(deptOptions.element.rawValue). \(deptOptions.element)")
             }
             
-            let departmentOptionsArray:[DeptEnum]=DeptEnum.allCases
-            let deptPreference:Int = Validator.inputVerification(num: departmentOptionsArray.count)
-            let department:DeptEnum = departmentOptionsArray[deptPreference-1]
-            let joiningYear:String = Util.getStudentjoiningyear()
+            let departmentOptionsArray:[Dept]=Dept.allCases
+            let deptPreference = Validator.inputVerification(num: departmentOptionsArray.count)
+            let department = departmentOptionsArray[deptPreference-1]
+            let joiningYear = Util.getStudentjoiningyear()
             
             print("Enter your mode of joining from options below:")
-            for options in ModeOfJoiningEnum.allCases.enumerated(){
+            for options in ModeOfJoining.allCases.enumerated(){
                 print("\(options.element.rawValue). \(options.element)")
             }
-            let modeOfJoiningArray:[ModeOfJoiningEnum] = ModeOfJoiningEnum.allCases
-            let modePreference:Int = Validator.inputVerification(num: modeOfJoiningArray.count)
-            let modeOfJoining:ModeOfJoiningEnum = modeOfJoiningArray[modePreference-1]
-            let modeOfJoiningFees:Int = modeOfJoining.getModeOfJoiningFees()
+            let modeOfJoiningArray:[ModeOfJoining] = ModeOfJoining.allCases
+            let modePreference = Validator.inputVerification(num: modeOfJoiningArray.count)
+            let modeOfJoining = modeOfJoiningArray[modePreference-1]
+            let modeOfJoiningFees = modeOfJoining.getModeOfJoiningFees()
             print("Enter your residential status from options below:")
-            for options in ResidentialStatusEnum.allCases.enumerated(){
+            for options in ResidentialStatus.allCases.enumerated(){
                 print("\(options.element.rawValue). \(options.element)")
             }
-            let residentialStatusArray:[ResidentialStatusEnum] = ResidentialStatusEnum.allCases
-            let residentialPreference:Int = Validator.inputVerification(num: residentialStatusArray.count)
-            let residentialStatus:ResidentialStatusEnum = residentialStatusArray[residentialPreference-1]
-            let residentialStatusFees:Int = residentialStatus.getResidentialFees()
-            let transportFees:Int = 40000
-            let miscellaneousFees:Int = 45000
+            let residentialStatusArray:[ResidentialStatus] = ResidentialStatus.allCases
+            let residentialPreference = Validator.inputVerification(num: residentialStatusArray.count)
+            let residentialStatus = residentialStatusArray[residentialPreference-1]
+            let residentialStatusFees = residentialStatus.getResidentialFees()
+            let transportFees = 40000
+            let miscellaneousFees = 45000
             let feesWithoutResidentialFees = modeOfJoiningFees+transportFees+miscellaneousFees
-            let totalFees:Int = feesWithoutResidentialFees+residentialStatusFees
-            let feesPaid:Int = 0
-            let feesBalance:Int = (totalFees-feesPaid)
+            let totalFees = feesWithoutResidentialFees+residentialStatusFees
+            let feesPaid = 0
+            let feesBalance = (totalFees-feesPaid)
         
             let newStudent = Student(mailId, name, bloodGroup, address, phoneNumber, rollNumber, department, joiningYear, modeOfJoining, modeOfJoiningFees, transportFees, miscellaneousFees,feesWithoutResidentialFees, residentialStatus, residentialStatusFees, totalFees, feesPaid, feesBalance)
             db.addToStudentDb(mailId: mailId, student: newStudent)

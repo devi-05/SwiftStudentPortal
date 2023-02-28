@@ -6,7 +6,7 @@
 //
 
 import Foundation
-class Result:CustomStringConvertible{
+struct Result:CustomStringConvertible{
     let semesterNum:Int
     let semResults:[Semester]
     let gpa:Double

@@ -7,6 +7,6 @@
 
 import Foundation
 
-public enum AdminViewOptions:Int,CaseIterable{
+public enum AdminViewOption:Int,CaseIterable{
     case viewOwnProfile=1,viewstudentProfile
 }

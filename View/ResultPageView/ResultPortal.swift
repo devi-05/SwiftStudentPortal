@@ -16,19 +16,19 @@ struct ResultPortal{
         print("Welcome to Result Portal!")
         let preference:String
         if(Util.isStudent(mailId: mailId)){
-            for options in StudentResultOptionEnum.allCases.enumerated(){
+            for options in StudentResultOption.allCases.enumerated(){
                 print("\(options.element.rawValue). \(options.element)")
             }
-            let studentResultOptionArray:[StudentResultOptionEnum]=StudentResultOptionEnum.allCases
+            let studentResultOptionArray:[StudentResultOption]=StudentResultOption.allCases
             print("Enter your preference:")
             let input = Validator.inputVerification(num: studentResultOptionArray.count)
             preference = studentResultOptionArray[input-1].toString()
         }
         else{
-            for options in AdminResultOptionEnum.allCases.enumerated(){
+            for options in AdminResultOption.allCases.enumerated(){
                 print("\(options.element.rawValue). \(options.element)")
             }
-            let adminResultOptionArray:[AdminResultOptionEnum]=AdminResultOptionEnum.allCases
+            let adminResultOptionArray:[AdminResultOption]=AdminResultOption.allCases
             let input = Validator.inputVerification(num: adminResultOptionArray.count)
             preference = adminResultOptionArray[input-1].toString()
             
@@ -38,7 +38,7 @@ struct ResultPortal{
             let resultManagementObj = ResultComputingSystem()
             print("Enter student MailId:")
             let studentMailId = Validator.mailVerifier()
-            guard (!Util.isStudent(mailId: mailId)) else{
+            guard (Util.isStudent(mailId: studentMailId)) else{
                 print("Enter student mailId alone!")
                 return
             }
@@ -58,6 +58,10 @@ struct ResultPortal{
             if(!Util.isStudent(mailId: mailId)){
                 print("Enter student MailId:")
                 let studentMailId = Validator.mailVerifier()
+                guard (Util.isStudent(mailId: studentMailId)) else{
+                    print("Enter student mailId alone!")
+                    return
+                }
                 if (!db.doesStudentExist(mailId: studentMailId)){
                     print("---------------------------------------------------")
                     print("student doesn't exist")

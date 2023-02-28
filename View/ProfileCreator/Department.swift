@@ -7,6 +7,6 @@
 
 import Foundation
 
-public enum DeptEnum:Int,CaseIterable{
+public enum Dept:Int,CaseIterable{
     case mechanical=1,civil,ece,eee,automobile,chemical,mechatronics,biotechnology,biomedical,foodtechnology,computerscience,informationtechnology
 }

@@ -7,6 +7,6 @@
 
 import Foundation
 
-public enum EditStudentProfileEnum:Int,CaseIterable{
+public enum EditStudentProfile:Int,CaseIterable{
     case address=1,phoneNumber,residentialStatus
 }

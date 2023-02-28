@@ -17,21 +17,21 @@ struct FeePortal{
         print("------------------------------------------------------------------------------------------")
         let feePortalOptionPreference:String
         if(Util.isStudent(mailId: mailId)){
-            for options in StudentFeePortalOptions.allCases.enumerated(){
+            for options in StudentFeePortalOption.allCases.enumerated(){
                 print("\(options.element.rawValue). \(options.element)")
             }
             print("Enter your preference from above options:")
-            let feePortalOptionArray:[StudentFeePortalOptions]=StudentFeePortalOptions.allCases
-            let option:Int = Validator.inputVerification(num: feePortalOptionArray.count)
+            let feePortalOptionArray:[StudentFeePortalOption]=StudentFeePortalOption.allCases
+            let option = Validator.inputVerification(num: feePortalOptionArray.count)
             feePortalOptionPreference = feePortalOptionArray[option-1].toString()
         }
         else{
-            for options in AdminFeePortalOptions.allCases.enumerated(){
+            for options in AdminFeePortalOption.allCases.enumerated(){
                 print("\(options.element.rawValue). \(options.element)")
             }
             print("Enter your preference from above options:")
-            let feePortalOptionArray:[AdminFeePortalOptions]=AdminFeePortalOptions.allCases
-            let option:Int = Validator.inputVerification(num: feePortalOptionArray.count)
+            let feePortalOptionArray:[AdminFeePortalOption]=AdminFeePortalOption.allCases
+            let option = Validator.inputVerification(num: feePortalOptionArray.count)
             feePortalOptionPreference = feePortalOptionArray[option-1].toString()
         }
         switch feePortalOptionPreference{
@@ -44,11 +44,11 @@ struct FeePortal{
                 print("Total fees: Rs.\(db.getTotalFees(mailId: mailId)!)")
                 print("Fees Balance : Rs.\(db.getFeeBalance(mailId: mailId)!)")
                 print("Enter Mode of Payment:")
-                for options in PaymentModeEnum.allCases.enumerated(){
+                for options in PaymentMode.allCases.enumerated(){
                     print("\(options.element.rawValue). \(options.element)")
                 }
-                let preference:Int = Util.getIntegerInput()
-                let paymentModeEnumArray:[PaymentModeEnum]=PaymentModeEnum.allCases
+                let preference = Util.getIntegerInput()
+                let paymentModeEnumArray:[PaymentMode]=PaymentMode.allCases
                 let modeOfPayment = paymentModeEnumArray[preference-1]
                 let convenienceFeePercent = modeOfPayment.getConvenienceFees()
                 let calculatedFeeBalance = Double(db.getFeeBalance(mailId: mailId)!) + ((Double(db.getFeeBalance(mailId: mailId)!) * (convenienceFeePercent/100)))
@@ -57,7 +57,7 @@ struct FeePortal{
                 db.updateBalance(mailId: mailId, feeBalance: Int(calculatedFeeBalance))
                 print("------------------------------------------------------------------------------------------")
                 print("Enter amount to be paid:")
-                let amount:Int = Util.getIntegerInput()
+                let amount = Util.getIntegerInput()
                 paymentServiceManagerObj.pay(mailId: mailId,amount: amount)
                 print("Payment Successful!")
                 print("Do you want receipt for this payment(y/n)")
@@ -90,7 +90,7 @@ struct FeePortal{
     }
 }
 
-    func getReceipt(mailId:String,amount:Int,modeOfPayment:PaymentModeEnum){
+    func getReceipt(mailId:String,amount:Int,modeOfPayment:PaymentMode){
         print("Payer Details:")
         print("------------------------------------------------------------------------------------------")
         print("Name:\(db.getUserName(mailId: mailId)!) \nMailId:\(mailId) \n\(db.getRollNumberAndDepartment(mailId: mailId))")

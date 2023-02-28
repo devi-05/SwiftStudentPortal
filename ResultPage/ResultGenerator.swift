@@ -25,8 +25,7 @@ class ResultGenerator{
         return false
     }
     func calculateCgpa(mailId:String)->Double?{
-        guard let totalCredits = db.getTotalCredits(mailId: mailId) else { return nil }
-        guard let totalGradePoints = db.getTotalGrades(mailId: mailId) else { return nil }
+        guard let totalCredits = db.getTotalCredits(mailId: mailId),let totalGradePoints = db.getTotalGrades(mailId: mailId) else { return nil }
         let roundedCgpa = round((totalGradePoints/Double(totalCredits)) * 100) / 100.0
         return roundedCgpa
     }

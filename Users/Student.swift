@@ -11,21 +11,21 @@ import Foundation
 class Student:User,CustomStringConvertible{
     
     private let rollNumber :String
-    private let department:DeptEnum
+    private let department:Dept
     private let joiningYear:String
-    private let modeOfJoining:ModeOfJoiningEnum
+    private let modeOfJoining:ModeOfJoining
     private let modeOfJoiningFees:Int
     private let transportFees:Int
     private let miscellaneousFees:Int
     private let feesWithoutResidentialFees:Int
-    private var residentialStatus:ResidentialStatusEnum
+    private var residentialStatus:ResidentialStatus
     private var residentialStatusFees:Int
     private var totalFees:Int
     private var feesPaid:Int
     private var feesBalance:Int
     
     
-    init(_ mailId: String, _ name: String, _ bloodGroup:BloodGroup, _ address: String, _ phoneNumber: String,_ rollNumber: String, _ department: DeptEnum, _ joiningYear: String, _ modeOfJoining: ModeOfJoiningEnum, _ modeOfJoiningFees: Int, _ transportFees: Int, _ miscellaneousFees: Int,_ feesWithoutResidentialFees:Int, _ residentialStatus: ResidentialStatusEnum, _ residentialStatusFees: Int, _ totalFees: Int, _ feesPaid: Int,_ feesBalance:Int) {
+    init(_ mailId: String, _ name: String, _ bloodGroup:BloodGroup, _ address: String, _ phoneNumber: String,_ rollNumber: String, _ department: Dept, _ joiningYear: String, _ modeOfJoining: ModeOfJoining, _ modeOfJoiningFees: Int, _ transportFees: Int, _ miscellaneousFees: Int,_ feesWithoutResidentialFees:Int, _ residentialStatus: ResidentialStatus, _ residentialStatusFees: Int, _ totalFees: Int, _ feesPaid: Int,_ feesBalance:Int) {
         
         self.rollNumber = rollNumber
         self.department = department
@@ -51,7 +51,7 @@ class Student:User,CustomStringConvertible{
         }
     }
     
-    public var studentDepartment:DeptEnum{
+    public var studentDepartment:Dept{
         get{
             return self.department
         }
@@ -63,7 +63,7 @@ class Student:User,CustomStringConvertible{
         }
     }
     
-    public var studentModeOfJoining:ModeOfJoiningEnum{
+    public var studentModeOfJoining:ModeOfJoining{
         get{
             return self.modeOfJoining
         }
@@ -92,7 +92,7 @@ class Student:User,CustomStringConvertible{
         }
     }
     
-    public var studentResidentialStatus:ResidentialStatusEnum{
+    public var studentResidentialStatus:ResidentialStatus{
         get{
             return self.residentialStatus
         }

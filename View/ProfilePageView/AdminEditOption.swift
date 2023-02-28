@@ -7,6 +7,6 @@
 
 import Foundation
 
-public enum AdminEditOptions:Int,CaseIterable{
+public enum AdminEditOption:Int,CaseIterable{
     case editOwnProfile=1,editStudentProfile
 }

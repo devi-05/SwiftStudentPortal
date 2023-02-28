@@ -72,29 +72,29 @@ class DatabaseManager{
         }
         return "RollNumber: \(rollNumber) \nDepartment: \(department)"
     }
-    func editProfileInDb(attribute:EditStudentProfileEnum,newAttribute:String,mailId:String){
+    func editProfileInDb(attribute:EditStudentProfile,newInput:String,mailId:String){
         if(Util.isStudent(mailId: mailId)){
             if(attribute == .address){
-                dbMainObj.studentDb[mailId]?.userAddress = newAttribute
+                dbMainObj.studentDb[mailId]?.userAddress = newInput
             }
             else if (attribute == .phoneNumber){
-                dbMainObj.studentDb[mailId]?.userPhoneNumber = newAttribute
+                dbMainObj.studentDb[mailId]?.userPhoneNumber = newInput
             }
         }
         else{
             
             if(attribute == .address){
-                dbMainObj.adminDb[mailId]?.userAddress = newAttribute
+                dbMainObj.adminDb[mailId]?.userAddress = newInput
             }
                 else if (attribute == .phoneNumber){
-                dbMainObj.adminDb[mailId]?.userPhoneNumber = newAttribute
+                dbMainObj.adminDb[mailId]?.userPhoneNumber = newInput
             }
             
             
         }
         
     }
-    func editResidentialStatus(newResidentialStatus:ResidentialStatusEnum,newResidentialStatusFees:Int,mailId:String){
+    func editResidentialStatus(newResidentialStatus:ResidentialStatus,newResidentialStatusFees:Int,mailId:String){
         dbMainObj.studentDb[mailId]?.studentResidentialStatus = newResidentialStatus
         dbMainObj.studentDb[mailId]?.studentResidentialStatusFees = newResidentialStatusFees
         dbMainObj.studentDb[mailId]?.studentTotalFees = dbMainObj.studentDb[mailId]!.studentFeesWithoutResidentialFees+dbMainObj.studentDb[mailId]!.studentResidentialStatusFees
@@ -136,11 +136,11 @@ class DatabaseManager{
             dbMainObj.studentResults[mailId] = tempDict
         }
         else{
-            if(dbMainObj.studentResults[mailId]?[semNum] == nil){
+            
                 tempDict = dbMainObj.studentResults[mailId]!
                 tempDict.append(result)
                 dbMainObj.studentResults[mailId] = tempDict
-            }
+            
         }
     }
     

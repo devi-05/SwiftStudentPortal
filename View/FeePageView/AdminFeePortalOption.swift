@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum AdminFeePortalOptions:Int,CaseIterable{
+public enum AdminFeePortalOption:Int,CaseIterable{
     case getBalance=1,updateFees,backToMenuPage
     func toString()-> String{
         switch self{

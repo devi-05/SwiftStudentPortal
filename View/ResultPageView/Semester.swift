@@ -7,11 +7,11 @@
 
 import Foundation
 
-class Semester:CustomStringConvertible{
+struct Semester:CustomStringConvertible{
     let subject:String
     let credit:Int
-    let grades:Grades
-    init(subject: String, credit: Int, grades: Grades) {
+    let grades:Grade
+    init(subject: String, credit: Int, grades: Grade) {
         self.subject = subject
         self.credit = credit
         self.grades = grades
