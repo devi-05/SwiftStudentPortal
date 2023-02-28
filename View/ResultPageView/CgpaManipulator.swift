@@ -21,7 +21,7 @@ struct CgpaManipulator{
             }
             if let cgpa = resultGeneratorObj.calculateCgpa(mailId: studentMailId){
                 print("---------------------------------------------------")
-                print("Your CGPA is\(cgpa)")
+                print("Your CGPA is \(cgpa)")
                 print("---------------------------------------------------")
             }
             else{

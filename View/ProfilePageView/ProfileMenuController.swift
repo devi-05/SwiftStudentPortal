@@ -30,6 +30,7 @@ struct ProfileMenuController{
                 }
             }
             else{
+
                 for options in AdminViewOptions.allCases.enumerated(){
                     print("\(options.element.rawValue). \(options.element)")
                 }
@@ -57,6 +58,7 @@ struct ProfileMenuController{
                         print("---------------------------------------------------")
                     }
                 }
+                print("end")
             }
         case .editProfile:
             if(Util.isStudent(mailId: mailId)){

@@ -64,7 +64,7 @@ struct SemesterResultViewer{
                 if(result[i].semesterNum == semNum){
                     let semResults = result[i].semResults
                     let roundedGpa = round(result[i].gpa * 100) / 100.0
-                    print("Results for semester \(semNum):\(resultDelegator.displayResult(result: semResults)) \nGPA for semester \(semNum):\(roundedGpa)")
+                    print("Results for semester \(semNum):\n\(resultDelegator.displayResult(result: semResults)) \nGPA for semester \(semNum):\(roundedGpa)")
                 }
                 else{
                     temp += 1
